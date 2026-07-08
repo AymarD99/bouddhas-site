@@ -52,27 +52,30 @@
   <div class="nav-overlay" id="nav-overlay" onclick="toggleNav()"></div>
   <script>function toggleNav(){document.getElementById('nav-links').classList.toggle('open');document.getElementById('nav-overlay').classList.toggle('open');}</script>
 
-  <!-- HERO CAROUSEL -->
+  <!-- HERO -->
   <section class="hero carousel">
-    <div class="hero-slide active" style="background:linear-gradient(135deg,#1A1A2E 0%,#2A1F0E 50%,#1A1A2E 100%);">
+    <div class="hero-slide active" style="background:linear-gradient(135deg,#0F0F1A 0%,#2A1F0E 50%,#0F0F1A 100%);">
       <div class="container">
+        <div style="font-size:3rem;margin-bottom:0.5rem;">📿</div>
         <h1>Bienvenue chez <span class="gold">Bouddhas</span></h1>
         <p>Artisanat spirituel, bijoux sacrés — pour éveiller votre espace intérieur</p>
-        <a href="/produits" class="btn-primary">Explorer la boutique</a>
+        <a href="/produits" class="btn-primary">Explorer la boutique →</a>
       </div>
     </div>
-    <div class="hero-slide" style="background:linear-gradient(135deg,#0F0F1A 0%,#2A1F0E 50%,#AE3333 100%);">
+    <div class="hero-slide" style="background:linear-gradient(135deg,#0F0F1A 0%,#1A0A2E 50%,#0F0F1A 100%);">
       <div class="container">
-        <h1>✨ <span class="gold">Nouveautés</span> spirituelles</h1>
+        <div style="font-size:3rem;margin-bottom:0.5rem;">✨</div>
+        <h1><span class="gold">Nouveautés</span> spirituelles</h1>
         <p>Découvrez nos dernières pièces chargées d'énergie positive</p>
-        <a href="/produits" class="btn-primary">Voir les nouveautés</a>
+        <a href="/produits" class="btn-primary">Voir les nouveautés →</a>
       </div>
     </div>
-    <div class="hero-slide" style="background:linear-gradient(135deg,#1A1A2E,#1A0A0A,#1A1A2E);">
+    <div class="hero-slide" style="background:linear-gradient(135deg,#0F0F1A,#1A0A0A,#0F0F1A);">
       <div class="container">
-        <h1>💎 Guide des <span class="gold">pierres</span></h1>
+        <div style="font-size:3rem;margin-bottom:0.5rem;">💎</div>
+        <h1>Guide des <span class="gold">pierres</span></h1>
         <p>Apprenez à choisir la pierre qui correspond à vos besoins spirituels</p>
-        <a href="/pierres" class="btn-primary">Explorer les pierres</a>
+        <a href="/pierres" class="btn-primary">Explorer les pierres →</a>
       </div>
     </div>
   </section>
@@ -109,56 +112,97 @@
     </div>
   </section>
 
-  <!-- BADGES CONFIANCE -->
-  <section class="section" style="padding:1rem 2rem;max-width:1000px;">
-    <div class="trust-badges">
-      <div class="trust-badge"><span class="icon">🚚</span><h4>Livraison offerte</h4><p>Dès 50€ en France</p></div>
-      <div class="trust-badge"><span class="icon">🔒</span><h4>Paiement sécurisé</h4><p>CB, Visa, PayPal</p></div>
-      <div class="trust-badge"><span class="icon">💎</span><h4>Qualité authentique</h4><p>Pierres naturelles</p></div>
-      <div class="trust-badge"><span class="icon">🔄</span><h4>Retours 14 jours</h4><p>Satisfait ou remboursé</p></div>
+  <!-- BANDEAU LIVRAISON -->
+  <section class="shipping-banner reveal">
+    <div class="shipping-banner-content">
+      <span style="font-size:2rem;">🚚</span>
+      <div>
+        <h3>Livraison offerte dès 50€</h3>
+        <p>Partout en France métropolitaine — expédition sous 48h</p>
+      </div>
     </div>
   </section>
 
-  <!-- PRODUITS -->
+  <!-- PRODUITS PHARES -->
   <section class="section reveal">
     <h2 class="section-title">Nos dernières pièces</h2>
     <p class="section-subtitle">Chaque création est unique, façonnée avec intention</p>
     <div class="product-grid" id="product-grid">
-      <div class="product-card" style="text-align:center;padding:3rem;color:var(--text-light);">Chargement...</div>
+      <div style="text-align:center;padding:3rem;color:var(--text-light);">Chargement des produits...</div>
     </div>
     <div style="text-align:center;margin-top:3rem;">
-      <a href="/produits" class="btn-primary">Voir toute la collection</a>
+      <a href="/produits" class="btn-primary">Voir toute la collection →</a>
     </div>
   </section>
 
-  <!-- HISTOIRE / VALEURS -->
+  <!-- CITATION ZEN -->
+  <section class="zen-quote reveal" style="background:var(--beige);margin:3rem 0;border-radius:20px;">
+    <div class="zen-divider"></div>
+    <p>"La paix vient de l'intérieur. Ne la cherchez pas ailleurs."</p>
+    <div class="quote-author">— Bouddha</div>
+    <div class="zen-divider"></div>
+  </section>
+
+  <!-- HISTOIRE -->
   <section class="story-section reveal">
     <div class="story-text">
       <h2>L'art de la spiritualité</h2>
       <p>Chez Bouddhas, nous croyons que chaque pierre, chaque bijou porte une énergie unique. Nos pièces sont sélectionnées avec soin auprès d'artisans passionnés qui mettent leur savoir-faire au service du bien-être.</p>
       <p>De l'améthyste apaisante au quartz purificateur, chaque création est pensée pour vous accompagner sur votre chemin spirituel, que vous soyez débutant ou pratiquant confirmé.</p>
-      <a href="/a-propos" class="btn-primary" style="margin-top:1rem;">Notre histoire</a>
+      <a href="/a-propos" class="btn-primary" style="margin-top:1rem;">Notre histoire →</a>
     </div>
     <div class="story-image">
-      <img src="https://images.unsplash.com/photo-1608231387042-66d030c3d1e4?w=800&q=80" alt="Artisanat spirituel Bouddhas" loading="lazy" onerror="this.src='https://placehold.co/800x600/1A1A2C/C9A96E?text=Bouddhas'">
+      <img src="https://images.unsplash.com/photo-1611262588024-d12430b98921?w=800&q=80" alt="Artisanat spirituel Bouddhas" loading="lazy" onerror="this.src='https://placehold.co/800x600/1A1A2C/C9A96E?text=Bouddhas'">
+    </div>
+  </section>
+
+  <!-- POURQUOI NOUS CHOISIR -->
+  <section class="section reveal">
+    <h2 class="section-title">Pourquoi nous choisir</h2>
+    <p class="section-subtitle">Notre engagement pour votre bien-être</p>
+    <div class="trust-badges">
+      <div class="trust-badge">
+        <span class="icon">💎</span>
+        <h4>Pierres authentiques</h4>
+        <p>Chaque pierre est sélectionnée à la main pour sa qualité et son énergie. Certificat d'authenticité fourni.</p>
+      </div>
+      <div class="trust-badge">
+        <span class="icon">🤲</span>
+        <h4>Artisanat éthique</h4>
+        <p>Nos bijoux sont façonnés par des artisans passionnés dans le respect des traditions et de l'environnement.</p>
+      </div>
+      <div class="trust-badge">
+        <span class="icon">🔒</span>
+        <h4>Paiement sécurisé</h4>
+        <p>Transactions cryptées via Shopify. CB, Visa, Mastercard, PayPal, Apple Pay et Shop Pay acceptés.</p>
+      </div>
+      <div class="trust-badge">
+        <span class="icon">🔄</span>
+        <h4>Satisfait ou remboursé</h4>
+        <p>Vous avez 14 jours pour changer d'avis. Retour gratuit, remboursement intégral sous 5 jours.</p>
+      </div>
     </div>
   </section>
 
   <!-- AVIS CLIENTS -->
-  <section class="section reveal">
+  <section class="section reveal" style="background:linear-gradient(180deg,var(--beige) 0%,var(--cream) 100%);padding:4rem 2rem;margin:3rem 0;">
     <h2 class="section-title">Ce qu'ils disent</h2>
     <p class="section-subtitle">La satisfaction de nos clients est notre plus belle récompense</p>
     <div id="avis-container"></div>
   </section>
 
-  <!-- NEWSLETTER -->
+  <!-- NEWSLETTER PREMIUM -->
   <section class="newsletter-section reveal">
-    <h2>Newsletter</h2>
-    <p>Recevez nos offres exclusives et les dernières nouveautés</p>
-    <form id="newsletter-form" class="newsletter-box">
-      <input type="email" id="newsletter-email" placeholder="Votre email" required>
-      <button type="submit">S'inscrire ✨</button>
-    </form>
+    <div class="newsletter-inner">
+      <div style="font-size:3rem;margin-bottom:1rem;">📿</div>
+      <h2>Rejoignez notre cercle</h2>
+      <p>Recevez nos offres exclusives, conseils spirituels et dernières nouveautés. <strong style="color:var(--gold-dark);">-10% sur votre première commande.</strong></p>
+      <form id="newsletter-form" class="newsletter-box">
+        <input type="email" id="newsletter-email" placeholder="Votre adresse email" required>
+        <button type="submit">S'inscrire ✨</button>
+      </form>
+      <p style="font-size:0.75rem;color:var(--text-light);margin-top:0.8rem;">🔒 Vos données sont protégées. Désinscription en 1 clic.</p>
+    </div>
   </section>
 
   <!-- POPUP NEWSLETTER -->
@@ -167,15 +211,15 @@
       <button class="popup-close">&times;</button>
       <div style="font-size:3rem;margin-bottom:1rem;">📿</div>
       <h3 style="margin-bottom:0.5rem;">Ne manquez rien ✨</h3>
-      <p style="color:var(--text-light);margin-bottom:1.5rem;">Inscrivez-vous à notre newsletter pour recevoir nos offres exclusives et conseils spirituels.</p>
+      <p style="color:var(--text-light);margin-bottom:1.5rem;">Inscrivez-vous et recevez <strong style="color:var(--gold-dark);">-10% sur votre première commande</strong> + nos conseils spirituels.</p>
       <form id="newsletter-popup-form" class="newsletter-box">
         <input type="email" id="popup-email" placeholder="Votre email" required>
-        <button type="submit">OK</button>
+        <button type="submit">Profiter de l'offre</button>
       </form>
     </div>
   </div>
 
-  <!-- FOOTER PREMIUM -->
+  <!-- FOOTER -->
   <footer>
     <div class="container">
       <div class="footer-grid">
@@ -227,6 +271,7 @@
   </footer>
 
   <div id="toast" class="toast"></div>
+  <button class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Retour en haut">↑</button>
 
   <script src="/js/config.js"></script>
   <script src="/js/shopify.js"></script>
@@ -238,14 +283,11 @@
   <script src="/js/newsletter.js"></script>
   <script src="/js/announce.js"></script>
   <script>
-    // Animation au scroll
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-  </script>
-  <button class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Retour en haut">↑</button>
-  <script>
+
     window.addEventListener('scroll', function() {
       var btn = document.querySelector('.scroll-top');
       if (btn) { if (window.scrollY > 400) btn.classList.add('visible'); else btn.classList.remove('visible'); }

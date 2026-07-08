@@ -1600,3 +1600,60 @@ footer .container {
   .product-price { font-size: 1.6rem; }
   .zen-quote p { font-size: 1.3rem; }
 }
+
+/* ===== BANDEAU LIVRAISON ===== */
+.shipping-banner {
+  max-width: 1000px; margin: 2rem auto; padding: 1.5rem 2rem;
+  background: linear-gradient(135deg, var(--dark), var(--darker));
+  border-radius: 16px; text-align: center;
+}
+.shipping-banner-content {
+  display: flex; align-items: center; justify-content: center; gap: 1.5rem;
+}
+.shipping-banner h3 { color: var(--gold); font-size: 1.2rem; margin-bottom: 0.2rem; }
+.shipping-banner p { color: rgba(255,255,255,0.6); font-size: 0.85rem; margin: 0; }
+@media (max-width: 768px) {
+  .shipping-banner-content { flex-direction: column; gap: 0.5rem; }
+}
+
+/* ===== NEWSLETTER PREMIUM ===== */
+.newsletter-section {
+  background: linear-gradient(135deg, var(--dark) 0%, var(--darker) 100%);
+  padding: 5rem 2rem; margin-top: 3rem; position: relative; overflow: hidden;
+}
+.newsletter-section::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at center, rgba(201,169,110,0.08) 0%, transparent 70%);
+}
+.newsletter-inner {
+  max-width: 600px; margin: 0 auto; text-align: center; position: relative; z-index: 1;
+}
+.newsletter-inner h2 { color: var(--white); font-size: 2.2rem; margin-bottom: 1rem; }
+.newsletter-inner p { color: rgba(255,255,255,0.6); margin-bottom: 2rem; font-size: 1rem; line-height: 1.7; }
+.newsletter-box {
+  display: flex; gap: 0.5rem; max-width: 500px; margin: 0 auto;
+}
+.newsletter-box input {
+  flex: 1; padding: 1rem 1.5rem; border: 2px solid rgba(255,255,255,0.1);
+  border-radius: 30px; font-size: 0.9rem; background: rgba(255,255,255,0.05);
+  color: var(--white); font-family: inherit;
+}
+.newsletter-box input::placeholder { color: rgba(255,255,255,0.3); }
+.newsletter-box input:focus { outline: none; border-color: var(--gold); }
+.newsletter-box button {
+  padding: 1rem 2rem; background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  color: var(--white); border: none; border-radius: 30px; font-weight: 700;
+  font-size: 0.9rem; cursor: pointer; transition: var(--transition); white-space: nowrap;
+}
+.newsletter-box button:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(201,169,110,0.4); }
+@media (max-width: 600px) { .newsletter-box { flex-direction: column; } }
+
+/* ===== TRUST BADGES PREMIUM ===== */
+.trust-badge {
+  background: var(--white) !important; border-radius: 16px !important; padding: 2rem !important;
+  text-align: center; border: 1px solid var(--beige) !important; transition: var(--transition) !important;
+}
+.trust-badge:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: var(--gold) !important; }
+.trust-badge .icon { font-size: 2rem; display: block; margin-bottom: 0.8rem; }
+.trust-badge h4 { font-size: 1rem; margin-bottom: 0.5rem; color: var(--dark); }
+.trust-badge p { font-size: 0.85rem; color: var(--text-light); line-height: 1.6; margin: 0; }
