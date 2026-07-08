@@ -29,41 +29,44 @@
     </div>
   </nav>
 
-  <section class="hero">
-    <div class="container">
-      <h1>Bienvenue chez <span class="gold">Bouddhas</span></h1>
-      <p class="subtitle">Artisanat spirituel, bijoux sacrés — pour éveiller votre espace intérieur</p>
-      <a href="/produits" class="btn-primary">Explorer la boutique</a>
+  <!-- 🎠 SLIDER HERO -->
+  <section class="hero carousel">
+    <div class="hero-slide active" style="background:linear-gradient(135deg,#1A1A2E 0%,#2A1F0E 50%,#1A1A2E 100%);">
+      <div class="container">
+        <h1>Bienvenue chez <span class="gold">Bouddhas</span></h1>
+        <p>Artisanat spirituel, bijoux sacrés — pour éveiller votre espace intérieur</p>
+        <a href="/produits" class="btn-primary">Explorer la boutique</a>
+      </div>
+    </div>
+    <div class="hero-slide" style="background:linear-gradient(135deg,#0F0F1A 0%,#2A1F0E 50%,#AE3333 100%);">
+      <div class="container">
+        <h1>✨ <span class="gold">Nouveautés</span> spirituelles</h1>
+        <p>Découvrez nos dernières pièces chargées d'énergie positive</p>
+        <a href="/produits" class="btn-primary">Voir les nouveautés</a>
+      </div>
+    </div>
+    <div class="hero-slide" style="background:linear-gradient(135deg,#1A1A2E,#1A0A0A,#1A1A2E);">
+      <div class="container">
+        <h1>💎 Guide des <span class="gold">pierres</span></h1>
+        <p>Apprenez à choisir la pierre qui correspond à vos besoins spirituels</p>
+        <a href="/pierres" class="btn-primary">Explorer les pierres</a>
+      </div>
     </div>
   </section>
 
+  <!-- Catégories -->
   <section class="section">
     <h2 class="section-title">Nos univers</h2>
     <p class="section-subtitle">Chaque pièce raconte une histoire sacrée</p>
     <div class="category-grid">
-      <a href="/produits?categorie=Bague" class="category-card">
-        <div class="icon">💍</div>
-        <h3>Bagues</h3>
-        <div class="count">Spiritualité au quotidien</div>
-      </a>
-      <a href="/produits?categorie=Pendentif" class="category-card">
-        <div class="icon">📿</div>
-        <h3>Pendentifs</h3>
-        <div class="count">Protection & énergie</div>
-      </a>
-      <a href="/produits?categorie=Bracelet" class="category-card">
-        <div class="icon">⛓️</div>
-        <h3>Bracelets</h3>
-        <div class="count">Bien-être & harmonie</div>
-      </a>
-      <a href="/produits" class="category-card">
-        <div class="icon">✨</div>
-        <h3>Tous les produits</h3>
-        <div class="count">Découvrir la collection</div>
-      </a>
+      <a href="/produits?categorie=Bague" class="category-card"><div class="icon">💍</div><h3>Bagues</h3><div class="count">Spiritualité au quotidien</div></a>
+      <a href="/produits?categorie=Pendentif" class="category-card"><div class="icon">📿</div><h3>Pendentifs</h3><div class="count">Protection & énergie</div></a>
+      <a href="/produits?categorie=Bracelet" class="category-card"><div class="icon">⛓️</div><h3>Bracelets</h3><div class="count">Bien-être & harmonie</div></a>
+      <a href="/produits" class="category-card"><div class="icon">✨</div><h3>Tous les produits</h3><div class="count">Découvrir la collection</div></a>
     </div>
   </section>
 
+  <!-- Produits -->
   <section class="section">
     <h2 class="section-title">Nos dernières pièces</h2>
     <p class="section-subtitle">Chaque création est unique, façonnée avec intention</p>
@@ -72,11 +75,49 @@
     </div>
   </section>
 
+  <!-- ⭐ AVIS CLIENTS -->
+  <section class="section">
+    <h2 class="section-title">Ce qu'ils disent</h2>
+    <p class="section-subtitle">La satisfaction de nos clients est notre plus belle récompense</p>
+    <div id="avis-container"></div>
+  </section>
+
+  <!-- 📰 NEWSLETTER -->
+  <section class="newsletter-section">
+    <h2>Newsletter</h2>
+    <p>Recevez nos offres exclusives et les dernières nouveautés</p>
+    <form id="newsletter-form" class="newsletter-box">
+      <input type="email" id="newsletter-email" placeholder="Votre email" required>
+      <button type="submit">S'inscrire ✨</button>
+    </form>
+  </section>
+
+  <!-- 📰 POPUP NEWSLETTER -->
+  <div class="newsletter-popup" id="newsletter-popup">
+    <div class="popup-content">
+      <button class="popup-close">&times;</button>
+      <div style="font-size:3rem;margin-bottom:1rem;">📿</div>
+      <h3 style="margin-bottom:0.5rem;">Ne manquez rien ✨</h3>
+      <p style="color:var(--text-light);margin-bottom:1.5rem;">Inscrivez-vous à notre newsletter pour recevoir nos offres exclusives et conseils spirituels.</p>
+      <form id="newsletter-popup-form" class="newsletter-box">
+        <input type="email" id="popup-email" placeholder="Votre email" required>
+        <button type="submit">OK</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
   <footer>
     <div class="container">
-      <p style="font-size:1.5rem;font-family:'Playfair Display',serif;color:var(--gold);margin-bottom:0.5rem;">Bouddhas</p>
-      <p>Artisanat spirituel & bijoux sacrés</p>
-      <p style="margin-top:2rem;">&copy; 2026 Bouddhas — Tous droits réservés</p>
+      <div class="brand">Bouddhas</div>
+      <div class="sub">Artisanat spirituel & bijoux sacrés</div>
+      <div style="display:flex;justify-content:center;gap:1.5rem;margin:1.5rem 0;">
+        <a href="/a-propos" style="color:rgba(255,255,255,0.4);text-decoration:none;font-size:0.9rem;">À propos</a>
+        <a href="/livraison" style="color:rgba(255,255,255,0.4);text-decoration:none;font-size:0.9rem;">Livraison</a>
+        <a href="/faq" style="color:rgba(255,255,255,0.4);text-decoration:none;font-size:0.9rem;">FAQ</a>
+        <a href="/contact" style="color:rgba(255,255,255,0.4);text-decoration:none;font-size:0.9rem;">Contact</a>
+      </div>
+      <div class="copy">&copy; 2026 Bouddhas — Tous droits réservés</div>
     </div>
   </footer>
 
@@ -86,5 +127,8 @@
   <script src="js/shopify.js"></script>
   <script src="js/app.js"></script>
   <script src="js/search.js"></script>
+  <script src="js/slider.js"></script>
+  <script src="js/avis.js"></script>
+  <script src="js/newsletter.js"></script>
 </body>
 </html>
