@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Produit — Bouddhas</title>
+  <title>Panier — Bouddhas</title>
   <link rel="stylesheet" href="css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;400&display=swap" rel="stylesheet">
 </head>
 <body>
   <nav class="navbar">
@@ -20,8 +20,19 @@
     </div>
   </nav>
 
-  <div id="product-detail" style="max-width:1000px;margin:3rem auto;padding:0 2rem;">
-    <div style="text-align:center;padding:3rem;">Chargement...</div>
+  <div class="cart-page">
+    <h2 class="section-title" style="margin-bottom:2rem;">Votre panier</h2>
+
+    <div id="cart-items">
+      <div style="text-align:center;padding:3rem;color:var(--text-light);">Votre panier est vide</div>
+    </div>
+
+    <div id="cart-summary" style="display:none;">
+      <div class="cart-total">
+        Total : <span id="cart-total">0,00 €</span>
+      </div>
+      <a id="checkout-btn" class="btn-checkout">Commander via Shopify ✅</a>
+    </div>
   </div>
 
   <footer>
@@ -31,10 +42,8 @@
     </div>
   </footer>
 
-  <div id="toast" class="toast"></div>
-
-  <script src="/js/config.js"></script>
-  <script src="/js/shopify.js"></script>
-  <script src="/js/produit.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/shopify.js"></script>
+  <script src="js/panier.js"></script>
 </body>
 </html>

@@ -10,25 +10,20 @@ document.addEventListener('DOMContentLoaded', async () => {
       const handle = p.handle;
       return `
         <div class="product-card">
-          <a href="/produit.html?handle=${handle}">
+          <a href="/produit?handle=${handle}">
             <img src="${img}" alt="${p.title}" loading="lazy">
           </a>
           <div class="product-info">
-            <a href="/produit.html?handle=${handle}" style="text-decoration:none;color:inherit;">
+            <a href="/produit?handle=${handle}" style="text-decoration:none;color:inherit;">
               <h3>${p.title}</h3>
             </a>
             <div class="price">${price}</div>
-            <button class="btn-add" onclick="addToCart('${p.title}')">Ajouter au panier</button>
+            <button class="btn-add" onclick="ajouterPanier('${handle}')">Ajouter au panier</button>
           </div>
         </div>
       `;
     }).join('');
   } catch (e) {
-    grid.innerHTML = `<div class="loading">Erreur de chargement: ${e.message}</div>`;
+    grid.innerHTML = `<div style="text-align:center;padding:3rem;color:var(--text-light);">Erreur de chargement: ${e.message}</div>`;
   }
 });
-
-async function addToCart(title) {
-  // Simple notification pour le MVP
-  alert(`"${title}" ajouté au panier ! (Fonctionnalité paiement à venir via Shopify Checkout)`);
-}

@@ -13,85 +13,40 @@
       <a href="/" class="logo">Bouddhas</a>
       <div class="nav-links">
         <a href="/">Accueil</a>
-        <a href="/produits.html">Boutique</a>
-        <a href="/contact.html">Contact</a>
-        <a href="/panier.html" class="cart-link">Panier <span id="cart-count">0</span></a>
+        <a href="/produits">Boutique</a>
+        <a href="/contact">Contact</a>
+        <a href="/panier" class="cart-link">Panier <span id="cart-count">0</span></a>
       </div>
     </div>
   </nav>
 
-  <div class="page-hero">
-    <h1>Notre Boutique</h1>
-    <p>Découvrez notre collection d'objets spirituels et bien-être</p>
-  </div>
+  <section class="section">
+    <h2 class="section-title">Notre boutique</h2>
+    <p class="section-subtitle">Artisanat spirituel — chaque pièce est unique</p>
 
-  <div class="filters">
-    <div class="container">
-      <select id="category-filter" onchange="filterProducts()">
-        <option value="">Toutes les catégories</option>
-        <option value="statues">Statues</option>
-        <option value="bijoux">Bijoux</option>
-        <option value="encens">Encens & Brûle-encens</option>
-        <option value="pierres">Pierres & Chakras</option>
-      </select>
+    <div style="display:flex;gap:1rem;margin-bottom:2rem;flex-wrap:wrap;justify-content:center;">
+      <a href="/produits" class="btn-primary" style="font-size:0.9rem;padding:0.6rem 1.5rem;">Tous</a>
+      <a href="/produits?categorie=Bague" class="btn-primary" style="font-size:0.9rem;padding:0.6rem 1.5rem;background:transparent;color:var(--gold-dark);border:2px solid var(--gold);">Bagues</a>
+      <a href="/produits?categorie=Pendentif" class="btn-primary" style="font-size:0.9rem;padding:0.6rem 1.5rem;background:transparent;color:var(--gold-dark);border:2px solid var(--gold);">Pendentifs</a>
+      <a href="/produits?categorie=Bracelet" class="btn-primary" style="font-size:0.9rem;padding:0.6rem 1.5rem;background:transparent;color:var(--gold-dark);border:2px solid var(--gold);">Bracelets</a>
     </div>
-  </div>
 
-  <section class="products-section">
-    <div class="container">
-      <div class="product-grid" id="product-grid">
-        <div class="loading">Chargement des produits</div>
-      </div>
+    <div class="product-grid" id="product-grid">
+      <div style="text-align:center;padding:3rem;color:var(--text-light);">Chargement...</div>
     </div>
   </section>
 
   <footer>
     <div class="container">
+      <p style="font-size:1.5rem;font-family:'Playfair Display',serif;color:var(--gold);margin-bottom:0.5rem;">Bouddhas</p>
       <p>&copy; 2026 Bouddhas — Tous droits réservés</p>
     </div>
   </footer>
 
+  <div id="toast" class="toast"></div>
+
   <script src="js/config.js"></script>
   <script src="js/shopify.js"></script>
-  <script src="js/app.js"></script>
-  <script>
-    async function filterProducts() {
-      const grid = document.getElementById('product-grid');
-      const filter = document.getElementById('category-filter').value;
-      grid.innerHTML = '<div class="loading">Chargement</div>';
-      
-      try {
-        let products = await shopify.getProducts(100);
-        if (filter === 'statues') products = products.filter(p => p.productType === '200044142' || p.productType === '0' || p.title.toLowerCase().includes('statue'));
-        if (filter === 'bijoux') products = products.filter(p => ['200000174','200000141','200000147','200000168','100007323','200000171','200000162','100007321'].includes(p.productType) || p.title.toLowerCase().includes('bracelet') || p.title.toLowerCase().includes('bijou') || p.title.toLowerCase().includes('bague'));
-        if (filter === 'encens') products = products.filter(p => p.productType === '100001780' || p.productType === '100001776' || p.title.toLowerCase().includes('encens'));
-        if (filter === 'pierres') products = products.filter(p => ['201220605','200000162','100007321'].includes(p.productType) || p.title.toLowerCase().includes('pierre') || p.title.toLowerCase().includes('chakra'));
-
-        grid.innerHTML = products.map(p => {
-          const img = p.images?.edges?.[0]?.node?.url || 'https://placehold.co/400x400/FDF8F0/C4A265?text=Bouddhas';
-          const price = shopify.formatPrice(p.priceRange.minVariantPrice.amount);
-          return `
-            <div class="product-card">
-              <a href="/produit.html?handle=${p.handle}">
-                <img src="${img}" alt="${p.title}" loading="lazy">
-              </a>
-              <div class="product-info">
-                <a href="/produit.html?handle=${p.handle}" style="text-decoration:none;color:inherit;">
-                  <h3>${p.title}</h3>
-                </a>
-                <div class="price">${price}</div>
-                <button class="btn-add" onclick="addToCart('${p.title.replace(/'/g, "\\'")}')">Ajouter</button>
-              </div>
-            </div>
-          `;
-        }).join('');
-      } catch(e) {
-        grid.innerHTML = `<div class="loading">Erreur: ${e.message}</div>`;
-      }
-    }
-
-    // Charger les produits au chargement
-    document.addEventListener('DOMContentLoaded', filterProducts);
-  </script>
+  <script src="js/produits.js"></script>
 </body>
 </html>
