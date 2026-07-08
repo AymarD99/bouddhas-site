@@ -8,6 +8,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div class="announcement-bar" id="announcement-bar">
+    <div class="swiper-wrapper" id="announce-slider">
+      <div class="swiper-slide">🚚 Livraison offerte dès 50€ d'achat</div>
+      <div class="swiper-slide">💎 Bijoux en pierres naturelles authentiques</div>
+      <div class="swiper-slide">🔒 Paiement 100% sécurisé (CB, PayPal, Apple Pay)</div>
+      <div class="swiper-slide">✨ Nouveautés chaque semaine</div>
+    </div>
+  </div>
   <nav class="navbar">
     <div class="container">
       <a href="/" class="logo">Bouddhas</a>
@@ -29,7 +37,6 @@
     </div>
   </nav>
 
-  <!-- 🎠 SLIDER HERO -->
   <section class="hero carousel">
     <div class="hero-slide active" style="background:linear-gradient(135deg,#1A1A2E 0%,#2A1F0E 50%,#1A1A2E 100%);">
       <div class="container">
@@ -54,7 +61,6 @@
     </div>
   </section>
 
-  <!-- Catégories -->
   <section class="section">
     <h2 class="section-title">Nos univers</h2>
     <p class="section-subtitle">Chaque pièce raconte une histoire sacrée</p>
@@ -66,7 +72,15 @@
     </div>
   </section>
 
-  <!-- Produits -->
+  <section class="section" style="padding:2rem;max-width:1000px;">
+    <div class="trust-badges">
+      <div class="trust-badge"><span class="icon">🚚</span><h4>Livraison offerte</h4><p>Dès 50€ d'achat en France métropolitaine</p></div>
+      <div class="trust-badge"><span class="icon">🔒</span><h4>Paiement sécurisé</h4><p>CB, Visa, Mastercard, PayPal, Apple Pay</p></div>
+      <div class="trust-badge"><span class="icon">💎</span><h4>Qualité authentique</h4><p>Pierres naturelles sélectionnées avec soin</p></div>
+      <div class="trust-badge"><span class="icon">🔄</span><h4>Retours sous 14 jours</h4><p>Satisfait ou remboursé</p></div>
+    </div>
+  </section>
+
   <section class="section">
     <h2 class="section-title">Nos dernières pièces</h2>
     <p class="section-subtitle">Chaque création est unique, façonnée avec intention</p>
@@ -75,14 +89,12 @@
     </div>
   </section>
 
-  <!-- ⭐ AVIS CLIENTS -->
   <section class="section">
     <h2 class="section-title">Ce qu'ils disent</h2>
     <p class="section-subtitle">La satisfaction de nos clients est notre plus belle récompense</p>
     <div id="avis-container"></div>
   </section>
 
-  <!-- 📰 NEWSLETTER -->
   <section class="newsletter-section">
     <h2>Newsletter</h2>
     <p>Recevez nos offres exclusives et les dernières nouveautés</p>
@@ -92,7 +104,6 @@
     </form>
   </section>
 
-  <!-- 📰 POPUP NEWSLETTER -->
   <div class="newsletter-popup" id="newsletter-popup">
     <div class="popup-content">
       <button class="popup-close">&times;</button>
@@ -106,7 +117,6 @@
     </div>
   </div>
 
-  <!-- Footer -->
   <footer>
     <div class="container">
       <div class="brand">Bouddhas</div>
@@ -116,6 +126,12 @@
         <a href="/livraison" style="color:rgba(255,255,255,0.4);text-decoration:none;font-size:0.9rem;">Livraison</a>
         <a href="/faq" style="color:rgba(255,255,255,0.4);text-decoration:none;font-size:0.9rem;">FAQ</a>
         <a href="/contact" style="color:rgba(255,255,255,0.4);text-decoration:none;font-size:0.9rem;">Contact</a>
+      </div>
+      <div class="payment-icons">
+        <svg viewBox="0 0 38 24" width="38" height="24"><rect x=".5" y=".5" width="37" height="23" rx="2.5" stroke="rgba(255,255,255,0.3)"/><rect x="14" y="6" width="10" height="12" rx="5" fill="#EB001B"/><rect x="18" y="6" width="10" height="12" rx="5" fill="#F79E1B"/><path d="M21 6a6 6 0 0 1 0 12" fill="#FF5F00"/></svg>
+        <svg viewBox="0 0 38 24" width="38" height="24"><rect x=".5" y=".5" width="37" height="23" rx="2.5" stroke="rgba(255,255,255,0.3)"/><text x="19" y="16" text-anchor="middle" fill="#142FBD" font-size="7" font-weight="bold" font-family="sans-serif">VISA</text></svg>
+        <svg viewBox="0 0 38 24" width="38" height="24"><rect x=".5" y=".5" width="37" height="23" rx="2.5" stroke="rgba(255,255,255,0.3)"/><text x="19" y="16" text-anchor="middle" fill="#FFC439" font-size="6" font-weight="bold" font-family="sans-serif">PayPal</text></svg>
+        <span style="color:rgba(255,255,255,0.3);font-size:0.8rem;">Apple Pay</span>
       </div>
       <div class="copy">&copy; 2026 Bouddhas — Tous droits réservés</div>
     </div>
@@ -130,5 +146,6 @@
   <script src="js/slider.js"></script>
   <script src="js/avis.js"></script>
   <script src="js/newsletter.js"></script>
+  <script src="js/announce.js"></script>
 </body>
 </html>
