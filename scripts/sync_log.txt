@@ -1,0 +1,26 @@
+[2026-07-09 01:44:07] 🔄 Début synchronisation Shopify
+[2026-07-09 01:44:07] ❌ ERREUR API: Expected one of SCHEMA, SCALAR, TYPE, ENUM, INPUT, UNION, INTERFACE, actual: RCURLY ("}") at [1, 234]
+[2026-07-09 01:44:07]   0 produits récupérés
+[2026-07-09 01:44:07]   ✅ sitemap.xml généré (8 URLs)
+[2026-07-09 01:44:07] ✅ Synchronisation terminée
+[2026-07-09 01:45:06] 🔄 Début synchronisation Shopify
+[2026-07-09 01:45:06] ❌ ERREUR API: Expected one of SCHEMA, SCALAR, TYPE, ENUM, INPUT, UNION, INTERFACE, actual: RCURLY ("}") at [1, 234]
+[2026-07-09 01:45:06]   0 produits récupérés
+[2026-07-09 01:45:06]   ✅ sitemap.xml généré (8 URLs)
+[2026-07-09 01:45:06] ✅ Synchronisation terminée
+[2026-07-09 01:46:12] 🔄 Début synchronisation Shopify
+[2026-07-09 01:46:12] ❌ ERREUR API: Field 'variants' doesn't exist on type 'ProductEdge'
+[2026-07-09 01:46:12]   0 produits récupérés
+[2026-07-09 01:46:12]   ✅ sitemap.xml généré (8 URLs)
+[2026-07-09 01:46:12] ✅ Synchronisation terminée
+[2026-07-09 01:46:26] 🔄 Début synchronisation Shopify
+[2026-07-09 01:46:26] ❌ ERREUR API: Expected NAME, actual: (none) ("") at [1, 230]
+[2026-07-09 01:46:26]   0 produits récupérés
+[2026-07-09 01:46:26]   ✅ sitemap.xml généré (8 URLs)
+[2026-07-09 01:46:26] ✅ Synchronisation terminée
+[2026-07-09 01:47:04] 🔄 Début synchronisation Shopify
+[2026-07-09 01:47:09]   1110 produits récupérés
+[2026-07-09 01:47:09]   ⚠ 2 produits sans image
+[2026-07-09 01:47:09]   ⚠ 28 produits sans prix
+[2026-07-09 01:47:09]   ✅ sitemap.xml généré (1118 URLs)
+[2026-07-09 01:47:09] ✅ Synchronisation terminée
