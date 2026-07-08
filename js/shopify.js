@@ -1,3 +1,4 @@
+// Shopify Client — version améliorée
 class ShopifyClient {
   constructor() {
     this.apiUrl = CONFIG.apiUrl;
@@ -19,103 +20,88 @@ class ShopifyClient {
   }
 
   async getProducts(first = 50) {
-    const q = `
-      {
-        products(first: ${first}, sortKey: CREATED_AT, reverse: true) {
-          edges {
-            node {
-              id
-              title
-              handle
-              description
-              productType
-              tags
-              priceRange { minVariantPrice { amount currencyCode } }
-              images(first: 1) { edges { node { url altText width height } } }
-            }
+    const q = `{
+      products(first: ${first}, sortKey: CREATED_AT, reverse: true) {
+        edges {
+          node {
+            id
+            title
+            handle
+            description
+            descriptionHtml
+            productType
+            tags
+            availableForSale
+            createdAt
+            priceRange { minVariantPrice { amount currencyCode } }
+            images(first: 1) { edges { node { url altText width height } } }
           }
         }
       }
-    `;
+    }`;
     const data = await this.query(q);
     return data.products.edges.map(e => e.node);
   }
 
-  async getCollections(first = 20) {
-    const q = `
-      {
-        collections(first: ${first}) {
+  async getProductByHandle(handle) {
+    const q = `{
+      productByHandle(handle: "${handle}") {
+        id
+        title
+        handle
+        description
+        descriptionHtml
+        productType
+        tags
+        availableForSale
+        createdAt
+        priceRange { minVariantPrice { amount currencyCode } }
+        images(first: 5) { edges { node { url altText width height } } }
+        variants(first: 10) {
           edges {
             node {
               id
               title
-              handle
-              description
-              image { url }
-              products(first: 50) {
-                edges { node { id title handle priceRange { minVariantPrice { amount } } images(first:1) { edges { node { url } } } } }
-              }
+              price { amount currencyCode }
+              availableForSale
             }
           }
         }
       }
-    `;
-    const data = await this.query(q);
-    return data.collections.edges.map(e => e.node);
-  }
-
-  async getProductByHandle(handle) {
-    const q = `
-      {
-        productByHandle(handle: "${handle}") {
-          id
-          title
-          handle
-          description
-          descriptionHtml
-          productType
-          tags
-          availableForSale
-          priceRange { minVariantPrice { amount currencyCode } }
-          images(first: 5) { edges { node { url altText width height } } }
-          variants(first: 10) {
-            edges {
-              node {
-                id
-                title
-                price { amount currencyCode }
-                availableForSale
-                selectedOptions { name value }
-              }
-            }
-          }
-        }
-      }
-    `;
+    }`;
     const data = await this.query(q);
     return data.productByHandle;
   }
 
-  async createCart(variantId, quantity = 1) {
-    const q = `
-      mutation {
-        cartCreate(input: { lines: [{ merchandiseId: "${variantId}", quantity: ${quantity} }] }) {
-          cart { id checkoutUrl }
+  async getCollections(first = 50) {
+    const q = `{
+      collections(first: ${first}) {
+        edges {
+          node {
+            id
+            title
+            handle
+            description
+            image { url }
+            products(first: 8) {
+              edges { node { id title handle priceRange { minVariantPrice { amount } } images(first:1) { edges { node { url } } } } }
+            }
+          }
         }
       }
-    `;
+    }`;
     const data = await this.query(q);
-    return data.cartCreate.cart;
-  }
-
-  async getCart(cartId) {
-    const q = `{ cart(id: "${cartId}") { id checkoutUrl totalQuantity cost { totalAmount { amount currencyCode } } lines(first: 20) { edges { node { quantity merchandise { ... on ProductVariant { id title price { amount } product { title images(first:1) { edges { node { url } } } } } } } } } } }`;
-    const data = await this.query(q);
-    return data.cart;
+    return data.collections.edges.map(e => e.node);
   }
 
   formatPrice(amount, currency = 'EUR') {
     return new Intl.NumberFormat('fr-FR', { style: 'currency', currency }).format(parseFloat(amount));
+  }
+
+  isNew(createdAt, days = 14) {
+    const d = new Date(createdAt);
+    const now = new Date();
+    return (now - d) / (1000 * 60 * 60 * 24) < days;
   }
 }
 
