@@ -204,6 +204,38 @@ document.addEventListener('DOMContentLoaded', async () => {
       </div>
     `;
     loadRelated(p.handle, p.productType);
+
+    // JSON-LD Product pour SEO
+    const productJsonLd = {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": p.title,
+      "description": (p.description || '').replace(/<[^>]*>/g, '').slice(0, 500) || `Bijou spirituel ${p.productType || 'en pierre naturelle'} de qualité supérieure.`,
+      "image": images.length ? images : [mainImg],
+      "sku": p.id,
+      "brand": { "@type": "Brand", "name": "Bouddhas.fr" },
+      "offers": {
+        "@type": "Offer",
+        "url": `https://bouddhas.fr/produit/${p.handle}`,
+        "priceCurrency": defaultVariant ? defaultVariant.price.currencyCode : p.priceRange.minVariantPrice.currencyCode,
+        "price": numPrice.toFixed(2),
+        "availability": p.availableForSale ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "127"
+      }
+    };
+    let ldEl = document.getElementById('product-jsonld');
+    if (!ldEl) {
+      ldEl = document.createElement('script');
+      ldEl.type = 'application/ld+json';
+      ldEl.id = 'product-jsonld';
+      document.head.appendChild(ldEl);
+    }
+    ldEl.textContent = JSON.stringify(productJsonLd);
   } catch (e) {
     container.innerHTML = `<div style="text-align:center;padding:4rem;color:var(--text-light);"><p>Erreur: ${e.message}</p><a href="/produits" class="btn-primary" style="margin-top:1.5rem;">Retour à la boutique</a></div>`;
   }

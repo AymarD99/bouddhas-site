@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+
+# Pages statiques
+Allow: /produits.html
+Allow: /pierres.html
+Allow: /contact.html
+Allow: /a-propos.html
+Allow: /livraison.html
+Allow: /faq.html
+Allow: /produit/*
+
+# Désactiver les zones sensibles
+Disallow: /admin/
+Disallow: /cart.js
+Disallow: /checkout
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://bouddhas.fr/sitemap.xml
