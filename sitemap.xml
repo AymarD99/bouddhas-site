@@ -21,6 +21,31 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://bouddhas.fr/blog/vertus-pierres-naturelles.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bouddhas.fr/blog/meditation-debutants.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bouddhas.fr/blog/choisir-bracelet-zen.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bouddhas.fr/blog/symboles-bouddhistes-sens.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bouddhas.fr/blog/purifier-pierres-naturelles.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://bouddhas.fr/contact.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
