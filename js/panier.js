@@ -127,13 +127,33 @@ document.addEventListener('DOMContentLoaded', () => {
   if (panier.length === 0) {
     items.innerHTML = `
       <div style="text-align:center;padding:4rem;">
-        <div style="font-size:3rem;margin-bottom:1rem;">🛒</div>
-        <p style="color:var(--text-light);font-size:1.1rem;">Votre panier est vide</p>
-        <a href="/produits" class="btn-primary" style="margin-top:1.5rem;">Découvrir la boutique</a>
+        <div style="font-size:4rem;margin-bottom:1.5rem;">🛒</div>
+        <h2 style="color:var(--dark);margin-bottom:0.5rem;">Votre panier est vide</h2>
+        <p style="color:var(--text-light);margin-bottom:2rem;">Découvrez nos bijoux spirituels et pierres naturelles</p>
+        <a href="/produits" class="btn-primary">Découvrir la boutique</a>
       </div>`;
     if (summary) summary.style.display = 'none';
     return;
   }
+
+  // Barre progression livraison
+  let totalAmount = 0;
+  panier.forEach(p => totalAmount += parseFloat(p.price));
+  const freeShipThreshold = 50;
+  const progressPercent = Math.min(100, (totalAmount / freeShipThreshold) * 100);
+  const remaining = Math.max(0, freeShipThreshold - totalAmount).toFixed(2);
+  const progressHtml = `
+    <div class="shipping-progress">
+      <div class="shipping-progress-text">
+        ${remaining > 0 
+          ? `Plus que <strong style="color:var(--gold-dark);">${remaining}€</strong> pour la <strong>livraison offerte</strong> 🚚` 
+          : `🎉 Vous bénéficiez de la <strong>livraison offerte</strong> !`}
+      </div>
+      <div class="shipping-progress-bar">
+        <div class="shipping-progress-fill" style="width:${progressPercent}%"></div>
+      </div>
+    </div>
+  `;
 
   // Grouper par handle
   const grouped = {};
@@ -143,23 +163,23 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   let total = 0;
-  items.innerHTML = Object.values(grouped).map(p => {
+  items.innerHTML = progressHtml + Object.values(grouped).map(p => {
     const stotal = parseFloat(p.price) * p.qty;
     total += stotal;
     return `
       <div class="cart-item">
-        ${p.img ? `<img src="${p.img}" style="width:60px;height:60px;object-fit:cover;border-radius:8px;margin-right:1rem;">` : ''}
+        ${p.img ? `<img src="${p.img}" alt="${p.title}">` : ''}
         <div style="flex:1;">
           <h4>${p.title}</h4>
-          <div style="display:flex;align-items:center;gap:0.5rem;margin-top:0.3rem;">
-            <button onclick="updateQty('${p.handle}', -1)" style="background:var(--beige);border:none;width:28px;height:28px;border-radius:6px;cursor:pointer;font-weight:700;">−</button>
-            <span style="color:var(--text-light);font-size:0.9rem;min-width:30px;text-align:center;">${p.qty}</span>
-            <button onclick="updateQty('${p.handle}', 1)" style="background:var(--beige);border:none;width:28px;height:28px;border-radius:6px;cursor:pointer;font-weight:700;">+</button>
+          <div style="display:flex;align-items:center;gap:0.5rem;margin-top:0.5rem;">
+            <button onclick="updateQty('${p.handle}', -1)" style="background:var(--beige);border:none;width:30px;height:30px;border-radius:8px;cursor:pointer;font-weight:700;font-size:1rem;transition:var(--transition);">−</button>
+            <span style="font-weight:600;min-width:35px;text-align:center;">${p.qty}</span>
+            <button onclick="updateQty('${p.handle}', 1)" style="background:var(--beige);border:none;width:30px;height:30px;border-radius:8px;cursor:pointer;font-weight:700;font-size:1rem;transition:var(--transition);">+</button>
           </div>
         </div>
         <div style="text-align:right;">
-          <div class="price">${stotal.toFixed(2)} €</div>
-          <button onclick="retirerDuPanier('${p.handle}')" style="background:none;border:none;color:#c00;cursor:pointer;font-size:0.8rem;margin-top:0.3rem;">Supprimer</button>
+          <div style="font-size:1.1rem;font-weight:700;color:var(--gold-dark);">${stotal.toFixed(2)} €</div>
+          <button onclick="retirerDuPanier('${p.handle}')" style="background:none;border:none;color:#c00;cursor:pointer;font-size:0.8rem;margin-top:0.3rem;transition:var(--transition);">🗑️ Supprimer</button>
         </div>
       </div>
     `;

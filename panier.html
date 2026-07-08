@@ -16,10 +16,18 @@
   <title>Panier — Bouddhas</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%231A1A2C'/%3E%3Ctext x='50' y='68' font-size='50' text-anchor='middle' fill='%23C9A96E' font-family='serif'%3E%F0%9F%93%BF%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="/css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="announcement-bar" id="announcement-bar"><div class="swiper-wrapper" id="announce-slider"><div class="swiper-slide">🚚 Livraison offerte dès 50€ d'achat</div><div class="swiper-slide">💎 Bijoux en pierres naturelles authentiques</div><div class="swiper-slide">🔒 Paiement 100% sécurisé (CB, PayPal, Apple Pay)</div><div class="swiper-slide">✨ Nouveautés chaque semaine</div></div></div>
+  <div class="announcement-bar" id="announcement-bar">
+    <div class="swiper-wrapper" id="announce-slider">
+      <div class="swiper-slide">🚚 Livraison offerte dès 50€ d'achat</div>
+      <div class="swiper-slide">💎 Bijoux en pierres naturelles authentiques</div>
+      <div class="swiper-slide">🔒 Paiement 100% sécurisé (CB, PayPal, Apple Pay)</div>
+      <div class="swiper-slide">✨ Nouveautés chaque semaine</div>
+    </div>
+  </div>
+
   <nav class="navbar">
     <div class="container">
       <a href="/" class="logo">Bouddhas</a>
@@ -42,52 +50,121 @@
     </div>
   </nav>
   <div class="nav-overlay" id="nav-overlay" onclick="toggleNav()"></div>
-  <script>
-    function toggleNav() {
-      document.getElementById('nav-links').classList.toggle('open');
-      document.getElementById('nav-overlay').classList.toggle('open');
-    }
-  </script>
+  <script>function toggleNav(){document.getElementById('nav-links').classList.toggle('open');document.getElementById('nav-overlay').classList.toggle('open');}</script>
 
   <div class="cart-page">
-    <h2 class="section-title" style="margin-bottom:2rem;">Votre panier</h2>
+    <div class="cart-header">
+      <h1>🛒 Votre panier</h1>
+      <a href="/produits" style="color:var(--text-light);text-decoration:none;font-size:0.9rem;">← Continuer mes achats</a>
+    </div>
 
     <div id="cart-items">
-      <div style="text-align:center;padding:3rem;color:var(--text-light);">Votre panier est vide</div>
+      <div style="text-align:center;padding:3rem;color:var(--text-light);">Chargement...</div>
     </div>
 
     <div id="cart-summary" style="display:none;">
       <div class="cart-total">
-        Total : <span id="cart-total">0,00 €</span>
+        <div class="cart-total-row"><span>Sous-total</span><span id="cart-subtotal">0,00 €</span></div>
+        <div class="cart-total-row"><span>Livraison</span><span id="cart-shipping">Calculée au checkout</span></div>
+        <div class="cart-total-row cart-total-final"><span>Total</span><span id="cart-total">0,00 €</span></div>
       </div>
-      <a id="checkout-btn" class="btn-checkout">Commander via Shopify ✅</a>
+      <a id="checkout-btn" class="btn-checkout">🔒 Commander en toute sécurité</a>
+      <div class="cart-trust">
+        <div>✅ Paiement sécurisé Shopify</div>
+        <div>🔄 Retour sous 14 jours</div>
+        <div>📦 Expédition sous 48h</div>
+      </div>
     </div>
   </div>
 
+  <!-- Recommandations -->
+  <section class="section" style="margin-top:3rem;">
+    <h2 class="section-title">✨ Vous aimerez aussi</h2>
+    <p class="section-subtitle">Complétez votre commande</p>
+    <div class="product-grid" id="cart-recommendations">
+      <div style="text-align:center;padding:2rem;color:var(--text-light);">Chargement...</div>
+    </div>
+  </section>
+
   <footer>
     <div class="container">
-      <div class="brand">Bouddhas</div>
-      <div class="sub">Artisanat spirituel & bijoux sacrés</div>
-      <div style="display:flex;justify-content:center;gap:1.5rem;margin:1.5rem 0;">
-        <a href="/a-propos" style="color:rgba(255,255,255,0.4);text-decoration:none;font-size:0.9rem;">À propos</a>
-        <a href="/livraison" style="color:rgba(255,255,255,0.4);text-decoration:none;font-size:0.9rem;">Livraison</a>
-        <a href="/faq" style="color:rgba(255,255,255,0.4);text-decoration:none;font-size:0.9rem;">FAQ</a>
-        <a href="/contact" style="color:rgba(255,255,255,0.4);text-decoration:none;font-size:0.9rem;">Contact</a>
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-brand">Bouddhas</div>
+          <p class="footer-desc">Artisanat spirituel & bijoux sacrés. Pierres naturelles authentiques sélectionnées avec soin.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram">📷</a>
+            <a href="#" aria-label="Facebook">📘</a>
+            <a href="#" aria-label="Pinterest">📌</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Boutique</h4>
+          <a href="/produits">Tous les produits</a>
+          <a href="/produits?categorie=Pendentif">Pendentifs</a>
+          <a href="/produits?categorie=Bracelet">Bracelets</a>
+          <a href="/produits?categorie=Orgonite">Orgonites</a>
+        </div>
+        <div class="footer-col">
+          <h4>Informations</h4>
+          <a href="/a-propos">À propos</a>
+          <a href="/livraison">Livraison</a>
+          <a href="/pierres">Guide des pierres</a>
+          <a href="/faq">FAQ</a>
+        </div>
+        <div class="footer-col">
+          <h4>Aide</h4>
+          <a href="/contact">Contact</a>
+          <a href="/faq">Questions</a>
+          <p>🔒 Paiement sécurisé</p>
+        </div>
       </div>
-      <div class="payment-icons">
-        <svg viewBox="0 0 38 24" width="38" height="24"><rect x=".5" y=".5" width="37" height="23" rx="2.5" stroke="rgba(255,255,255,0.3)"/><rect x="14" y="6" width="10" height="12" rx="5" fill="#EB001B"/><rect x="18" y="6" width="10" height="12" rx="5" fill="#F79E1B"/><path d="M21 6a6 6 0 0 1 0 12" fill="#FF5F00"/></svg>
-        <svg viewBox="0 0 38 24" width="38" height="24"><rect x=".5" y=".5" width="37" height="23" rx="2.5" stroke="rgba(255,255,255,0.3)"/><text x="19" y="16" text-anchor="middle" fill="#142FBD" font-size="7" font-weight="bold" font-family="sans-serif">VISA</text></svg>
-        <svg viewBox="0 0 38 24" width="38" height="24"><rect x=".5" y=".5" width="37" height="23" rx="2.5" stroke="rgba(255,255,255,0.3)"/><text x="19" y="16" text-anchor="middle" fill="#FFC439" font-size="6" font-weight="bold" font-family="sans-serif">PayPal</text></svg>
-        <span style="color:rgba(255,255,255,0.3);font-size:0.8rem;">Apple Pay</span>
+      <div class="footer-bottom">
+        <div class="payment-icons">
+          <svg viewBox="0 0 38 24" width="38" height="24"><rect x=".5" y=".5" width="37" height="23" rx="2.5" stroke="rgba(255,255,255,0.3)"/><rect x="14" y="6" width="10" height="12" rx="5" fill="#EB001B"/><rect x="18" y="6" width="10" height="12" rx="5" fill="#F79E1B"/><path d="M21 6a6 6 0 0 1 0 12" fill="#FF5F00"/></svg>
+          <svg viewBox="0 0 38 24" width="38" height="24"><rect x=".5" y=".5" width="37" height="23" rx="2.5" stroke="rgba(255,255,255,0.3)"/><text x="19" y="16" text-anchor="middle" fill="#142FBD" font-size="7" font-weight="bold" font-family="sans-serif">VISA</text></svg>
+          <svg viewBox="0 0 38 24" width="38" height="24"><rect x=".5" y=".5" width="37" height="23" rx="2.5" stroke="rgba(255,255,255,0.3)"/><text x="19" y="16" text-anchor="middle" fill="#FFC439" font-size="6" font-weight="bold" font-family="sans-serif">PayPal</text></svg>
+          <span style="color:rgba(255,255,255,0.3);font-size:0.8rem;">Apple Pay</span>
+        </div>
+        <p style="color:rgba(255,255,255,0.3);font-size:0.8rem;margin-top:1rem;">&copy; 2026 Bouddhas — Tous droits réservés</p>
       </div>
-      <div class="copy">&copy; 2026 Bouddhas — Tous droits réservés</div>
     </div>
   </footer>
+
+  <div id="toast" class="toast"></div>
+  <button class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Retour en haut">↑</button>
 
   <script src="/js/config.js"></script>
   <script src="/js/shopify.js"></script>
   <script src="/js/panier.js"></script>
   <script src="/js/announce.js"></script>
   <script src="/js/search.js"></script>
+  <script>
+    // Charger les recommandations
+    (async () => {
+      try {
+        const products = await shopify.getProducts(8);
+        const grid = document.getElementById('cart-recommendations');
+        if (!grid) return;
+        grid.innerHTML = products.slice(0, 4).map(p => {
+          const img = p.images?.edges?.[0]?.node?.url || '';
+          const price = shopify.formatPrice(p.priceRange.minVariantPrice.amount);
+          return `
+            <div class="product-card">
+              <div class="image-wrap">
+                <a href="/produit/${p.handle}"><img src="${img}" alt="${p.title}" loading="lazy"></a>
+                <div class="quick-view"><a href="/produit/${p.handle}" style="color:white;text-decoration:none;">👁️ Voir</a></div>
+              </div>
+              <div class="product-info">
+                <a href="/produit/${p.handle}" style="text-decoration:none;color:inherit;"><h3>${p.title}</h3></a>
+                <div class="price">${price}</div>
+                <button class="btn-add" onclick="addToCart('${p.handle}')">Ajouter</button>
+              </div>
+            </div>
+          `;
+        }).join('');
+      } catch(e) {}
+    })();
+  </script>
 </body>
 </html>

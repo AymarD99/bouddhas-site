@@ -244,5 +244,12 @@
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
+  <button class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Retour en haut">↑</button>
+  <script>
+    window.addEventListener('scroll', function() {
+      var btn = document.querySelector('.scroll-top');
+      if (btn) { if (window.scrollY > 400) btn.classList.add('visible'); else btn.classList.remove('visible'); }
+    });
+  </script>
 </body>
 </html>
