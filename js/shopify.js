@@ -35,6 +35,7 @@ class ShopifyClient {
             createdAt
             priceRange { minVariantPrice { amount currencyCode } }
             images(first: 1) { edges { node { url altText width height } } }
+            variants(first: 1) { edges { node { id title availableForSale price { amount currencyCode } } } }
           }
         }
       }

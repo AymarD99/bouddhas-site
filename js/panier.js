@@ -1,4 +1,4 @@
-// Panier — stocké dans localStorage
+// Panier — stocké dans localStorage (FIX: variantId + quantité + checkout)
 let panier = JSON.parse(localStorage.getItem('bouddhas_panier') || '[]');
 
 function majCompteur() {
@@ -15,53 +15,83 @@ function showToast(msg) {
   setTimeout(() => t.style.display = 'none', 2500);
 }
 
-// Ajouter depuis les pages
-async function addToCart(handle) {
+// Ajouter au panier — récupère le variantId + quantité
+async function addToCart(handle, qty = 1, variantId = null) {
   if (!window.__productsCache) {
     window.__productsCache = await shopify.getProducts(100);
   }
   const p = window.__productsCache.find(x => x.handle === handle);
   if (!p) return;
 
-  panier.push({
-    handle,
-    variantId: p.variants?.edges?.[0]?.node?.id || null,
-    title: p.title,
-    price: p.priceRange.minVariantPrice.amount,
-    img: p.images?.edges?.[0]?.node?.url || ''
-  });
+  // Récupérer le variantId si pas fourni
+  if (!variantId) {
+    variantId = p.variants?.edges?.[0]?.node?.id || null;
+  }
+
+  // Ajouter qty fois le produit
+  for (let i = 0; i < qty; i++) {
+    panier.push({
+      handle,
+      variantId,
+      title: p.title,
+      price: p.priceRange.minVariantPrice.amount,
+      img: p.images?.edges?.[0]?.node?.url || ''
+    });
+  }
   localStorage.setItem('bouddhas_panier', JSON.stringify(panier));
   majCompteur();
-  showToast(`✅ "${p.title}" ajouté`);
+  showToast(`✅ "${p.title}" ajouté (${qty})`);
 }
 
-// Créer un checkout Shopify via API Storefront
+// Retirer du panier
+function retirerDuPanier(handle) {
+  panier = panier.filter(p => p.handle !== handle);
+  localStorage.setItem('bouddhas_panier', JSON.stringify(panier));
+  majCompteur();
+  location.reload();
+}
+
+// Modifier la quantité dans le panier
+function updateQty(handle, delta) {
+  if (delta > 0) {
+    const item = panier.find(p => p.handle === handle);
+    if (item) {
+      panier.push({ ...item });
+    }
+  } else if (delta < 0) {
+    const idx = panier.findIndex(p => p.handle === handle);
+    if (idx !== -1) panier.splice(idx, 1);
+  }
+  localStorage.setItem('bouddhas_panier', JSON.stringify(panier));
+  majCompteur();
+  location.reload();
+}
+
+// Checkout Shopify via cartCreate
 async function createShopifyCheckout() {
   if (panier.length === 0) return;
 
   showToast('🔄 Préparation du checkout...');
 
   try {
-    // Récupérer les variants IDs
-    const items = [];
+    // Grouper par variantId et sommer les quantités
+    const grouped = {};
     for (const p of panier) {
-      if (p.variantId) {
-        items.push({ merchandiseId: p.variantId, quantity: 1 });
-      }
+      if (!p.variantId) continue;
+      if (!grouped[p.variantId]) grouped[p.variantId] = { merchandiseId: p.variantId, quantity: 0 };
+      grouped[p.variantId].quantity += 1;
     }
 
+    const items = Object.values(grouped);
     if (items.length === 0) {
-      showToast('❌ Impossible de préparer la commande');
+      showToast('❌ Aucun variant disponible pour le checkout');
       return;
     }
 
     const mutation = `
       mutation {
         cartCreate(input: { lines: [${items.map(i => `{ merchandiseId: "${i.merchandiseId}", quantity: ${i.quantity} }`).join(',')}] }) {
-          cart {
-            id
-            checkoutUrl
-          }
+          cart { id checkoutUrl }
           userErrors { field message }
         }
       }
@@ -78,9 +108,7 @@ async function createShopifyCheckout() {
     const data = await res.json();
 
     if (data.data?.cartCreate?.cart?.checkoutUrl) {
-      const url = data.data.cartCreate.cart.checkoutUrl;
-      // Ouvrir le checkout
-      window.location.href = url;
+      window.location.href = data.data.cartCreate.cart.checkoutUrl;
     } else {
       const err = data.data?.cartCreate?.userErrors?.[0]?.message || 'Erreur inconnue';
       showToast(`❌ ${err}`);
@@ -123,7 +151,11 @@ document.addEventListener('DOMContentLoaded', () => {
         ${p.img ? `<img src="${p.img}" style="width:60px;height:60px;object-fit:cover;border-radius:8px;margin-right:1rem;">` : ''}
         <div style="flex:1;">
           <h4>${p.title}</h4>
-          <div style="color:var(--text-light);font-size:0.9rem;">Qté: ${p.qty}</div>
+          <div style="display:flex;align-items:center;gap:0.5rem;margin-top:0.3rem;">
+            <button onclick="updateQty('${p.handle}', -1)" style="background:var(--beige);border:none;width:28px;height:28px;border-radius:6px;cursor:pointer;font-weight:700;">−</button>
+            <span style="color:var(--text-light);font-size:0.9rem;min-width:30px;text-align:center;">${p.qty}</span>
+            <button onclick="updateQty('${p.handle}', 1)" style="background:var(--beige);border:none;width:28px;height:28px;border-radius:6px;cursor:pointer;font-weight:700;">+</button>
+          </div>
         </div>
         <div style="text-align:right;">
           <div class="price">${stotal.toFixed(2)} €</div>
@@ -136,7 +168,6 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('cart-total').textContent = `${total.toFixed(2)} €`;
   if (summary) summary.style.display = 'block';
 
-  // Bouton checkout
   const btn = document.getElementById('checkout-btn');
   if (btn) {
     btn.onclick = async (e) => {
@@ -146,14 +177,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-function retirerDuPanier(handle) {
-  const idx = panier.findLastIndex(p => p.handle === handle);
-  if (idx !== -1) panier.splice(idx, 1);
-  localStorage.setItem('bouddhas_panier', JSON.stringify(panier));
-  location.reload();
-}
-
 // Exposer globalement
 window.addToCart = addToCart;
 window.retirerDuPanier = retirerDuPanier;
+window.updateQty = updateQty;
 window.createShopifyCheckout = createShopifyCheckout;
+window.showToast = showToast;

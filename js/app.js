@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   try {
     const products = await shopify.getProducts(12);
+    window.__productsCache = products;
     grid.innerHTML = products.map(p => {
       const img = p.images?.edges?.[0]?.node?.url || 'https://placehold.co/400x400/FDF8F0/C9A96E?text=Bouddhas';
       const price = shopify.formatPrice(p.priceRange.minVariantPrice.amount);
@@ -36,37 +37,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 // Cache produits pour le panier
 window.__productsCache = null;
 
-async function addToCart(handle) {
-  if (!window.__productsCache) {
-    window.__productsCache = await shopify.getProducts(100);
-  }
-  const p = window.__productsCache.find(x => x.handle === handle);
-  if (!p) return;
-
-  let panier = JSON.parse(localStorage.getItem('bouddhas_panier') || '[]');
-  panier.push({ 
-    handle, 
-    title: p.title, 
-    price: p.priceRange.minVariantPrice.amount,
-    img: p.images?.edges?.[0]?.node?.url || ''
-  });
-  localStorage.setItem('bouddhas_panier', JSON.stringify(panier));
-  updateCartCount();
-  showToast(`✅ "${p.title}" ajouté`);
-}
-
+// Mettre à jour le compteur panier
 function updateCartCount() {
   const panier = JSON.parse(localStorage.getItem('bouddhas_panier') || '[]');
   const el = document.getElementById('cart-count');
   if (el) el.textContent = panier.length;
-}
-
-function toast(msg) {
-  const t = document.getElementById('toast');
-  if (!t) return;
-  t.textContent = msg;
-  t.style.display = 'block';
-  setTimeout(() => t.style.display = 'none', 2500);
 }
 
 updateCartCount();

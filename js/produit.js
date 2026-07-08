@@ -1,4 +1,4 @@
-// Page détail produit — version PREMIUM
+// Page détail produit — version PREMIUM (FIX: variantes + quantité + variantId)
 document.addEventListener('DOMContentLoaded', async () => {
   const container = document.getElementById('product-detail');
   if (!container) return;
@@ -16,11 +16,34 @@ document.addEventListener('DOMContentLoaded', async () => {
       return;
     }
 
+    // Mettre en cache
+    if (!window.__productsCache) window.__productsCache = [];
+    if (!window.__productsCache.find(x => x.handle === handle)) {
+      window.__productsCache.push(p);
+    }
+
     const images = p.images?.edges?.map(e => e.node.url) || [];
     const mainImg = images[0] || 'https://placehold.co/600x600/FDF8F0/C9A96E?text=Bouddhas';
-    const price = shopify.formatPrice(p.priceRange.minVariantPrice.amount);
+    const variants = p.variants?.edges?.map(e => e.node) || [];
+    const defaultVariant = variants[0];
+    const defaultPrice = defaultVariant ? shopify.formatPrice(defaultVariant.price.amount) : shopify.formatPrice(p.priceRange.minVariantPrice.amount);
     const isNew = shopify.isNew(p.createdAt);
     const desc = p.descriptionHtml || p.description || '';
+
+    // Construire le sélecteur de variantes
+    let variantSelector = '';
+    if (variants.length > 1) {
+      variantSelector = `
+        <div class="product-options">
+          <div class="option-label">Variante :</div>
+          <select id="variant-select" onchange="onVariantChange()" style="padding:0.6rem 1rem;border:2px solid var(--beige);border-radius:8px;font-size:0.9rem;cursor:pointer;min-width:200px;">
+            ${variants.map((v, i) => `<option value="${v.id}" data-price="${v.price.amount}" ${i===0?'selected':''}>${v.title} — ${shopify.formatPrice(v.price.amount)}</option>`).join('')}
+          </select>
+        </div>
+      `;
+    } else if (defaultVariant) {
+      variantSelector = `<input type="hidden" id="variant-select" value="${defaultVariant.id}">`;
+    }
 
     container.innerHTML = `
       <div class="product-detail">
@@ -46,9 +69,10 @@ document.addEventListener('DOMContentLoaded', async () => {
           </div>
           ${p.productType ? `<div class="product-type">${p.productType}</div>` : ''}
           <div class="price-row">
-            <div class="product-price">${price}</div>
+            <div class="product-price" id="display-price">${defaultPrice}</div>
             ${p.availableForSale ? '<span class="stock-badge in-stock">✅ En stock</span>' : '<span class="stock-badge out-of-stock">❌ Épuisé</span>'}
           </div>
+          ${variantSelector}
           <div class="product-options">
             <div class="option-label">Quantité :</div>
             <div class="qty-selector">
@@ -57,9 +81,9 @@ document.addEventListener('DOMContentLoaded', async () => {
               <button class="qty-btn" onclick="changeQty(1)">+</button>
             </div>
           </div>
-          ${p.variants?.edges?.[0]?.node && p.availableForSale ? `
-            <button class="btn-add-cart" onclick="addToCart('${p.handle}')">
-              <span>🛒</span> Ajouter au panier — ${price}
+          ${defaultVariant && p.availableForSale ? `
+            <button class="btn-add-cart" onclick="addToCartFromPage('${p.handle}')">
+              <span>🛒</span> Ajouter au panier — <span id="btn-price">${defaultPrice}</span>
             </button>
           ` : ''}
           <div class="payment-badges">
@@ -141,6 +165,21 @@ function changeQty(delta) {
   document.getElementById('qty-value').textContent = qty;
 }
 
+function onVariantChange() {
+  const select = document.getElementById('variant-select');
+  const selectedOption = select.options[select.selectedIndex];
+  const price = shopify.formatPrice(selectedOption.dataset.price);
+  document.getElementById('display-price').textContent = price;
+  document.getElementById('btn-price').textContent = price;
+}
+
+// addToCart avec variantId + quantité depuis la page produit
+async function addToCartFromPage(handle) {
+  const select = document.getElementById('variant-select');
+  const variantId = select ? select.value : null;
+  await addToCart(handle, qty, variantId);
+}
+
 function toggleAccordion(header) {
   const item = header.closest('.accordion-item');
   const isOpen = item.classList.contains('active');
@@ -162,3 +201,9 @@ async function loadRelated(handle, type) {
     }).join('');
   } catch(e) { grid.innerHTML = ''; }
 }
+
+window.switchImage = switchImage;
+window.changeQty = changeQty;
+window.onVariantChange = onVariantChange;
+window.addToCartFromPage = addToCartFromPage;
+window.toggleAccordion = toggleAccordion;

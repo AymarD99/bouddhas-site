@@ -569,6 +569,21 @@ footer .copy { font-size: 0.85rem; margin-top: 2rem; opacity: 0.6; }
 }
 .payment-icons svg { height: 24px; opacity: 0.7; }
 
+/* ===== FILTER BUTTONS ===== */
+.filter-btn {
+  padding: 0.5rem 1.2rem;
+  border: 2px solid var(--beige);
+  border-radius: 20px;
+  background: var(--white);
+  color: var(--text);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: 'Raleway', sans-serif;
+}
+.filter-btn:hover { border-color: var(--gold); color: var(--gold-dark); }
+.filter-btn.active { background: var(--gold); color: var(--white); border-color: var(--gold); }
+
 /* ===== PRODUCT DETAIL PREMIUM ===== */
 .breadcrumb { font-size: 0.8rem; color: var(--text-light); margin-bottom: 1rem; }
 .breadcrumb a { color: var(--text-light); text-decoration: none; }

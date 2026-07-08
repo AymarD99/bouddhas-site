@@ -1,4 +1,4 @@
-// Slider Hero — carousel automatique
+// Slider Hero — carousel automatique (FIX: méthodes renommées correctement)
 class HeroSlider {
   constructor(container) {
     this.container = container;
@@ -11,7 +11,7 @@ class HeroSlider {
   }
 
   init() {
-    // Créer les dots
+    // Dots
     const dots = document.createElement('div');
     dots.className = 'slider-dots';
     for (let i = 0; i < this.total; i++) {
@@ -26,7 +26,7 @@ class HeroSlider {
     const prev = document.createElement('button');
     prev.className = 'slider-arrow slider-prev';
     prev.innerHTML = '‹';
-    prev.onclick = () => this.prev();
+    prev.onclick = () => this.prevSlide();
     
     const next = document.createElement('button');
     next.className = 'slider-arrow slider-next';
@@ -36,13 +36,11 @@ class HeroSlider {
     this.container.appendChild(prev);
     this.container.appendChild(next);
 
-    // Démarrer
     this.goTo(0);
-    this.startAuto();
+    this.startAutoPlay();
     
-    // Pause au hover
-    this.container.addEventListener('mouseenter', () => this.stopAuto());
-    this.container.addEventListener('mouseleave', () => this.startAuto());
+    this.container.addEventListener('mouseenter', () => this.stopAutoPlay());
+    this.container.addEventListener('mouseleave', () => this.startAutoPlay());
   }
 
   goTo(index) {
@@ -51,7 +49,6 @@ class HeroSlider {
       s.classList.toggle('active', i === index);
       s.style.transform = `translateX(${(i - index) * 100}%)`;
     });
-    // Dots
     const dots = this.container.querySelectorAll('.slider-dot');
     dots.forEach((d, i) => d.classList.toggle('active', i === index));
   }
