@@ -1,4 +1,4 @@
-// Panier — localStorage + Shopify Checkout
+// Panier — stocké dans localStorage
 let panier = JSON.parse(localStorage.getItem('bouddhas_panier') || '[]');
 
 function majCompteur() {
@@ -15,7 +15,7 @@ function showToast(msg) {
   setTimeout(() => t.style.display = 'none', 2500);
 }
 
-// Fonction appelée depuis les pages
+// Ajouter depuis les pages
 async function addToCart(handle) {
   if (!window.__productsCache) {
     window.__productsCache = await shopify.getProducts(100);
@@ -25,6 +25,7 @@ async function addToCart(handle) {
 
   panier.push({
     handle,
+    variantId: p.variants?.edges?.[0]?.node?.id || null,
     title: p.title,
     price: p.priceRange.minVariantPrice.amount,
     img: p.images?.edges?.[0]?.node?.url || ''
@@ -32,6 +33,61 @@ async function addToCart(handle) {
   localStorage.setItem('bouddhas_panier', JSON.stringify(panier));
   majCompteur();
   showToast(`✅ "${p.title}" ajouté`);
+}
+
+// Créer un checkout Shopify via API Storefront
+async function createShopifyCheckout() {
+  if (panier.length === 0) return;
+
+  showToast('🔄 Préparation du checkout...');
+
+  try {
+    // Récupérer les variants IDs
+    const items = [];
+    for (const p of panier) {
+      if (p.variantId) {
+        items.push({ merchandiseId: p.variantId, quantity: 1 });
+      }
+    }
+
+    if (items.length === 0) {
+      showToast('❌ Impossible de préparer la commande');
+      return;
+    }
+
+    const mutation = `
+      mutation {
+        cartCreate(input: { lines: [${items.map(i => `{ merchandiseId: "${i.merchandiseId}", quantity: ${i.quantity} }`).join(',')}] }) {
+          cart {
+            id
+            checkoutUrl
+          }
+          userErrors { field message }
+        }
+      }
+    `;
+
+    const res = await fetch(CONFIG.apiUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Shopify-Storefront-Access-Token': CONFIG.storefrontToken
+      },
+      body: JSON.stringify({ query: mutation })
+    });
+    const data = await res.json();
+
+    if (data.data?.cartCreate?.cart?.checkoutUrl) {
+      const url = data.data.cartCreate.cart.checkoutUrl;
+      // Ouvrir le checkout
+      window.location.href = url;
+    } else {
+      const err = data.data?.cartCreate?.userErrors?.[0]?.message || 'Erreur inconnue';
+      showToast(`❌ ${err}`);
+    }
+  } catch (e) {
+    showToast(`❌ Erreur: ${e.message}`);
+  }
 }
 
 // Page panier
@@ -51,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
-  // Grouper
+  // Grouper par handle
   const grouped = {};
   panier.forEach(p => {
     if (!grouped[p.handle]) grouped[p.handle] = { ...p, qty: 0 };
@@ -64,13 +120,14 @@ document.addEventListener('DOMContentLoaded', () => {
     total += stotal;
     return `
       <div class="cart-item">
-        <div>
+        ${p.img ? `<img src="${p.img}" style="width:60px;height:60px;object-fit:cover;border-radius:8px;margin-right:1rem;">` : ''}
+        <div style="flex:1;">
           <h4>${p.title}</h4>
-          <div style="color:var(--text-light);font-size:0.9rem;margin-top:0.2rem;">Quantité: ${p.qty}</div>
+          <div style="color:var(--text-light);font-size:0.9rem;">Qté: ${p.qty}</div>
         </div>
         <div style="text-align:right;">
           <div class="price">${stotal.toFixed(2)} €</div>
-          <button onclick="retirer('${p.handle}')" style="background:none;border:none;color:#c00;cursor:pointer;font-size:0.8rem;margin-top:0.3rem;">Supprimer</button>
+          <button onclick="retirerDuPanier('${p.handle}')" style="background:none;border:none;color:#c00;cursor:pointer;font-size:0.8rem;margin-top:0.3rem;">Supprimer</button>
         </div>
       </div>
     `;
@@ -79,10 +136,13 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('cart-total').textContent = `${total.toFixed(2)} €`;
   if (summary) summary.style.display = 'block';
 
+  // Bouton checkout
   const btn = document.getElementById('checkout-btn');
   if (btn) {
-    btn.href = 'https://my-bouddha-store.myshopify.com/checkout';
-    btn.target = '_blank';
+    btn.onclick = async (e) => {
+      e.preventDefault();
+      await createShopifyCheckout();
+    };
   }
 });
 
@@ -93,6 +153,7 @@ function retirerDuPanier(handle) {
   location.reload();
 }
 
-// Garder addToCart accessible depuis les autres pages
+// Exposer globalement
 window.addToCart = addToCart;
-window.retirerFromCart = retirerDuPanier;
+window.retirerDuPanier = retirerDuPanier;
+window.createShopifyCheckout = createShopifyCheckout;

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ — Bouddhas</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <a href="/" class="logo">Bouddhas</a>
+      <div class="nav-links">
+        <a href="/">Accueil</a>
+        <a href="/produits">Boutique</a>
+        <a href="/a-propos">À propos</a>
+        <a href="/livraison">Livraison</a>
+        <a href="/pierres">Guide pierres</a>
+        <a href="/faq">FAQ</a>
+        <a href="/a-propos">À propos</a>
+        <a href="/livraison">Livraison</a>
+        <a href="/pierres">Guide pierres</a>
+        <a href="/faq">FAQ</a>
+        <a href="/contact">Contact</a>
+        <div class="search-box">
+          <span class="icon">🔍</span>
+          <input type="text" id="search-input" placeholder="Rechercher..." autocomplete="off">
+          <div class="search-results" id="search-results"></div>
+        </div>
+        <a href="/panier" class="cart-link">Panier <span id="cart-count">0</span></a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="section" style="max-width:800px;">
+    <h2 class="section-title">Questions fréquentes</h2>
+    <p class="section-subtitle">Tout ce que vous devez savoir</p>
+
+    <div id="faq-container">
+      <div class="faq-item" style="background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-sm);margin-bottom:1rem;overflow:hidden;">
+        <div class="faq-q" onclick="toggleFAQ(this)" style="padding:1.5rem 2rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:600;">
+          <span>💎 Qu'est-ce que la lithothérapie ?</span>
+          <span style="font-size:1.5rem;transition:transform 0.3s;">+</span>
+        </div>
+        <div class="faq-r" style="padding:0 2rem 1.5rem;display:none;color:var(--text-light);line-height:1.8;">
+          La lithothérapie est une pratique qui utilise les propriétés énergétiques des pierres et cristaux pour favoriser le bien-être physique et spirituel. Chaque pierre possède des vertus uniques : l'améthyste apaise l'esprit, le quartz rose ouvre le cœur, la labradorite protège des énergies négatives.
+        </div>
+      </div>
+
+      <div class="faq-item" style="background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-sm);margin-bottom:1rem;overflow:hidden;">
+        <div class="faq-q" onclick="toggleFAQ(this)" style="padding:1.5rem 2rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:600;">
+          <span>💍 Comment choisir la bonne taille de bague ?</span>
+          <span style="font-size:1.5rem;transition:transform 0.3s;">+</span>
+        </div>
+        <div class="faq-r" style="padding:0 2rem 1.5rem;display:none;color:var(--text-light);line-height:1.8;">
+          Utilisez un mètre ruban ou une ficelle : mesurez le tour de votre doigt en millimètres. Tournez le tableau : 52mm = taille 52 (S), 56mm = 56 (M), 60mm = 60 (L). La plupart de nos bagues sont ajustables.
+        </div>
+      </div>
+
+      <div class="faq-item" style="background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-sm);margin-bottom:1rem;overflow:hidden;">
+        <div class="faq-q" onclick="toggleFAQ(this)" style="padding:1.5rem 2rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:600;">
+          <span>🕯️ Comment purifier et recharger mes pierres ?</span>
+          <span style="font-size:1.5rem;transition:transform 0.3s;">+</span>
+        </div>
+        <div class="faq-r" style="padding:0 2rem 1.5rem;display:none;color:var(--text-light);line-height:1.8;">
+          Plusieurs méthodes : passez-les sous l'eau froide (purification), exposez-les à la lumière lunaire (recharge, idéal pleine lune), utilisez un bol tibétain ou déposez-les sur un amas de quartz. <strong>Évitez le soleil direct</strong> qui décolore certaines pierres.
+        </div>
+      </div>
+
+      <div class="faq-item" style="background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-sm);margin-bottom:1rem;overflow:hidden;">
+        <div class="faq-q" onclick="toggleFAQ(this)" style="padding:1.5rem 2rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:600;">
+          <span>📦 Quels sont les délais de livraison ?</span>
+          <span style="font-size:1.5rem;transition:transform 0.3s;">+</span>
+        </div>
+        <div class="faq-r" style="padding:0 2rem 1.5rem;display:none;color:var(--text-light);line-height:1.8;">
+          France : 3-5 jours ouvrés. Europe : 5-8 jours. International : 8-15 jours. Tous les envois sont suivis et soigneusement emballés. Voir notre <a href="/livraison" style="color:var(--gold-dark);">page Livraison</a> pour plus de détails.
+        </div>
+      </div>
+
+      <div class="faq-item" style="background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-sm);margin-bottom:1rem;overflow:hidden;">
+        <div class="faq-q" onclick="toggleFAQ(this)" style="padding:1.5rem 2rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:600;">
+          <span>🔄 Puis-je retourner un article ?</span>
+          <span style="font-size:1.5rem;transition:transform 0.3s;">+</span>
+        </div>
+        <div class="faq-r" style="padding:0 2rem 1.5rem;display:none;color:var(--text-light);line-height:1.8;">
+          Oui, vous disposez de 14 jours après réception pour retourner un article (hors pièces personnalisées). Remboursement sous 48h après réception du retour. Les frais de retour sont à votre charge.
+        </div>
+      </div>
+
+      <div class="faq-item" style="background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-sm);margin-bottom:1rem;overflow:hidden;">
+        <div class="faq-q" onclick="toggleFAQ(this)" style="padding:1.5rem 2rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:600;">
+          <span>💳 Quels moyens de paiement acceptez-vous ?</span>
+          <span style="font-size:1.5rem;transition:transform 0.3s;">+</span>
+        </div>
+        <div class="faq-r" style="padding:0 2rem 1.5rem;display:none;color:var(--text-light);line-height:1.8;">
+          Paiement sécurisé via Shopify : CB, Visa, Mastercard, PayPal, Apple Pay. Toutes les transactions sont cryptées et sécurisées.
+        </div>
+      </div>
+
+      <div class="faq-item" style="background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-sm);margin-bottom:1rem;overflow:hidden;">
+        <div class="faq-q" onclick="toggleFAQ(this)" style="padding:1.5rem 2rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:600;">
+          <span>🧘 Comment entretenir mes bijoux ?</span>
+          <span style="font-size:1.5rem;transition:transform 0.3s;">+</span>
+        </div>
+        <div class="faq-r" style="padding:0 2rem 1.5rem;display:none;color:var(--text-light);line-height:1.8;">
+          Évitez le contact avec l'eau, les parfums et les produits chimiques. Nettoyez avec un chiffon doux. Retirez vos bijoux avant le sport, la douche ou le sommeil. Rangez-les à l'abri de la lumière et de l'humidité.
+        </div>
+      </div>
+
+      <div class="faq-item" style="background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-sm);margin-bottom:1rem;overflow:hidden;">
+        <div class="faq-q" onclick="toggleFAQ(this)" style="padding:1.5rem 2rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:600;">
+          <span>🎁 Offrez-vous un emballage cadeau ?</span>
+          <span style="font-size:1.5rem;transition:transform 0.3s;">+</span>
+        </div>
+        <div class="faq-r" style="padding:0 2rem 1.5rem;display:none;color:var(--text-light);line-height:1.8;">
+          Oui ! Chaque commande est emballée avec soin dans du papier de soie et livrée dans une pochette en velours. Vous pouvez ajouter un message personnalisé en commentaire de commande.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="brand">Bouddhas</div>
+      <div class="sub">Artisanat spirituel & bijoux sacrés</div>
+      <div class="copy">&copy; 2026 Bouddhas — Tous droits réservés</div>
+    </div>
+  </footer>
+
+  <script>
+  function toggleFAQ(el) {
+    const reponse = el.nextElementSibling;
+    const signe = el.querySelector('span:last-child');
+    const isOpen = reponse.style.display === 'block';
+    reponse.style.display = isOpen ? 'none' : 'block';
+    signe.textContent = isOpen ? '+' : '−';
+    signe.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(45deg)';
+  }
+  </script>
+</body>
+</html>

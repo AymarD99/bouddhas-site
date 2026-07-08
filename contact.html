@@ -14,38 +14,98 @@
       <div class="nav-links">
         <a href="/">Accueil</a>
         <a href="/produits">Boutique</a>
+        <a href="/a-propos">À propos</a>
+        <a href="/livraison">Livraison</a>
+        <a href="/a-propos">À propos</a>
+        <a href="/livraison">Livraison</a>
+        <a href="/pierres">Guide pierres</a>
+        <a href="/faq">FAQ</a>
         <a href="/contact">Contact</a>
+        <div class="search-box">
+          <span class="icon">🔍</span>
+          <input type="text" id="search-input" placeholder="Rechercher..." autocomplete="off">
+          <div class="search-results" id="search-results"></div>
+        </div>
         <a href="/panier" class="cart-link">Panier <span id="cart-count">0</span></a>
       </div>
     </div>
   </nav>
 
-  <section class="section" style="max-width:600px;">
+  <section class="section" style="max-width:700px;">
     <h2 class="section-title">Contact</h2>
-    <p class="section-subtitle">Une question ? Un conseil ? Écrivez-nous</p>
+    <p class="section-subtitle">Une question ? Un conseil pour choisir votre pierre ? Écrivez-nous</p>
 
-    <div style="background:var(--white);padding:2.5rem;border-radius:15px;box-shadow:var(--shadow);">
-      <p style="margin-bottom:1.5rem;text-align:center;">
-        Pour toute question, contactez-nous via nos réseaux ou notre boutique Shopify.
-      </p>
-      <div style="display:flex;flex-direction:column;gap:1rem;">
-        <div style="display:flex;align-items:center;gap:1rem;padding:1rem;background:var(--beige);border-radius:10px;">
-          <span style="font-size:1.5rem;">🛒</span>
-          <span>Boutique Shopify : <a href="https://my-bouddha-store.myshopify.com" target="_blank" style="color:var(--gold-dark);">my-bouddha-store.myshopify.com</a></span>
+    <div class="contact-card">
+      <form id="contact-form" onsubmit="return envoyerMessage(event)">
+        <div style="margin-bottom:1.5rem;">
+          <label style="display:block;font-weight:600;margin-bottom:0.5rem;">Nom *</label>
+          <input type="text" id="contact-nom" required style="width:100%;padding:1rem;border:2px solid var(--beige);border-radius:10px;font-family:inherit;font-size:1rem;">
         </div>
-      </div>
+        <div style="margin-bottom:1.5rem;">
+          <label style="display:block;font-weight:600;margin-bottom:0.5rem;">Email *</label>
+          <input type="email" id="contact-email" required style="width:100%;padding:1rem;border:2px solid var(--beige);border-radius:10px;font-family:inherit;font-size:1rem;">
+        </div>
+        <div style="margin-bottom:1.5rem;">
+          <label style="display:block;font-weight:600;margin-bottom:0.5rem;">Sujet</label>
+          <select id="contact-sujet" style="width:100%;padding:1rem;border:2px solid var(--beige);border-radius:10px;font-family:inherit;font-size:1rem;">
+            <option>Question sur un produit</option>
+            <option>Conseil lithothérapie</option>
+            <option>Commande personnalisée</option>
+            <option>Livraison</option>
+            <option>Autre</option>
+          </select>
+        </div>
+        <div style="margin-bottom:1.5rem;">
+          <label style="display:block;font-weight:600;margin-bottom:0.5rem;">Message *</label>
+          <textarea id="contact-message" rows="5" required style="width:100%;padding:1rem;border:2px solid var(--beige);border-radius:10px;font-family:inherit;font-size:1rem;resize:vertical;"></textarea>
+        </div>
+        <button type="submit" class="btn-primary" style="width:100%;">Envoyer le message ✨</button>
+        <div id="contact-confirmation" style="display:none;text-align:center;padding:2rem;background:#e8f5e9;border-radius:10px;margin-top:1rem;font-weight:600;color:#2e7d32;">
+          ✅ Message envoyé avec succès ! Nous vous répondrons rapidement.
+        </div>
+      </form>
+    </div>
+
+    <div style="margin-top:3rem;">
+      <h3 style="text-align:center;margin-bottom:1.5rem;">Autres moyens de nous joindre</h3>
+      <div class="contact-item"><span style="font-size:1.5rem;">📧</span> bouddhas@contact (via formulaire)</div>
+      <div class="contact-item"><span style="font-size:1.5rem;">🛒</span> Boutique Shopify : <a href="https://my-bouddha-store.myshopify.com" target="_blank" style="color:var(--gold-dark);margin-left:0.5rem;">my-bouddha-store.myshopify.com</a></div>
+      <div class="contact-item"><span style="font-size:1.5rem;">⏱️</span> Réponse sous 24h — jours ouvrés</div>
     </div>
   </section>
 
   <footer>
     <div class="container">
-      <p style="font-size:1.5rem;font-family:'Playfair Display',serif;color:var(--gold);margin-bottom:0.5rem;">Bouddhas</p>
-      <p>&copy; 2026 Bouddhas — Tous droits réservés</p>
+      <div class="brand">Bouddhas</div>
+      <div class="sub">Artisanat spirituel & bijoux sacrés</div>
+      <div class="copy">&copy; 2026 Bouddhas — Tous droits réservés</div>
     </div>
   </footer>
 
+  <div id="toast" class="toast"></div>
   <script src="js/config.js"></script>
   <script src="js/shopify.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/search.js"></script>
+  <script>
+  async function envoyerMessage(e) {
+    e.preventDefault();
+    const data = {
+      nom: document.getElementById('contact-nom').value,
+      email: document.getElementById('contact-email').value,
+      sujet: document.getElementById('contact-sujet').value,
+      message: document.getElementById('contact-message').value
+    };
+    
+    // Stocker dans le localStorage pour récupération
+    const msgs = JSON.parse(localStorage.getItem('bouddhas_contacts') || '[]');
+    msgs.push({ ...data, date: new Date().toISOString() });
+    localStorage.setItem('bouddhas_contacts', JSON.stringify(msgs));
+    
+    document.getElementById('contact-form').style.display = 'none';
+    document.getElementById('contact-confirmation').style.display = 'block';
+    return false;
+  }
+  </script>
 </body>
 </html>
