@@ -16,7 +16,7 @@
   <title>Bouddhas — Bijoux en Pierres Naturelles & Artisanat Spirituel</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%231A1A2C'/%3E%3Ctext x='50' y='68' font-size='50' text-anchor='middle' fill='%23C9A96E' font-family='serif'%3E%F0%9F%93%BF%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="/css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="announcement-bar" id="announcement-bar">
@@ -27,6 +27,7 @@
       <div class="swiper-slide">✨ Nouveautés chaque semaine</div>
     </div>
   </div>
+
   <nav class="navbar">
     <div class="container">
       <a href="/" class="logo">Bouddhas</a>
@@ -49,13 +50,9 @@
     </div>
   </nav>
   <div class="nav-overlay" id="nav-overlay" onclick="toggleNav()"></div>
-  <script>
-    function toggleNav() {
-      document.getElementById('nav-links').classList.toggle('open');
-      document.getElementById('nav-overlay').classList.toggle('open');
-    }
-  </script>
+  <script>function toggleNav(){document.getElementById('nav-links').classList.toggle('open');document.getElementById('nav-overlay').classList.toggle('open');}</script>
 
+  <!-- HERO CAROUSEL -->
   <section class="hero carousel">
     <div class="hero-slide active" style="background:linear-gradient(135deg,#1A1A2E 0%,#2A1F0E 50%,#1A1A2E 100%);">
       <div class="container">
@@ -80,41 +77,82 @@
     </div>
   </section>
 
-  <section class="section">
+  <!-- STATS BAR -->
+  <div class="stats-bar reveal">
+    <div class="stat-item">
+      <div class="stat-number">240+</div>
+      <div class="stat-label">Produits uniques</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">15K+</div>
+      <div class="stat-label">Clients satisfaits</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">4.9/5</div>
+      <div class="stat-label">Note moyenne</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">48h</div>
+      <div class="stat-label">Expédition rapide</div>
+    </div>
+  </div>
+
+  <!-- CATÉGORIES -->
+  <section class="section reveal">
     <h2 class="section-title">Nos univers</h2>
     <p class="section-subtitle">Chaque pièce raconte une histoire sacrée</p>
     <div class="category-grid">
-      <a href="/produits?categorie=Bague" class="category-card"><div class="icon">💍</div><h3>Bagues</h3><div class="count">Spiritualité au quotidien</div></a>
       <a href="/produits?categorie=Pendentif" class="category-card"><div class="icon">📿</div><h3>Pendentifs</h3><div class="count">Protection & énergie</div></a>
       <a href="/produits?categorie=Bracelet" class="category-card"><div class="icon">⛓️</div><h3>Bracelets</h3><div class="count">Bien-être & harmonie</div></a>
-      <a href="/produits" class="category-card"><div class="icon">✨</div><h3>Tous les produits</h3><div class="count">Découvrir la collection</div></a>
+      <a href="/produits?categorie=Bague" class="category-card"><div class="icon">💍</div><h3>Bagues</h3><div class="count">Spiritualité au quotidien</div></a>
+      <a href="/produits?categorie=Orgonite" class="category-card"><div class="icon">💎</div><h3>Orgonites</h3><div class="count">Énergie & chakras</div></a>
     </div>
   </section>
 
-  <section class="section" style="padding:2rem;max-width:1000px;">
+  <!-- BADGES CONFIANCE -->
+  <section class="section" style="padding:1rem 2rem;max-width:1000px;">
     <div class="trust-badges">
-      <div class="trust-badge"><span class="icon">🚚</span><h4>Livraison offerte</h4><p>Dès 50€ d'achat en France métropolitaine</p></div>
-      <div class="trust-badge"><span class="icon">🔒</span><h4>Paiement sécurisé</h4><p>CB, Visa, Mastercard, PayPal, Apple Pay</p></div>
-      <div class="trust-badge"><span class="icon">💎</span><h4>Qualité authentique</h4><p>Pierres naturelles sélectionnées avec soin</p></div>
-      <div class="trust-badge"><span class="icon">🔄</span><h4>Retours sous 14 jours</h4><p>Satisfait ou remboursé</p></div>
+      <div class="trust-badge"><span class="icon">🚚</span><h4>Livraison offerte</h4><p>Dès 50€ en France</p></div>
+      <div class="trust-badge"><span class="icon">🔒</span><h4>Paiement sécurisé</h4><p>CB, Visa, PayPal</p></div>
+      <div class="trust-badge"><span class="icon">💎</span><h4>Qualité authentique</h4><p>Pierres naturelles</p></div>
+      <div class="trust-badge"><span class="icon">🔄</span><h4>Retours 14 jours</h4><p>Satisfait ou remboursé</p></div>
     </div>
   </section>
 
-  <section class="section">
+  <!-- PRODUITS -->
+  <section class="section reveal">
     <h2 class="section-title">Nos dernières pièces</h2>
     <p class="section-subtitle">Chaque création est unique, façonnée avec intention</p>
     <div class="product-grid" id="product-grid">
       <div class="product-card" style="text-align:center;padding:3rem;color:var(--text-light);">Chargement...</div>
     </div>
+    <div style="text-align:center;margin-top:3rem;">
+      <a href="/produits" class="btn-primary">Voir toute la collection</a>
+    </div>
   </section>
 
-  <section class="section">
+  <!-- HISTOIRE / VALEURS -->
+  <section class="story-section reveal">
+    <div class="story-text">
+      <h2>L'art de la spiritualité</h2>
+      <p>Chez Bouddhas, nous croyons que chaque pierre, chaque bijou porte une énergie unique. Nos pièces sont sélectionnées avec soin auprès d'artisans passionnés qui mettent leur savoir-faire au service du bien-être.</p>
+      <p>De l'améthyste apaisante au quartz purificateur, chaque création est pensée pour vous accompagner sur votre chemin spirituel, que vous soyez débutant ou pratiquant confirmé.</p>
+      <a href="/a-propos" class="btn-primary" style="margin-top:1rem;">Notre histoire</a>
+    </div>
+    <div class="story-image">
+      <img src="https://images.unsplash.com/photo-1608231387042-66d030c3d1e4?w=800&q=80" alt="Artisanat spirituel Bouddhas" loading="lazy" onerror="this.src='https://placehold.co/800x600/1A1A2C/C9A96E?text=Bouddhas'">
+    </div>
+  </section>
+
+  <!-- AVIS CLIENTS -->
+  <section class="section reveal">
     <h2 class="section-title">Ce qu'ils disent</h2>
     <p class="section-subtitle">La satisfaction de nos clients est notre plus belle récompense</p>
     <div id="avis-container"></div>
   </section>
 
-  <section class="newsletter-section">
+  <!-- NEWSLETTER -->
+  <section class="newsletter-section reveal">
     <h2>Newsletter</h2>
     <p>Recevez nos offres exclusives et les dernières nouveautés</p>
     <form id="newsletter-form" class="newsletter-box">
@@ -123,6 +161,7 @@
     </form>
   </section>
 
+  <!-- POPUP NEWSLETTER -->
   <div class="newsletter-popup" id="newsletter-popup">
     <div class="popup-content">
       <button class="popup-close">&times;</button>
@@ -136,23 +175,54 @@
     </div>
   </div>
 
+  <!-- FOOTER PREMIUM -->
   <footer>
     <div class="container">
-      <div class="brand">Bouddhas</div>
-      <div class="sub">Artisanat spirituel & bijoux sacrés</div>
-      <div style="display:flex;justify-content:center;gap:1.5rem;margin:1.5rem 0;">
-        <a href="/a-propos" style="color:rgba(255,255,255,0.4);text-decoration:none;font-size:0.9rem;">À propos</a>
-        <a href="/livraison" style="color:rgba(255,255,255,0.4);text-decoration:none;font-size:0.9rem;">Livraison</a>
-        <a href="/faq" style="color:rgba(255,255,255,0.4);text-decoration:none;font-size:0.9rem;">FAQ</a>
-        <a href="/contact" style="color:rgba(255,255,255,0.4);text-decoration:none;font-size:0.9rem;">Contact</a>
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-brand">Bouddhas</div>
+          <p class="footer-desc">Artisanat spirituel & bijoux sacrés. Pierres naturelles authentiques sélectionnées avec soin pour leurs bienfaits énergétiques.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram">📷</a>
+            <a href="#" aria-label="Facebook">📘</a>
+            <a href="#" aria-label="Pinterest">📌</a>
+            <a href="#" aria-label="TikTok">🎵</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Boutique</h4>
+          <a href="/produits">Tous les produits</a>
+          <a href="/produits?categorie=Pendentif">Pendentifs</a>
+          <a href="/produits?categorie=Bracelet">Bracelets</a>
+          <a href="/produits?categorie=Bague">Bagues</a>
+          <a href="/produits?categorie=Orgonite">Orgonites</a>
+        </div>
+        <div class="footer-col">
+          <h4>Informations</h4>
+          <a href="/a-propos">À propos</a>
+          <a href="/livraison">Livraison & retours</a>
+          <a href="/pierres">Guide des pierres</a>
+          <a href="/faq">FAQ</a>
+          <a href="/contact">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Aide</h4>
+          <a href="/faq">Questions fréquentes</a>
+          <a href="/contact">Service client</a>
+          <a href="/livraison">Suivi de commande</a>
+          <p>⏱️ Réponse sous 24h</p>
+          <p>🔒 Paiement sécurisé</p>
+        </div>
       </div>
-      <div class="payment-icons">
-        <svg viewBox="0 0 38 24" width="38" height="24"><rect x=".5" y=".5" width="37" height="23" rx="2.5" stroke="rgba(255,255,255,0.3)"/><rect x="14" y="6" width="10" height="12" rx="5" fill="#EB001B"/><rect x="18" y="6" width="10" height="12" rx="5" fill="#F79E1B"/><path d="M21 6a6 6 0 0 1 0 12" fill="#FF5F00"/></svg>
-        <svg viewBox="0 0 38 24" width="38" height="24"><rect x=".5" y=".5" width="37" height="23" rx="2.5" stroke="rgba(255,255,255,0.3)"/><text x="19" y="16" text-anchor="middle" fill="#142FBD" font-size="7" font-weight="bold" font-family="sans-serif">VISA</text></svg>
-        <svg viewBox="0 0 38 24" width="38" height="24"><rect x=".5" y=".5" width="37" height="23" rx="2.5" stroke="rgba(255,255,255,0.3)"/><text x="19" y="16" text-anchor="middle" fill="#FFC439" font-size="6" font-weight="bold" font-family="sans-serif">PayPal</text></svg>
-        <span style="color:rgba(255,255,255,0.3);font-size:0.8rem;">Apple Pay</span>
+      <div class="footer-bottom">
+        <div class="payment-icons">
+          <svg viewBox="0 0 38 24" width="38" height="24"><rect x=".5" y=".5" width="37" height="23" rx="2.5" stroke="rgba(255,255,255,0.3)"/><rect x="14" y="6" width="10" height="12" rx="5" fill="#EB001B"/><rect x="18" y="6" width="10" height="12" rx="5" fill="#F79E1B"/><path d="M21 6a6 6 0 0 1 0 12" fill="#FF5F00"/></svg>
+          <svg viewBox="0 0 38 24" width="38" height="24"><rect x=".5" y=".5" width="37" height="23" rx="2.5" stroke="rgba(255,255,255,0.3)"/><text x="19" y="16" text-anchor="middle" fill="#142FBD" font-size="7" font-weight="bold" font-family="sans-serif">VISA</text></svg>
+          <svg viewBox="0 0 38 24" width="38" height="24"><rect x=".5" y=".5" width="37" height="23" rx="2.5" stroke="rgba(255,255,255,0.3)"/><text x="19" y="16" text-anchor="middle" fill="#FFC439" font-size="6" font-weight="bold" font-family="sans-serif">PayPal</text></svg>
+          <span style="color:rgba(255,255,255,0.3);font-size:0.8rem;">Apple Pay</span>
+        </div>
+        <p style="color:rgba(255,255,255,0.3);font-size:0.8rem;margin-top:1rem;">&copy; 2026 Bouddhas — Tous droits réservés · Bijoux en pierres naturelles</p>
       </div>
-      <div class="copy">&copy; 2026 Bouddhas — Tous droits réservés</div>
     </div>
   </footer>
 
@@ -167,5 +237,12 @@
   <script src="/js/avis.js"></script>
   <script src="/js/newsletter.js"></script>
   <script src="/js/announce.js"></script>
+  <script>
+    // Animation au scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>

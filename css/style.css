@@ -927,3 +927,392 @@ footer .copy { font-size: 0.85rem; margin-top: 2rem; opacity: 0.6; }
 
 .hero .container { animation: fadeUp 0.8s ease; }
 .section { animation: fadeUp 0.6s ease; }
+
+/* =========================================== */
+/* ===== PREMIUM UPGRADE — GOLD/BLACK DNA ===== */
+/* =========================================== */
+
+/* ===== 1. SCROLL REVEAL ANIMATIONS ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== 2. CARTES PRODUIT PREMIUM ===== */
+.product-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  background: var(--white);
+  transition: all 0.4s ease;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+.product-card .image-wrap {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1;
+}
+.product-card .image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.product-card:hover .image-wrap img {
+  transform: scale(1.08);
+}
+.product-card .product-info {
+  padding: 1.2rem;
+}
+.product-card h3 {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  margin-bottom: 0.3rem;
+}
+.product-card .price {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--gold-dark);
+  margin: 0.5rem 0;
+}
+.product-card .btn-add {
+  width: 100%;
+  padding: 0.7rem;
+  background: var(--dark);
+  color: var(--white);
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 0.85rem;
+}
+.product-card .btn-add:hover {
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+}
+
+/* ===== 3. HERO PREMIUM ===== */
+.hero-slide {
+  background-size: cover;
+  background-position: center;
+}
+.hero-slide::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 15, 26, 0.6);
+  backdrop-filter: blur(2px);
+}
+.hero-slide h1 {
+  font-size: 4rem;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+.hero-slide p {
+  font-size: 1.25rem;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  opacity: 0.85;
+}
+.hero .gold {
+  color: var(--gold);
+  font-style: italic;
+}
+
+/* ===== 4. SECTION HISTOIRE / VALEURS ===== */
+.story-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+.story-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--dark);
+}
+.story-text p {
+  color: var(--text-light);
+  line-height: 1.9;
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+}
+.story-image {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  aspect-ratio: 4/3;
+}
+.story-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ===== 5. FOOTER PREMIUM ===== */
+footer {
+  background: var(--darker);
+  color: var(--white);
+  padding: 4rem 2rem 2rem;
+}
+footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+.footer-col h4 {
+  color: var(--gold);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 1.2rem;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+}
+.footer-col p,
+.footer-col a {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.85rem;
+  line-height: 1.8;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 0.3rem;
+  transition: var(--transition);
+}
+.footer-col a:hover {
+  color: var(--gold);
+}
+.footer-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5rem;
+}
+.footer-desc {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.85rem;
+  line-height: 1.8;
+  max-width: 300px;
+}
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 2rem;
+  text-align: center;
+}
+.footer-social {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.footer-social a {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transition: var(--transition);
+}
+.footer-social a:hover {
+  background: var(--gold);
+  transform: translateY(-3px);
+}
+
+/* ===== 6. COMPTEURS / STATS ===== */
+.stats-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  background: linear-gradient(135deg, var(--dark), var(--darker));
+  border-radius: 20px;
+  padding: 3rem 2rem;
+  margin: 3rem auto;
+  max-width: 1000px;
+}
+.stat-item {
+  text-align: center;
+}
+.stat-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 0.3rem;
+}
+.stat-label {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ===== 7. SECTION TITRE AMÉLIORÉ ===== */
+.section {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.section-title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  color: var(--dark);
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-dark));
+  margin: 1rem auto;
+  border-radius: 2px;
+}
+.section-subtitle {
+  text-align: center;
+  color: var(--text-light);
+  font-size: 1rem;
+  margin-bottom: 3rem;
+}
+
+/* ===== 8. BOUTON PREMIUM ===== */
+.btn-primary {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  color: var(--white);
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  transition: all 0.3s;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(201, 169, 110, 0.25);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(201, 169, 110, 0.4);
+}
+
+/* ===== 9. BADGE PROMO SUR CARTE ===== */
+.product-card .badge-sale {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #c4301c;
+  color: white;
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  z-index: 2;
+}
+.product-card .quick-view {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(15, 15, 26, 0.9);
+  color: white;
+  padding: 0.8rem;
+  text-align: center;
+  font-size: 0.8rem;
+  transform: translateY(100%);
+  transition: transform 0.3s;
+}
+.product-card:hover .quick-view {
+  transform: translateY(0);
+}
+
+/* ===== 10. CATEGORIE CARTE PREMIUM ===== */
+.category-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.4s;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  position: relative;
+  overflow: hidden;
+}
+.category-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-dark));
+  transform: scaleX(0);
+  transition: transform 0.4s;
+}
+.category-card:hover::before {
+  transform: scaleX(1);
+}
+.category-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow);
+}
+.category-card .icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+.category-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+}
+.category-card .count {
+  color: var(--text-light);
+  font-size: 0.8rem;
+}
+
+/* ===== 11. RESPONSIVE PREMIUM ===== */
+@media (max-width: 768px) {
+  .story-section {
+    grid-template-columns: 1fr;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .stats-bar {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 2rem 1rem;
+  }
+  .hero-slide h1 {
+    font-size: 2rem;
+  }
+  .hero-slide p {
+    font-size: 1rem;
+  }
+  .section-title {
+    font-size: 1.8rem;
+  }
+}

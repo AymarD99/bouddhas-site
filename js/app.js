@@ -1,4 +1,4 @@
-// Accueil — produits avec badge Nouveau
+// Accueil — produits premium avec hover, quick-view, badges
 document.addEventListener('DOMContentLoaded', async () => {
   const grid = document.getElementById('product-grid');
   if (!grid) return;
@@ -10,21 +10,31 @@ document.addEventListener('DOMContentLoaded', async () => {
       const img = p.images?.edges?.[0]?.node?.url || 'https://placehold.co/400x400/FDF8F0/C9A96E?text=Bouddhas';
       const price = shopify.formatPrice(p.priceRange.minVariantPrice.amount);
       const isNew = shopify.isNew(p.createdAt);
+      const numPrice = parseFloat(p.priceRange.minVariantPrice.amount);
+      const hasPromo = numPrice > 0 && numPrice < 30;
+      
       return `
         <div class="product-card">
           <div class="image-wrap">
-            ${isNew ? '<span style="position:absolute;top:12px;right:12px;background:var(--gold);color:var(--white);padding:0.3rem 0.8rem;border-radius:20px;font-size:0.75rem;font-weight:700;letter-spacing:0.5px;z-index:2;">NOUVEAU</span>' : ''}
+            ${isNew ? '<span style="position:absolute;top:12px;right:12px;background:var(--gold);color:var(--white);padding:0.3rem 0.8rem;border-radius:20px;font-size:0.7rem;font-weight:700;letter-spacing:0.5px;z-index:2;">NOUVEAU</span>' : ''}
+            ${hasPromo && !isNew ? '<span class="badge-sale">PROMO</span>' : ''}
             <a href="/produit/${p.handle}">
               <img src="${img}" alt="${p.title}" loading="lazy">
             </a>
+            <div class="quick-view">
+              <a href="/produit/${p.handle}" style="color:white;text-decoration:none;">👁️ Voir le produit</a>
+            </div>
           </div>
           <div class="product-info">
             <a href="/produit/${p.handle}" style="text-decoration:none;color:inherit;">
               <h3>${p.title}</h3>
             </a>
-            ${p.productType ? `<div style="color:var(--text-light);font-size:0.8rem;text-transform:uppercase;letter-spacing:1px;">${p.productType}</div>` : ''}
+            ${p.productType ? `<div style="color:var(--text-light);font-size:0.75rem;text-transform:uppercase;letter-spacing:1px;">${p.productType}</div>` : ''}
             <div class="price">${price}</div>
-            <button class="btn-add" onclick="addToCart('${p.handle}')">Ajouter au panier</button>
+            ${p.availableForSale 
+              ? `<button class="btn-add" onclick="addToCart('${p.handle}')">Ajouter au panier</button>`
+              : `<button class="btn-add" style="background:var(--text-light);" disabled>Rupture de stock</button>`
+            }
           </div>
         </div>
       `;
@@ -34,10 +44,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 });
 
-// Cache produits pour le panier
 window.__productsCache = null;
 
-// Mettre à jour le compteur panier
 function updateCartCount() {
   const panier = JSON.parse(localStorage.getItem('bouddhas_panier') || '[]');
   const el = document.getElementById('cart-count');
