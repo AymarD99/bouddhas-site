@@ -23,12 +23,13 @@
   <nav class="navbar">
     <div class="container">
       <a href="/" class="logo">Bouddhas</a>
-      <div class="nav-links">
+      <button class="nav-burger" onclick="toggleNav()">☰</button>
+      <div class="nav-links" id="nav-links">
         <a href="/">Accueil</a>
         <a href="/produits">Boutique</a>
+        <a href="/pierres">Guide pierres</a>
         <a href="/a-propos">À propos</a>
         <a href="/livraison">Livraison</a>
-        <a href="/pierres">Guide pierres</a>
         <a href="/faq">FAQ</a>
         <a href="/contact">Contact</a>
         <div class="search-box">
@@ -36,10 +37,17 @@
           <input type="text" id="search-input" placeholder="Rechercher..." autocomplete="off">
           <div class="search-results" id="search-results"></div>
         </div>
-        <a href="/panier" class="cart-link">Panier <span id="cart-count">0</span></a>
+        <a href="/panier" class="cart-link">🛒 Panier <span id="cart-count">0</span></a>
       </div>
     </div>
   </nav>
+  <div class="nav-overlay" id="nav-overlay" onclick="toggleNav()"></div>
+  <script>
+    function toggleNav() {
+      document.getElementById('nav-links').classList.toggle('open');
+      document.getElementById('nav-overlay').classList.toggle('open');
+    }
+  </script>
 
   <section class="section" style="max-width:800px;">
     <h2 class="section-title">Livraison & Retours</h2>
