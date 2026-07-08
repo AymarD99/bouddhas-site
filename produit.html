@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Produit — Bouddhas</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <a href="/" class="logo">Bouddhas</a>
+      <div class="nav-links">
+        <a href="/">Accueil</a>
+        <a href="/produits.html">Boutique</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/panier.html" class="cart-link">Panier <span id="cart-count">0</span></a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="product-detail" id="product-detail">
+    <div class="container" id="product-container">
+      <div class="loading">Chargement...</div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Bouddhas — Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/shopify.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const params = new URLSearchParams(window.location.search);
+      const handle = params.get('handle');
+      const container = document.getElementById('product-container');
+
+      if (!handle) {
+        container.innerHTML = '<p>Produit non trouvé. <a href="/produits.html">Retour à la boutique</a></p>';
+        return;
+      }
+
+      try {
+        const p = await shopify.getProductByHandle(handle);
+        if (!p) throw new Error('Produit non trouvé');
+
+        const imgs = p.images?.edges?.map(e => e.node.url) || ['https://placehold.co/600x600/FDF8F0/C4A265?text=Bouddhas'];
+        const price = shopify.formatPrice(p.priceRange.minVariantPrice.amount);
+
+        // Nettoyer le HTML de description
+        const desc = p.descriptionHtml || p.description || '';
+
+        container.innerHTML = `
+          <div>
+            <a href="/produits.html" class="back-link">← Retour à la boutique</a>
+            <img src="${imgs[0]}" alt="${p.title}" style="width:100%;border-radius:12px;">
+          </div>
+          <div>
+            <h1>${p.title}</h1>
+            <div class="price">${price}</div>
+            <div class="description">${desc}</div>
+            ${p.availableForSale ? `<button class="btn-checkout" onclick="buyNow('${p.variants.edges[0].node.id}')">Ajouter au panier</button>` : '<p style="color:red;">Épuisé</p>'}
+          </div>
+        `;
+      } catch(e) {
+        container.innerHTML = `<p>Erreur: ${e.message}. <a href="/produits.html">Retour à la boutique</a></p>`;
+      }
+    });
+
+    async function buyNow(variantId) {
+      try {
+        const cart = await shopify.createCart(variantId);
+        if (cart?.checkoutUrl) {
+          window.location.href = cart.checkoutUrl;
+        } else {
+          alert('Erreur lors de la création du panier');
+        }
+      } catch(e) {
+        alert('Erreur: ' + e.message);
+      }
+    }
+  </script>
+</body>
+</html>

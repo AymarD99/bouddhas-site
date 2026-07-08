@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Bouddhas</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <a href="/" class="logo">Bouddhas</a>
+      <div class="nav-links">
+        <a href="/">Accueil</a>
+        <a href="/produits.html">Boutique</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/panier.html" class="cart-link">Panier <span id="cart-count">0</span></a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <h1>Contactez-nous</h1>
+    <p>Une question ? Une commande spéciale ? Écrivez-nous</p>
+  </div>
+
+  <section class="contact-section">
+    <h1>Envoyez-nous un message</h1>
+    <p>Nous vous répondrons dans les 24h</p>
+    <form onsubmit="alert('Message envoyé ! (Fonctionnalité à venir)');return false;">
+      <input type="text" placeholder="Votre nom" required>
+      <input type="email" placeholder="Votre email" required>
+      <textarea rows="5" placeholder="Votre message..." required></textarea>
+      <button type="submit" class="btn-primary" style="border:none;cursor:pointer;">Envoyer</button>
+    </form>
+    <div style="margin-top:40px;text-align:center;color:var(--text-light);">
+      <p>📍 Solesmes, France</p>
+      <p>📧 infos@bouddhas.com</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Bouddhas — Tous droits réservés</p>
+    </div>
+  </footer>
+</body>
+</html>
