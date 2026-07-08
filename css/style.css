@@ -322,20 +322,7 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 700; }
 
 .section-dark .section-subtitle { color: rgba(255,255,255,0.4); }
 
-.section-title {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 0.6rem;
-  letter-spacing: -0.3px;
-}
-
-.section-subtitle {
-  text-align: center;
-  color: var(--text-light);
-  margin-bottom: 3.5rem;
-  font-weight: 300;
-  font-size: 1.05rem;
-}
+/* (ancien section-title/subtitle supprimé — définition unifiée plus bas avec ::after doré) */
 
 /* ===== BUTTONS ===== */
 .btn-primary {
@@ -620,12 +607,9 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 700; }
 /* ===== TRUST BADGES ===== */
 .trust-badges {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.5rem;
-  padding: 3rem 2rem;
-  background: var(--white);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-sm);
+  padding: 0;
   margin: 2rem 0;
   text-align: center;
 }
@@ -1627,3 +1611,33 @@ footer .container {
 .trust-badge .icon { font-size: 2rem; display: block; margin-bottom: 0.8rem; }
 .trust-badge h4 { font-size: 1rem; margin-bottom: 0.5rem; color: var(--dark); }
 .trust-badge p { font-size: 0.85rem; color: var(--text-light); line-height: 1.6; margin: 0; }
+
+/* ===== AVIS CLIENTS ===== */
+.avis-container { max-width: 1000px; margin: 0 auto; }
+.avis-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem; margin-top: 1rem;
+}
+.avis-card {
+  background: var(--white); border-radius: 16px; padding: 2rem !important;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06); border: 1px solid var(--beige);
+  transition: var(--transition); text-align: left;
+}
+.avis-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: var(--gold); }
+.avis-etoiles { color: var(--gold); font-size: 1.2rem; margin-bottom: 1rem; letter-spacing: 3px; }
+.avis-texte { line-height: 1.7; color: var(--text); font-style: italic; font-size: 0.95rem; margin-bottom: 1rem; }
+.avis-author { display: flex; justify-content: space-between; color: var(--text-light); font-size: 0.8rem; }
+@media (max-width: 768px) { .avis-grid { grid-template-columns: 1fr; } }
+
+/* ===== ZEN QUOTE FIX ===== */
+.zen-quote {
+  text-align: center; padding: 3rem 2rem; max-width: 700px;
+  margin: 0 auto !important; border-radius: 16px;
+}
+
+/* ===== AVIS SECTION ===== */
+.avis-section {
+  max-width: 1200px; margin: 0 auto; padding: 4rem 2rem;
+  background: linear-gradient(180deg, var(--beige) 0%, var(--cream) 100%);
+  border-radius: 20px; margin: 2rem auto;
+}
