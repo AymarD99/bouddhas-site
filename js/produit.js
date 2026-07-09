@@ -109,12 +109,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             </div>
           </div>
 
-          <!-- Bouton panier -->
-          ${defaultVariant && p.availableForSale ? `
-            <button class="btn-add-cart" onclick="addToCartFromPage('${p.handle}')">
-              <span>🛒</span> Ajouter au panier — <span id="btn-price">${defaultPrice}</span>
-            </button>
-          ` : ''}
+          <!-- Boutons affiliation -->
+          ${defaultVariant && p.availableForSale ? affiliateButtons({ title: p.title, aliId: p.aliId || "", cjProductUrl: p.cjProductUrl || "" }) : ''}
 
           <!-- Promesses -->
           <div class="product-promises">

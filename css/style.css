@@ -1737,3 +1737,111 @@ footer .container {
 }
 .article-cta p { color: var(--white); font-size: 1.2rem; margin-bottom: 1.5rem; font-weight: 600; }
 .article-cta .btn-primary { background: var(--text-dark); color: var(--white); }
+
+/* ===== BOUTONS AFFILIATION ===== */
+.affil-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+.btn-affil {
+  flex: 1 1 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.85rem 1.1rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: var(--white);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  min-width: 130px;
+}
+.btn-affil:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+.btn-ali { background: linear-gradient(135deg,#ff6a00,#ff4d00); }
+.btn-cj  { background: linear-gradient(135deg,var(--gold),var(--gold-dark)); }
+.btn-ama { background: linear-gradient(135deg,#ff9900,#e47911); }
+.btn-placeholder { background: var(--text-light); }
+/* Page produit : boutons pleine largeur */
+.product-detail .info .affil-buttons { margin: 1.5rem 0; }
+.product-detail .info .btn-affil { width: 100%; }
+
+/* ===== PAGES COMPARATIFS / FORMATIONS / SILOS ===== */
+.comparatif-grid, .formation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+.comparatif-card, .formation-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 1.8rem;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  border: 1px solid var(--beige-dark);
+}
+.comparatif-rank {
+  position: absolute;
+  top: -12px; left: 20px;
+  background: var(--gold);
+  color: var(--white);
+  padding: 0.3rem 0.9rem;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+.formation-badge {
+  display: inline-block;
+  background: var(--gold-light);
+  color: var(--dark);
+  padding: 0.2rem 0.7rem;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 0.8rem;
+}
+.comparatif-price, .formation-price {
+  color: var(--gold-dark);
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+}
+.comparatif-feat { list-style: none; padding-left: 0; margin-bottom: 1rem; }
+.comparatif-feat li { padding: 0.3rem 0; font-size: 0.9rem; }
+.comparatif-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+}
+.comparatif-table th, .comparatif-table td {
+  border: 1px solid var(--beige-dark);
+  padding: 0.8rem;
+  text-align: left;
+}
+.comparatif-table th { background: var(--beige); }
+.faq-block h3 { color: var(--gold-dark); margin-top: 1.5rem; }
+.silo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.2rem;
+  margin: 2rem 0;
+}
+.silo-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 1.8rem 1.5rem;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--beige-dark);
+  transition: transform 0.2s ease;
+}
+.silo-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+.silo-icon { font-size: 2.5rem; margin-bottom: 0.8rem; }
+.silo-link { display: inline-block; margin-top: 1rem; color: var(--gold); font-weight: 600; font-size: 0.9rem; }

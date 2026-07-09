@@ -41,7 +41,15 @@ class ShopifyClient {
       }
     }`;
     const data = await this.query(q);
-    return data.products.edges.map(e => e.node);
+    return data.products.edges.map(e => this._enrich(e.node));
+  }
+
+  _enrich(p) {
+    // Parse tags pour liens affiliation : "ali:123456" ou "cj:https://..."
+    p.aliId = (p.tags || []).find(t => t.startsWith('ali:'))?.split(':')[1] || '';
+    const cjTag = (p.tags || []).find(t => t.startsWith('cj:'));
+    p.cjProductUrl = cjTag ? cjTag.slice(3) : '';
+    return p;
   }
 
   async getProductByHandle(handle) {
@@ -71,7 +79,7 @@ class ShopifyClient {
       }
     }`;
     const data = await this.query(q);
-    return data.productByHandle;
+    return data.productByHandle ? this._enrich(data.productByHandle) : null;
   }
 
   async getCollections(first = 50) {

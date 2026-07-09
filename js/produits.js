@@ -86,8 +86,12 @@ document.addEventListener('DOMContentLoaded', async () => {
               </a>
               ${p.productType ? `<div style="color:var(--text-light);font-size:0.75rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:0.3rem;">${p.productType}</div>` : ''}
               <div class="price">${price}</div>
-              ${p.availableForSale 
-                ? `<button class="btn-add" onclick="addToCart('${p.handle}')">Ajouter au panier</button>`
+              ${p.availableForSale
+                ? affiliateButtons({
+                    title: p.title,
+                    aliId: p.aliId || "",
+                    cjProductUrl: p.cjProductUrl || ""
+                  })
                 : `<button class="btn-add" style="background:var(--text-light);" disabled>Rupture de stock</button>`
               }
             </div>
