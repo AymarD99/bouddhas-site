@@ -31,13 +31,10 @@
 }</script>
 </head>
 <body>
-    <div class="announcement-bar" id="announcement-bar"><div class="swiper-wrapper" id="announce-slider"><div class="swiper-slide">📚 Média indépendant sur le bouddhisme & la méditation</div><div class="swiper-slide">🔍 Explorez nos guides et notre glossaire</div><div class="swiper-slide">✨ Contenu sourcé et bienveillant</div></div></div></div>
-    <nav class="navbar">
-    <div class="container">
-      <a href="/" class="logo">Bouddhas</a>
-      <button class="nav-burger" onclick="toggleNav()">☰</button>
-      <div class="nav-links" id="nav-links">
-        <a href="/">Accueil</a>
+      <header class="header">
+    <div class="nav-container">
+      <a href="/" class="logo">📿 Bouddhas</a>
+      <nav class="nav-links">
         <a href="/bouddhisme">Bouddhisme</a>
         <a href="/meditation">Méditation</a>
         <a href="/philosophie">Philosophie</a>
@@ -46,21 +43,9 @@
         <a href="/glossaire">Glossaire</a>
         <a href="/faq">FAQ</a>
         <a href="/a-propos">À propos</a>
-        <div class="search-box">
-          <span class="icon">🔍</span>
-          <input type="text" id="search-input" placeholder="Rechercher..." autocomplete="off">
-          <div class="search-results" id="search-results"></div>
-        </div>
-      </div>
+      </nav>
     </div>
-  </nav>
-  <div class="nav-overlay" id="nav-overlay" onclick="toggleNav()"></div>
-  <script>
-    function toggleNav() {
-      document.getElementById('nav-links').classList.toggle('open');
-      document.getElementById('nav-overlay').classList.toggle('open');
-    }
-  </script>
+  </header>
 
   <article class="section" style="max-width:800px;">
     <div class="breadcrumb"><a href="/">Accueil</a> / <a href="/blog">Blog</a> / <span>Vertus des pierres</span></div>
@@ -121,12 +106,5 @@
 
   <script src="/js/announce.min.js"></script>
   <script src="/js/search.min.js"></script>
-  <button class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Retour en haut">↑</button>
-  <script>
-    window.addEventListener('scroll', function() {
-      var btn = document.querySelector('.scroll-top');
-      if (btn) { if (window.scrollY > 400) btn.classList.add('visible'); else btn.classList.remove('visible'); }
-    });
-  </script>
 </body>
 </html>

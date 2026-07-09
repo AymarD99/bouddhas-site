@@ -36,21 +36,10 @@
 }</script>
 </head>
 <body>
-  <div class="announcement-bar" id="announcement-bar">
-    <div class="swiper-wrapper" id="announce-slider">
-      <div class="swiper-slide">📚 Média indépendant sur le bouddhisme & la méditation</div>
-      <div class="swiper-slide">🧘 Guides sourcés, neutres et bienveillants</div>
-      <div class="swiper-slide">🔍 Glossaire, FAQ et comparatifs</div>
-      <div class="swiper-slide">✨ Nouveaux contenus chaque semaine</div>
-    </div>
-  </div>
-
-  <nav class="navbar">
-    <div class="container">
-      <a href="/" class="logo">Bouddhas</a>
-      <button class="nav-burger" onclick="toggleNav()">☰</button>
-      <div class="nav-links" id="nav-links">
-        <a href="/">Accueil</a>
+    <header class="header">
+    <div class="nav-container">
+      <a href="/" class="logo">📿 Bouddhas</a>
+      <nav class="nav-links">
         <a href="/bouddhisme">Bouddhisme</a>
         <a href="/meditation">Méditation</a>
         <a href="/philosophie">Philosophie</a>
@@ -59,18 +48,9 @@
         <a href="/glossaire">Glossaire</a>
         <a href="/faq">FAQ</a>
         <a href="/a-propos">À propos</a>
-        <a href="/contact">Contact</a>
-        <div class="search-box">
-          <span class="icon">🔍</span>
-          <input type="text" id="search-input" placeholder="Rechercher..." autocomplete="off">
-          <div class="search-results" id="search-results"></div>
-        </div>
-        <a href="/contact" class="cart-link">✉️ Contact</a>
-      </div>
+      </nav>
     </div>
-  </nav>
-  <div class="nav-overlay" id="nav-overlay" onclick="toggleNav()"></div>
-  <script>function toggleNav(){document.getElementById('nav-links').classList.toggle('open');document.getElementById('nav-overlay').classList.toggle('open');}</script>
+  </header>
 
   <!-- HERO -->
   <section class="hero carousel">
@@ -302,7 +282,6 @@
   </footer>
 
   <div id="toast" class="toast"></div>
-  <button class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Retour en haut">↑</button>
   <script src="/js/search.min.js"></script>
   <script src="/js/slider.min.js"></script>
   <script src="/js/newsletter.min.js"></script>
@@ -312,11 +291,6 @@
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    window.addEventListener('scroll', function() {
-      var btn = document.querySelector('.scroll-top');
-      if (btn) { if (window.scrollY > 400) btn.classList.add('visible'); else btn.classList.remove('visible'); }
-    });
   </script>
 </body>
 </html>

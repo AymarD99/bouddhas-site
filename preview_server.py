@@ -11,9 +11,9 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         super().__init__(*a, directory=ROOT, **k)
     def translate_path(self, path):
         p = super().translate_path(path)
-        if not os.path.exists(p) and not os.path.isdir(p):
-            if os.path.exists(p + ".html"):
-                return p + ".html"
+        # Priorité au .html (ex: /blog -> blog.html avant le dossier blog/)
+        if os.path.exists(p + ".html"):
+            return p + ".html"
         return p
     def end_headers(self):
         self.send_header("Cache-Control", "no-store")
