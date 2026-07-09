@@ -20,7 +20,7 @@ SITE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 IMG_DIR = f"{SITE}/images/blog"
 
 def gen_image(slug, prompt, width=1200, height=700):
-    """Génère une image unique via Pollinations, dimensions natives (pas de recadrage)."""
+    """Génère une image via Pollinations (dimensions natives). Fallback Picsum si rate-limit persistant."""
     fname = f"{slug}.jpg"
     path = f"{IMG_DIR}/{fname}"
     if os.path.exists(path):
@@ -28,20 +28,24 @@ def gen_image(slug, prompt, width=1200, height=700):
         fname = f"{slug}-{int(time.time())}.jpg"
         path = f"{IMG_DIR}/{fname}"
     url = f"https://image.pollinations.ai/prompt/{urllib.parse.quote(prompt)}?width={width}&height={height}&nologo=true&model=flux"
-    for attempt in range(3):
+    for attempt in range(5):
         try:
-            subprocess.run(["curl", "-s", "-L", "--max-time", "60", "-o", path, url], check=True)
-            # Vérifie que c'est un vrai JPEG
+            subprocess.run(["curl", "-s", "-L", "--max-time", "90", "-o", path, url], check=True)
             out = subprocess.run(["file", path], capture_output=True, text=True).stdout
             if "JPEG" in out:
-                print(f"  ✅ Image générée: {fname} ({os.path.getsize(path)} bytes, {width}x{height})")
+                print(f"  ✅ Image générée (Pollinations): {fname} ({os.path.getsize(path)} bytes, {width}x{height})")
                 return fname
             else:
-                print(f"  ⚠️ Tentative {attempt+1}: image invalide, retry...")
+                wait = 2 ** attempt * 5
+                print(f"  ⚠️ Tentative {attempt+1}: image invalide (rate-limit), attente {wait}s...")
         except Exception as e:
             print(f"  ⚠️ Tentative {attempt+1} échoue: {e}")
-        time.sleep(3)
-    raise SystemExit("❌ Échec génération image après 3 tentatives")
+        time.sleep(2 ** attempt * 5)
+    # Fallback Picsum (image générique, non thématique — à remplacer plus tard)
+    print("  ⚠️ Pollinations indisponible (rate-limit). Fallback Picsum (image générique).")
+    fb = f"{IMG_DIR}/{fname}"
+    subprocess.run(["curl", "-s", "-L", "--max-time", "60", "-o", fb, f"https://picsum.photos/{width}/{height}"], check=True)
+    return fname
 
 def check_doublon(fname, exclude=None):
     files = glob.glob(f"{SITE}/*.html") + glob.glob(f"{SITE}/blog/*.html")
@@ -106,41 +110,59 @@ def build_page(slug, title, desc, keyword, html_body, img, category):
   }</script>
 </head>
 <body>
-  <header class="header">
-    <div class="nav-container">
-      <a href="/" class="logo">📿 Bouddhas</a>
-      <nav class="nav-links">
-        <a href="/bouddhisme">Bouddhisme</a>
-        <a href="/meditation">Méditation</a>
-        <a href="/philosophie">Philosophie</a>
-        <a href="/culture">Culture</a>
-        <a href="/guides">Guides</a>
-        <a href="/glossaire">Glossaire</a>
-        <a href="/faq">FAQ</a>
-        <a href="/a-propos">À propos</a>
-      </nav>
+  <div class="announcement-bar" id="announcement-bar"><div class="swiper-wrapper" id="announce-slider"><div class="swiper-slide">📚 Média indépendant sur le bouddhisme & la méditation</div><div class="swiper-slide">🔍 Explorez nos guides et notre glossaire</div><div class="swiper-slide">✨ Contenu sourcé et bienveillant</div></div></div>
+  <nav class="navbar">
+  <div class="container">
+    <a href="/" class="logo">Bouddhas</a>
+    <button class="nav-burger" onclick="toggleNav()">☰</button>
+    <div class="nav-links" id="nav-links">
+      <a href="/">Accueil</a>
+      <a href="/bouddhisme">Bouddhisme</a>
+      <a href="/meditation">Méditation</a>
+      <a href="/philosophie">Philosophie</a>
+      <a href="/culture">Culture</a>
+      <a href="/guides">Guides</a>
+      <a href="/glossaire">Glossaire</a>
+      <a href="/faq">FAQ</a>
+      <a href="/a-propos">À propos</a>
+      <div class="search-box">
+        <span class="icon">🔍</span>
+        <input type="text" id="search-input" placeholder="Rechercher..." autocomplete="off">
+        <div class="search-results" id="search-results"></div>
+      </div>
     </div>
-  </header>
+  </div>
+</nav>
+<div class="nav-overlay" id="nav-overlay" onclick="toggleNav()"></div>
+<script>
+  function toggleNav() {
+    document.getElementById('nav-links').classList.toggle('open');
+    document.getElementById('nav-overlay').classList.toggle('open');
+  }
+</script>
 
-  <main class="article" style="max-width:820px;margin:0 auto;padding:3.5rem 1.5rem;">
-    <p class="breadcrumb"><a href="/">Accueil</a> › <a href="__CATURL__">__CATLABEL__</a></p>
-    <div class="hero-contained" style="max-width:960px;margin:2.5rem auto 0;padding:0 1.5rem;">
-      <img src="/images/blog/__IMG__" alt="__DESC__" title="__DESC__" loading="lazy" style="display:block;max-width:100%;height:auto;border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,0.25);">
-    </div>
+<article class="section" style="max-width:800px;margin:0 auto;padding:3.5rem 1.5rem;">
+  <div class="breadcrumb"><a href="/">Accueil</a> / <a href="/blog">Blog</a> / <span>__CATLABEL__</span></div>
+  <span class="blog-cat" style="display:inline-block;margin-bottom:1rem;">__CATLABEL__</span>
+  <div style="margin:1.5rem 0 2rem;"><img title="__DESC__" src="/images/blog/__IMG__" alt="__DESC__" loading="lazy" style="display:block;max-width:100%;height:auto;border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,0.25);"></div>
 __HTMLBODY__
-    <div class="article-cta">
-      <p>📚 Approfondissez</p>
-      <a href="__CATURL__" class="btn-primary">Tout sur __CATLABEL__ →</a>
-    </div>
-  </main>
+  <div class="article-cta">
+    <p>📚 Approfondissez</p>
+    <a href="__CATURL__" class="btn-primary">Tout sur __CATLABEL__ →</a>
+  </div>
+</article>
 
-  <footer class="footer">
-    <div class="copy">&copy; 2026 Bouddhas.fr — Média indépendant</div>
-  </footer>
-  <script src="/js/announce.min.js"></script>
-  <script src="/js/slider.min.js"></script>
-  <script src="/js/newsletter.min.js"></script>
-  <script src="/js/search.min.js"></script>
+  <footer><div class='container'><div class='brand'>Bouddhas</div><div class='sub'>Média indépendant sur le bouddhisme, la méditation et la philosophie</div><div style='display:flex;justify-content:center;gap:1.5rem;margin:1.5rem 0;'><a href='/bouddhisme' style='color:rgba(255,255,255,0.4);text-decoration:none;font-size:0.9rem;'>Bouddhisme</a><a href='/meditation' style='color:rgba(255,255,255,0.4);text-decoration:none;font-size:0.9rem;'>Méditation</a><a href='/glossaire' style='color:rgba(255,255,255,0.4);text-decoration:none;font-size:0.9rem;'>Glossaire</a><a href='/faq' style='color:rgba(255,255,255,0.4);text-decoration:none;font-size:0.9rem;'>FAQ</a><a href='/a-propos' style='color:rgba(255,255,255,0.4);text-decoration:none;font-size:0.9rem;'>À propos</a></div><div class='copy'>&copy; 2026 Bouddhas.fr — Média indépendant. Tous droits réservés.</div></div></footer>
+
+<script src="/js/announce.min.js"></script>
+<script src="/js/search.min.js"></script>
+<button class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Retour en haut">↑</button>
+<script>
+  window.addEventListener('scroll', function() {
+    var btn = document.querySelector('.scroll-top');
+    if (btn) { if (window.scrollY > 400) btn.classList.add('visible'); else btn.classList.remove('visible'); }
+  });
+</script>
 </body>
 </html>'''
     page = (page
