@@ -39,7 +39,7 @@ def check_file(path):
     if not re.search(r"<h2", h):
         issues.append("⚠️ Pas de H2 (structure recommandée)")
 
-    # 5. 1 image unique + alt+title
+    # 5. 1 image unique + alt+title + DIMENSIONS NATIVES (pas de recadrage)
     imgs = re.findall(r'<img[^>]*>', h)
     if len(imgs) == 0:
         issues.append("❌ Aucune image")
@@ -49,6 +49,11 @@ def check_file(path):
                 issues.append(f"❌ img #{i+1}: pas de alt")
             if 'title=' not in tag:
                 issues.append(f"⚠️ img #{i+1}: pas de title")
+            # INTERDIT: height fixe + object-fit:cover (recadre/déforme)
+            if re.search(r'height:\d+px', tag) and 'object-fit:cover' in tag:
+                issues.append(f"❌ img #{i+1}: height fixe + object-fit:cover (recadre l'image — garder dimensions natives)")
+            if 'height:auto' not in tag and 'max-width:100%' not in tag:
+                issues.append(f"⚠️ img #{i+1}: pas en dimensions natives (max-width:100%;height:auto)")
         # doublon image inter-pages
         srcs = re.findall(r'src="/images/blog/([^"]+)"', h)
         for s in set(srcs):
