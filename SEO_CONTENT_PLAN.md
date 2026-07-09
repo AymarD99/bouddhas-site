@@ -46,3 +46,14 @@
 2. Enrichir la FAQ (30 → 40+ questions)
 3. Remplacer les placeholders par de vraies images Pollinations (quand API libre)
 4. Soumettre sitemap dans Search Console (action utilisateur)
+
+## Veille complémentaire (01h00)
+- **Méditation & science** : forte demande "neuroplasticité", "MBSR", "burnout", "stress" — 2/3 des études documentent bénéfices (psychologie-positive, effervesciences, presse santé 2026). Angle E-E-A-T fort (citer Nature, Inserm, Harvard).
+- **Bouddhisme en France** : ~500k adeptes (1% pop), 5M sympathisants (Lenoir 1999). Peu de contenu local FR structuré (centres Paris/Lyon/Marseille, histoire). Opportunité de contenu géo-localisé unique.
+- **Noble Octuple Sentier** : demandé, peu de contenu FR approfondi (surtout généralités). À faire en guide détaillé.
+- Concurrents FR faibles : compre﻿ndrebouddhisme.com (basique), le-temple-du-bouddha.com (blog e-commerce), studybuddhism.com (FR mais site institutionnel). Pas de "média autorité" FR pur → place libre.
+
+## Prochaine vague (à publier)
+- meditation-science-neuroplasticite (Méditation) — E-E-A-T scientifique
+- noble-octuple-sentier (Philosophie) — guide détaillé 8 étapes
+- bouddhisme-france-centres (Culture) — géo-localisé (optionnel)
