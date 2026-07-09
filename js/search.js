@@ -1,4 +1,4 @@
-// Recherche locale (média) — sans Shopify
+// Recherche locale (média)
 document.addEventListener('DOMContentLoaded', () => {
   const searchInput = document.getElementById('search-input');
   const searchResults = document.getElementById('search-results');
