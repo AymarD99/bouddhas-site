@@ -32,10 +32,21 @@
   }</script>
 </head>
 <body>
-      <header class="header">
-    <div class="nav-container">
-      <a href="/" class="logo">📿 Bouddhas</a>
-      <nav class="nav-links">
+      <div class="announcement-bar" id="announcement-bar">
+    <div class="swiper-wrapper" id="announce-slider">
+      <div class="swiper-slide">📚 Média indépendant sur le bouddhisme & la méditation</div>
+      <div class="swiper-slide">🧘 Guides sourcés, neutres et bienveillants</div>
+      <div class="swiper-slide">🔍 Glossaire, FAQ et comparatifs</div>
+      <div class="swiper-slide">✨ Nouveaux contenus chaque semaine</div>
+    </div>
+  </div>
+
+<nav class="navbar">
+    <div class="container">
+      <a href="/" class="logo">Bouddhas</a>
+      <button class="nav-burger" onclick="toggleNav()">☰</button>
+      <div class="nav-links" id="nav-links">
+        <a href="/">Accueil</a>
         <a href="/bouddhisme">Bouddhisme</a>
         <a href="/meditation">Méditation</a>
         <a href="/philosophie">Philosophie</a>
@@ -44,10 +55,14 @@
         <a href="/glossaire">Glossaire</a>
         <a href="/faq">FAQ</a>
         <a href="/a-propos">À propos</a>
-      </nav>
+        <div class="search-box">
+          <span class="icon">🔍</span>
+          <input type="text" id="search-input" placeholder="Rechercher..." autocomplete="off">
+          <div class="search-results" id="search-results"></div>
+        </div>
+      </div>
     </div>
-  </header>
-
+  </nav>
   <section class="section" style="max-width:800px;">
       <div class="hero-contained" style="max-width:960px;margin:2.5rem auto 0;padding:0 1.5rem;">
     <img src="/images/blog/mala.jpg" alt="Bracelet mala bouddhiste à 108 perles, symbolique et prière méditative" title="Bracelet mala bouddhiste à 108 perles, symbolique et prière méditative" style="display:block;max-width:100%;height:auto;border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,0.25);">
@@ -83,5 +98,6 @@
     </article>
   </section>
   <footer class="footer"><div class="container"><p>© 2026 Bouddhas.fr — Bijoux spirituels & pierres naturelles</p></div></footer>
+<script src="/js/announce.min.js"></script>
 </body>
 </html>

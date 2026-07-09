@@ -11,7 +11,6 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         super().__init__(*a, directory=ROOT, **k)
     def translate_path(self, path):
         p = super().translate_path(path)
-        # Priorité au .html (ex: /blog -> blog.html avant le dossier blog/)
         if os.path.exists(p + ".html"):
             return p + ".html"
         return p

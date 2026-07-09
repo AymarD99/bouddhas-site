@@ -18,18 +18,41 @@
   <meta name="twitter:image" content="https://bouddhas.fr/images/blog/page-accueil.jpg">
 </head>
 <body>
-  <header class="header">
-    <div class="nav-container">
-      <a href="/" class="logo">📿 Bouddhas</a>
-      <nav class="nav-links">
-        <a href="/guides">Guides</a>
-        <a href="/blog">Blog</a>
-        <a href="/comparatifs">Comparatifs</a>
-        <a href="/formations">Formations</a>
-        <a href="/contact">Contact</a>
-      </nav>
+  <div class="announcement-bar" id="announcement-bar">
+    <div class="swiper-wrapper" id="announce-slider">
+      <div class="swiper-slide">📚 Média indépendant sur le bouddhisme & la méditation</div>
+      <div class="swiper-slide">🧘 Guides sourcés, neutres et bienveillants</div>
+      <div class="swiper-slide">🔍 Glossaire, FAQ et comparatifs</div>
+      <div class="swiper-slide">✨ Nouveaux contenus chaque semaine</div>
     </div>
-  </header>
+  </div>
+
+  <nav class="navbar">
+    <div class="container">
+      <a href="/" class="logo">Bouddhas</a>
+      <button class="nav-burger" onclick="toggleNav()">☰</button>
+      <div class="nav-links" id="nav-links">
+        <a href="/">Accueil</a>
+        <a href="/bouddhisme">Bouddhisme</a>
+        <a href="/meditation">Méditation</a>
+        <a href="/philosophie">Philosophie</a>
+        <a href="/culture">Culture</a>
+        <a href="/guides">Guides</a>
+        <a href="/glossaire">Glossaire</a>
+        <a href="/faq">FAQ</a>
+        <a href="/a-propos">À propos</a>
+        <a href="/contact">Contact</a>
+        <div class="search-box">
+          <span class="icon">🔍</span>
+          <input type="text" id="search-input" placeholder="Rechercher..." autocomplete="off">
+          <div class="search-results" id="search-results"></div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="nav-overlay" id="nav-overlay" onclick="toggleNav()"></div>
+  <script>function toggleNav(){document.getElementById('nav-links').classList.toggle('open');document.getElementById('nav-overlay').classList.toggle('open');}</script>
+  
 
   <main class="article" style="max-width:1000px;margin:0 auto;padding:3rem 1.5rem;">
     <h1>🎓 Formations Spirituelles & Bien-être</h1>
@@ -90,5 +113,7 @@
     <div class="copy">&copy; 2026 Bouddhas — Site d'affiliation indépendant</div>
   </footer>
   <script src="/js/affiliate.js"></script>
+<script src="/js/search.min.js"></script>
+<script src="/js/announce.min.js"></script>
 </body>
 </html>
