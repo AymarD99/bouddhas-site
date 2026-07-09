@@ -1845,3 +1845,38 @@ footer .container {
 .silo-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
 .silo-icon { font-size: 2.5rem; margin-bottom: 0.8rem; }
 .silo-link { display: inline-block; margin-top: 1rem; color: var(--gold); font-weight: 600; font-size: 0.9rem; }
+
+/* ===== DESIGN MÉDIA (autorité) ===== */
+.lire-aussi {
+  margin: 3rem 0;
+  padding: 1.8rem;
+  background: var(--beige);
+  border-left: 3px solid var(--gold);
+  border-radius: var(--radius);
+}
+.lire-aussi h3 { color: var(--gold-dark); margin-bottom: 1rem; font-size: 1.1rem; }
+.lire-aussi a {
+  display: block;
+  color: var(--text);
+  text-decoration: none;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid var(--beige-dark);
+}
+.lire-aussi a:hover { color: var(--gold); }
+.auteur-card {
+  background: var(--beige);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  margin: 1.5rem 0;
+}
+.auteur-card h3 { color: var(--gold-dark); }
+.article dl { margin: 1.5rem 0; }
+.article dt { font-weight: 700; color: var(--gold-dark); margin-top: 1rem; }
+.article dd { margin: 0.3rem 0 0.5rem 1rem; color: var(--text-light); }
+.faq-block h3 { color: var(--gold-dark); margin-top: 1.8rem; }
+.faq-block p { margin-bottom: 0.5rem; }
+/* Lectures confortables (média) */
+.article { font-size: 1.05rem; line-height: 1.9; }
+.article h1 { font-size: 2.4rem; margin-bottom: 1rem; }
+.article h2 { font-size: 1.6rem; margin: 2.5rem 0 1rem; color: var(--text); }
+.article .lead { font-size: 1.2rem; color: var(--text-light); margin-bottom: 2rem; }

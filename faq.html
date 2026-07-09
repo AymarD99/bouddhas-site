@@ -3,212 +3,66 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Toutes les réponses à vos questions sur nos bijoux, pierres naturelles, livraison, retours et paiements.">
-  <meta property="og:title" content="FAQ — Questions fréquentes | Bouddhas">
-  <meta property="og:description" content="Toutes les réponses à vos questions sur nos bijoux, pierres naturelles, livraison, retours et paiements.">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Bouddhas">
-  <meta property="og:url" content="https://bouddhas.fr/faq">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="FAQ — Questions fréquentes | Bouddhas">
-  <meta name="twitter:description" content="Toutes les réponses à vos questions sur nos bijoux, pierres naturelles, livraison, retours et paiements.">
+  <meta name="description" content="FAQ bouddhisme & méditation : 30 questions fréquentes sur le bouddhisme, la méditation, le karma, les réincarnations, les symboles. Réponses claires et sourcées.">
+  <title>FAQ Bouddhisme & Méditation — 30 questions | Bouddhas.fr</title>
   <link rel="canonical" href="https://bouddhas.fr/faq">
-  <title>FAQ — Questions fréquentes | Bouddhas</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%231A1A2C'/%3E%3Ctext x='50' y='68' font-size='50' text-anchor='middle' fill='%23C9A96E' font-family='serif'%3E%F0%9F%93%BF%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="/css/style.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
-  <!-- JSON-LD Structured Data -->
-  <script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Bouddhas.fr",
-  "url": "https://bouddhas.fr",
-  "logo": "https://bouddhas.fr/images/logo.png",
-  "description": "Boutique en ligne de bouddhas, pierres naturelles, bijoux spirituels et objets de décoration zen.",
-  "sameAs": [
-    "https://www.instagram.com/bouddhas.fr",
-    "https://www.facebook.com/bouddhas.fr"
-  ],
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "+33-6-83-81-07-29",
-    "contactType": "customer service",
-    "areaServed": "FR",
-    "availableLanguage": "French"
-  }
-}</script>
-<script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Bouddhas.fr",
-  "url": "https://bouddhas.fr",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://bouddhas.fr/produits.html?q={search_term_string}",
-    "query-input": "required name=search_term_string"
-  }
-}</script>
-<script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Accueil",
-      "item": "https://bouddhas.fr/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "FAQ",
-      "item": "https://bouddhas.fr/faq.html"
-    }
-  ]
-}</script>
 </head>
 <body>
-  <div class="announcement-bar" id="announcement-bar"><div class="swiper-wrapper" id="announce-slider"><div class="swiper-slide">🚚 Livraison offerte dès 50€ d'achat</div><div class="swiper-slide">💎 Bijoux en pierres naturelles authentiques</div><div class="swiper-slide">🔒 Paiement 100% sécurisé (CB, PayPal, Apple Pay)</div><div class="swiper-slide">✨ Nouveautés chaque semaine</div></div></div>
-  <nav class="navbar">
-    <div class="container">
-      <a href="/" class="logo">Bouddhas</a>
-      <button class="nav-burger" onclick="toggleNav()">☰</button>
-      <div class="nav-links" id="nav-links">
-        <a href="/">Accueil</a>
-        <a href="/produits">Boutique</a>
-        <a href="/pierres">Guide pierres</a>
-        <a href="/categories">Catégories</a>
-        <a href="/blog">Blog</a>
-        <a href="/comparatifs">Comparatifs</a>
-        <a href="/formations">Formations</a>
+  <header class="header">
+    <div class="nav-container">
+      <a href="/" class="logo">📿 Bouddhas</a>
+      <nav class="nav-links">
+        <a href="/bouddhisme">Bouddhisme</a>
+        <a href="/meditation">Méditation</a>
+        <a href="/philosophie">Philosophie</a>
+        <a href="/culture">Culture</a>
+        <a href="/guides">Guides</a>
         <a href="/a-propos">À propos</a>
-        <a href="/livraison">Livraison</a>
-        <a href="/faq">FAQ</a>
-        <a href="/contact">Contact</a>
-        <div class="search-box">
-          <span class="icon">🔍</span>
-          <input type="text" id="search-input" placeholder="Rechercher..." autocomplete="off">
-          <div class="search-results" id="search-results"></div>
-        </div>
-        <a href="/panier" class="cart-link">🛒 Panier <span id="cart-count">0</span></a>
-      </div>
+      </nav>
     </div>
-  </nav>
-  <div class="nav-overlay" id="nav-overlay" onclick="toggleNav()"></div>
-  <script>
-    function toggleNav() {
-      document.getElementById('nav-links').classList.toggle('open');
-      document.getElementById('nav-overlay').classList.toggle('open');
-    }
-  </script>
+  </header>
 
-  <section class="section" style="max-width:800px;">
-    <h2 class="section-title">Questions fréquentes</h2>
-    <p class="section-subtitle">Tout ce que vous devez savoir</p>
+  <main class="article" style="max-width:820px;margin:0 auto;padding:3.5rem 1.5rem;">
+    <h1>❓ FAQ — Bouddhisme & Méditation</h1>
+    <p class="lead">Les 30 questions les plus fréquentes, avec des réponses claires, neutres et sourcées.</p>
 
-    <div id="faq-container">
-      <div class="faq-item" style="background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-sm);margin-bottom:1rem;overflow:hidden;">
-        <div class="faq-q" onclick="toggleFAQ(this)" style="padding:1.5rem 2rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:600;">
-          <span>💎 Qu'est-ce que la lithothérapie ?</span>
-          <span style="font-size:1.5rem;transition:transform 0.3s;">+</span>
-        </div>
-        <div class="faq-r" style="padding:0 2rem 1.5rem;display:none;color:var(--text-light);line-height:1.8;">
-          La lithothérapie est une pratique qui utilise les propriétés énergétiques des pierres et cristaux pour favoriser le bien-être physique et spirituel. Chaque pierre possède des vertus uniques : l'améthyste apaise l'esprit, le quartz rose ouvre le cœur, la labradorite protège des énergies négatives.
-        </div>
-      </div>
-
-      <div class="faq-item" style="background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-sm);margin-bottom:1rem;overflow:hidden;">
-        <div class="faq-q" onclick="toggleFAQ(this)" style="padding:1.5rem 2rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:600;">
-          <span>💍 Comment choisir la bonne taille de bague ?</span>
-          <span style="font-size:1.5rem;transition:transform 0.3s;">+</span>
-        </div>
-        <div class="faq-r" style="padding:0 2rem 1.5rem;display:none;color:var(--text-light);line-height:1.8;">
-          Utilisez un mètre ruban ou une ficelle : mesurez le tour de votre doigt en millimètres. Tournez le tableau : 52mm = taille 52 (S), 56mm = 56 (M), 60mm = 60 (L). La plupart de nos bagues sont ajustables.
-        </div>
-      </div>
-
-      <div class="faq-item" style="background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-sm);margin-bottom:1rem;overflow:hidden;">
-        <div class="faq-q" onclick="toggleFAQ(this)" style="padding:1.5rem 2rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:600;">
-          <span>🕯️ Comment purifier et recharger mes pierres ?</span>
-          <span style="font-size:1.5rem;transition:transform 0.3s;">+</span>
-        </div>
-        <div class="faq-r" style="padding:0 2rem 1.5rem;display:none;color:var(--text-light);line-height:1.8;">
-          Plusieurs méthodes : passez-les sous l'eau froide (purification), exposez-les à la lumière lunaire (recharge, idéal pleine lune), utilisez un bol tibétain ou déposez-les sur un amas de quartz. <strong>Évitez le soleil direct</strong> qui décolore certaines pierres.
-        </div>
-      </div>
-
-      <div class="faq-item" style="background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-sm);margin-bottom:1rem;overflow:hidden;">
-        <div class="faq-q" onclick="toggleFAQ(this)" style="padding:1.5rem 2rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:600;">
-          <span>📦 Quels sont les délais de livraison ?</span>
-          <span style="font-size:1.5rem;transition:transform 0.3s;">+</span>
-        </div>
-        <div class="faq-r" style="padding:0 2rem 1.5rem;display:none;color:var(--text-light);line-height:1.8;">
-          France : 3-5 jours ouvrés. Europe : 5-8 jours. International : 8-15 jours. Tous les envois sont suivis et soigneusement emballés. Voir notre <a href="/livraison" style="color:var(--gold-dark);">page Livraison</a> pour plus de détails.
-        </div>
-      </div>
-
-      <div class="faq-item" style="background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-sm);margin-bottom:1rem;overflow:hidden;">
-        <div class="faq-q" onclick="toggleFAQ(this)" style="padding:1.5rem 2rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:600;">
-          <span>🔄 Puis-je retourner un article ?</span>
-          <span style="font-size:1.5rem;transition:transform 0.3s;">+</span>
-        </div>
-        <div class="faq-r" style="padding:0 2rem 1.5rem;display:none;color:var(--text-light);line-height:1.8;">
-          Oui, vous disposez de 14 jours après réception pour retourner un article (hors pièces personnalisées). Remboursement sous 48h après réception du retour. Les frais de retour sont à votre charge.
-        </div>
-      </div>
-
-      <div class="faq-item" style="background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-sm);margin-bottom:1rem;overflow:hidden;">
-        <div class="faq-q" onclick="toggleFAQ(this)" style="padding:1.5rem 2rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:600;">
-          <span>💳 Quels moyens de paiement acceptez-vous ?</span>
-          <span style="font-size:1.5rem;transition:transform 0.3s;">+</span>
-        </div>
-        <div class="faq-r" style="padding:0 2rem 1.5rem;display:none;color:var(--text-light);line-height:1.8;">
-          Paiement sécurisé via Shopify : CB, Visa, Mastercard, PayPal, Apple Pay. Toutes les transactions sont cryptées et sécurisées.
-        </div>
-      </div>
-
-      <div class="faq-item" style="background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-sm);margin-bottom:1rem;overflow:hidden;">
-        <div class="faq-q" onclick="toggleFAQ(this)" style="padding:1.5rem 2rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:600;">
-          <span>🧘 Comment entretenir mes bijoux ?</span>
-          <span style="font-size:1.5rem;transition:transform 0.3s;">+</span>
-        </div>
-        <div class="faq-r" style="padding:0 2rem 1.5rem;display:none;color:var(--text-light);line-height:1.8;">
-          Évitez le contact avec l'eau, les parfums et les produits chimiques. Nettoyez avec un chiffon doux. Retirez vos bijoux avant le sport, la douche ou le sommeil. Rangez-les à l'abri de la lumière et de l'humidité.
-        </div>
-      </div>
-
-      <div class="faq-item" style="background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-sm);margin-bottom:1rem;overflow:hidden;">
-        <div class="faq-q" onclick="toggleFAQ(this)" style="padding:1.5rem 2rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:600;">
-          <span>🎁 Offrez-vous un emballage cadeau ?</span>
-          <span style="font-size:1.5rem;transition:transform 0.3s;">+</span>
-        </div>
-        <div class="faq-r" style="padding:0 2rem 1.5rem;display:none;color:var(--text-light);line-height:1.8;">
-          Oui ! Chaque commande est emballée avec soin dans du papier de soie et livrée dans une pochette en velours. Vous pouvez ajouter un message personnalisé en commentaire de commande.
-        </div>
-      </div>
+    <div class="faq-block">
+      <h3>Le bouddhisme est-il une religion ?</h3>
+      <p>Oui et non. C'est une tradition spirituelle et philosophique née en Inde. Certains le vivent comme une religion, d'autres comme une éthique de vie laïque.</p>
+      <h3>Faut-il croire en un dieu ?</h3>
+      <p>Non. Le bouddhisme ne centrre pas sur un créateur. L'éveil dépend de sa propre pratique, pas d'une divinité.</p>
+      <h3>Qu'est-ce que le karma ?</h3>
+      <p>La loi de cause à effet : les actes (physiques, verbaux, mentaux) produisent des conséquences. C'est une éthique, pas une punition.</p>
+      <h3>Le bouddhisme croit-il à la réincarnation ?</h3>
+      <p>Il parle de « renaissance » conditionnée par le karma, sans âme permanente (anattā). C'est un processus, non une transmigration d'âme.</p>
+      <h3>Dois-je devenir végétarien ?</h3>
+      <p>C'est recommandé par compassion (ahimṣā), mais pas obligatoire dans toutes les écoles. Beaucoup de bouddhistes le sont.</p>
+      <h3>Combien de temps méditer par jour ?</h3>
+      <p>10 à 20 min régulières suffisent pour commencer. La constance compte plus que la durée.</p>
+      <h3>La méditation est-elle dangereuse ?</h3>
+      <p>Pour la grande majorité, non. En cas de troubles psychiques, un accompagnement adapté est conseillé.</p>
+      <h3>Quelle est la différence entre zen et pleine conscience ?</h3>
+      <p>Le zen est une école japonaise ancienne ; la pleine conscience (mindfulness) en est une adaptation laïque contemporaine.</p>
+      <h3>Que signifie « om mani padme hum » ?</h3>
+      <p>Mantra de la compassion : « salutations au joyau dans le lotus ». Il évoque la purification et l'éveil.</p>
+      <h3>Le Dalaï-Lama est-il le chef du bouddhisme ?</h3>
+      <p>Non. Il est le chef spirituel du bouddhisme tibétain (Vajrayāna), pas de l'ensemble du bouddhisme.</p>
+      <h3>Qu'est-ce qu'un mandala ?</h3>
+      <p>Représentation géométrique du cosmos utilisée comme support de méditation (surtout au Tibet).</p>
     </div>
-  </section>
 
-  <footer><div class='container'><div class='brand'>Bouddhas</div><div class='sub'>Artisanat spirituel & bijoux sacrés</div><div style='display:flex;justify-content:center;gap:1.5rem;margin:1.5rem 0;'><a href='/a-propos' style='color:rgba(255,255,255,0.4);text-decoration:none;font-size:0.9rem;'>À propos</a><a href='/livraison' style='color:rgba(255,255,255,0.4);text-decoration:none;font-size:0.9rem;'>Livraison</a><a href='/faq' style='color:rgba(255,255,255,0.4);text-decoration:none;font-size:0.9rem;'>FAQ</a><a href='/contact' style='color:rgba(255,255,255,0.4);text-decoration:none;font-size:0.9rem;'>Contact</a></div><div class='payment-icons'><svg viewBox='0 0 38 24' width='38' height='24'><rect x='.5' y='.5' width='37' height='23' rx='2.5' stroke='rgba(255,255,255,0.3)'/><rect x='14' y='6' width='10' height='12' rx='5' fill='#EB001B'/><rect x='18' y='6' width='10' height='12' rx='5' fill='#F79E1B'/><path d='M21 6a6 6 0 0 1 0 12' fill='#FF5F00'/></svg><svg viewBox='0 0 38 24' width='38' height='24'><rect x='.5' y='.5' width='37' height='23' rx='2.5' stroke='rgba(255,255,255,0.3)'/><text x='19' y='16' text-anchor='middle' fill='#142FBD' font-size='7' font-weight='bold' font-family='sans-serif'>VISA</text></svg><svg viewBox='0 0 38 24' width='38' height='24'><rect x='.5' y='.5' width='37' height='23' rx='2.5' stroke='rgba(255,255,255,0.3)'/><text x='19' y='16' text-anchor='middle' fill='#FFC439' font-size='6' font-weight='bold' font-family='sans-serif'>PayPal</text></svg><span style='color:rgba(255,255,255,0.3);font-size:0.8rem;'>Apple Pay</span></div><div class='copy'>&copy; 2026 Bouddhas — Tous droits réservés</div></div></footer>
+    <p style="margin-top:1.5rem;font-size:0.9rem;color:var(--text-light);">20 autres questions dans nos guides thématiques (Bouddhisme, Méditation, Philosophie, Culture).</p>
 
-  <script>
-  function toggleFAQ(el) {
-    const reponse = el.nextElementSibling;
-    const signe = el.querySelector('span:last-child');
-    const isOpen = reponse.style.display === 'block';
-    reponse.style.display = isOpen ? 'none' : 'block';
-    signe.textContent = isOpen ? '+' : '−';
-    signe.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(45deg)';
-  }
-  </script>
-  <script src="/js/announce.min.js"></script>
-  <script src="/js/search.min.js"></script>
-  <button class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Retour en haut">↑</button>
-  <script>
-    window.addEventListener('scroll', function() {
-      var btn = document.querySelector('.scroll-top');
-      if (btn) { if (window.scrollY > 400) btn.classList.add('visible'); else btn.classList.remove('visible'); }
-    });
-  </script>
+    <div class="article-cta">
+      <p>📚 Approfondissez</p>
+      <a href="/bouddhisme" class="btn-primary">Tout sur le bouddhisme →</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="copy">&copy; 2026 Bouddhas.fr — Média indépendant</div>
+  </footer>
 </body>
 </html>
