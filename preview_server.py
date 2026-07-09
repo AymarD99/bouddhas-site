@@ -15,12 +15,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             return p + ".html"
         return p
     def end_headers(self):
-        # Cache: fonts/images/CSS/JS = 1 an, HTML = pas de cache
-        ext = self.path.split('.')[-1].lower()
-        if ext in ('woff2','jpg','jpeg','png','css','js','ico'):
-            self.send_header("Cache-Control", "public, max-age=31536000, immutable")
-        else:
-            self.send_header("Cache-Control", "no-cache")
+        self.send_header("Cache-Control", "no-cache")
         super().end_headers()
 
 # 0.0.0.0 = écoute sur toutes les interfaces (réseau local)
