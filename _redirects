@@ -1,4 +1,15 @@
 /produit/*  /produit.html 200
 /pierres   /pierres.html 200
 /blog   /blog.html 200
+/blog/vertus-pierres-naturelles   /blog/vertus-pierres-naturelles.html 200
+/blog/meditation-debutants   /blog/meditation-debutants.html 200
+/blog/choisir-bracelet-zen   /blog/choisir-bracelet-zen.html 200
+/blog/symboles-bouddhistes-sens   /blog/symboles-bouddhistes-sens.html 200
+/blog/purifier-pierres-naturelles   /blog/purifier-pierres-naturelles.html 200
+/categories   /categories.html 200
+/a-propos   /a-propos.html 200
+/livraison   /livraison.html 200
+/faq   /faq.html 200
+/contact   /contact.html 200
+/panier   /panier.html 200
 /*  /404.html 404

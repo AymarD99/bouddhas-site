@@ -1,13 +1,15 @@
 User-agent: *
 Allow: /
 
-# Pages statiques
-Allow: /produits.html
-Allow: /pierres.html
-Allow: /contact.html
-Allow: /a-propos.html
-Allow: /livraison.html
-Allow: /faq.html
+# Pages statiques (URLs Netlify sans extension)
+Allow: /produits
+Allow: /pierres
+Allow: /categories
+Allow: /blog
+Allow: /a-propos
+Allow: /livraison
+Allow: /faq
+Allow: /contact
 Allow: /produit/*
 
 # Désactiver les zones sensibles
