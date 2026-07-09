@@ -19,60 +19,19 @@
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%231A1A2C'/%3E%3Ctext x='50' y='68' font-size='50' text-anchor='middle' fill='%23C9A96E' font-family='serif'%3E%F0%9F%93%BF%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="/css/style.min.css">
   <!-- JSON-LD Structured Data -->
-  <script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Bouddhas.fr",
-  "url": "https://bouddhas.fr",
-  "logo": "https://bouddhas.fr/images/logo.png",
-  "description": "Média indépendant sur le bouddhisme, la méditation, la philosophie et la culture bouddhiste. Guides sourcés et bienveillants.",
-  "sameAs": [
-    "https://www.instagram.com/bouddhas.fr",
-    "https://www.facebook.com/bouddhas.fr"
-  ],
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "+33-6-83-81-07-29",
-    "contactType": "customer service",
-    "areaServed": "FR",
-    "availableLanguage": "French"
-  }
-}</script>
+  
 <script type="application/ld+json">{
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Bouddhas.fr",
-  "url": "https://bouddhas.fr",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://bouddhas.fr/guides?q={search_term_string}",
-    "query-input": "required name=search_term_string"
-  }
-}</script>
-<script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
+  "@graph": [
     {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Accueil",
-      "item": "https://bouddhas.fr/"
+      "@type": "ImageObject",
+      "url": "https://bouddhas.fr/images/blog/page-accueil.jpg",
+      "name": "page-accueil",
+      "description": "Méditation bouddhiste au lever du soleil, pratique de pleine conscience et paix intérieure",
+      "author": { "@type": "Organization", "name": "Bouddhas.fr" },
+      "contentUrl": "https://bouddhas.fr/images/blog/page-accueil.jpg",
+      "caption": "Méditation bouddhiste au lever du soleil, pratique de pleine conscience et paix intérieure"
     }
-  ]
-}</script>
-<script type="application/ld+json">{
-  "@context":"https://schema.org",
-  "@graph":[
-{
-    "@type": "ImageObject",
-    "url": "https://bouddhas.fr/images/blog/meditation.jpg",
-    "name": "meditation",
-    "description": "Méditation bouddhiste au lever du soleil, pratique de pleine conscience et paix intérieure",
-    "author": { "@type": "Organization", "name": "Bouddhas.fr" },
-    "contentUrl": "https://bouddhas.fr/images/blog/meditation.jpg",
-    "caption": "Méditation bouddhiste au lever du soleil, pratique de pleine conscience et paix intérieure"
-  }
   ]
 }</script>
 </head>
@@ -228,7 +187,7 @@
       <a href="/a-propos" class="btn-primary" style="margin-top:1rem;">Notre ligne éditoriale →</a>
     </div>
     <div class="story-image">
-      <img title="Méditation bouddhiste au lever du soleil, pratique de pleine conscience et paix intérieure" src="/images/blog/meditation.jpg" alt="Méditation bouddhiste au lever du soleil, pratique de pleine conscience et paix intérieure" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22600%22%3E%3Crect width=%22800%22 height=%22600%22 fill=%22%231A1A2C%22/%3E%3Ctext x=%22400%22 y=%22300%22 font-size=%2240%22 text-anchor=%22middle%22 fill=%22%23C9A96E%22%3EBouddhas%3C/text%3E%3C/svg%3E'">
+      <img title="Méditation bouddhiste au lever du soleil, pratique de pleine conscience et paix intérieure" src="/images/blog/page-accueil.jpg" alt="Méditation bouddhiste au lever du soleil, pratique de pleine conscience et paix intérieure" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22600%22%3E%3Crect width=%22800%22 height=%22600%22 fill=%22%231A1A2C%22/%3E%3Ctext x=%22400%22 y=%22300%22 font-size=%2240%22 text-anchor=%22middle%22 fill=%22%23C9A96E%22%3EBouddhas%3C/text%3E%3C/svg%3E'">
     </div>
   </section>
 
