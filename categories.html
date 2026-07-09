@@ -16,19 +16,7 @@
   <title>Catégories — Bijoux & Bien-être Spirituel | Bouddhas</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%231A1A2C'/%3E%3Ctext x='50' y='68' font-size='50' text-anchor='middle' fill='%23C9A96E' font-family='serif'%3E%F0%9F%93%BF%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="/css/style.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
-  <style>
-    .cat-hero { text-align:center; padding:4rem 1.5rem 2rem; }
-    .cat-hero h1 { font-family:'Playfair Display',serif; font-size:2.8rem; color:var(--primary); margin-bottom:0.5rem; }
-    .cat-hero p { color:var(--text-light); max-width:600px; margin:0 auto; }
-    .cat-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:1.5rem; padding:2rem 5%; max-width:1200px; margin:0 auto; }
-    .cat-card { background:var(--white); border-radius:var(--radius); padding:2.5rem 1.5rem; text-align:center; box-shadow:var(--shadow-sm); transition:var(--transition); border:1px solid transparent; }
-    .cat-card:hover { transform:translateY(-5px); box-shadow:var(--shadow); border-color:var(--primary); }
-    .cat-card .emoji { font-size:3rem; margin-bottom:1rem; }
-    .cat-card h3 { font-family:'Playfair Display',serif; margin-bottom:0.5rem; color:var(--ink); }
-    .cat-card p { color:var(--text-light); font-size:0.9rem; line-height:1.6; margin-bottom:1.2rem; }
-    .cat-card a { color:var(--primary); font-weight:600; text-decoration:none; border-bottom:1px solid var(--primary); padding-bottom:2px; }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -41,137 +29,85 @@
   </script>
 </head>
 <body>
-  <!-- NAV (injecté via JS ou dupliqué) -->
-  <header class="site-header">
-    <nav class="nav container">
-      <a href="/" class="logo">Bouddhas</a>
-      <ul class="nav-links">
-        <li><a href="/produits">Boutique</a></li>
-        <li><a href="/pierres">Guide pierres</a></li>
-        <li><a href="/categories">Catégories</a></li>
-        <li><a href="/blog">Blog</a></li>
-        <li><a href="/a-propos">À propos</a></li>
-        <li><a href="/livraison">Livraison</a></li>
-        <li><a href="/faq">FAQ</a></li>
-        <li><a href="/contact">Contact</a></li>
-        <li><a href="/panier">🛒 Panier</a></li>
-      </ul>
-    </nav>
-  </header>
+  <div class="announcement-bar" id="announcement-bar">
+    <div class="swiper-wrapper" id="announce-slider">
+      <div class="swiper-slide">🚚 Livraison offerte dès 50€ d'achat</div>
+      <div class="swiper-slide">💎 Bijoux en pierres naturelles authentiques</div>
+      <div class="swiper-slide">🔒 Paiement 100% sécurisé (CB, PayPal, Apple Pay)</div>
+      <div class="swiper-slide">✨ Nouveautés chaque semaine</div>
+    </div>
+  </div>
 
-  <section class="cat-hero">
-    <h1>Nos Catégories</h1>
-    <p>Explorez notre univers spirituel par thématique. Chaque pièce est choisie pour accompagner votre cheminement intérieur.</p>
+  <nav class="navbar">
+    <div class="container">
+      <a href="/" class="logo">Bouddhas</a>
+      <button class="nav-burger" onclick="toggleNav()">☰</button>
+      <div class="nav-links" id="nav-links">
+        <a href="/">Accueil</a>
+        <a href="/produits">Boutique</a>
+        <a href="/pierres">Guide pierres</a>
+        <a href="/categories">Catégories</a>
+        <a href="/blog">Blog</a>
+        <a href="/a-propos">À propos</a>
+        <a href="/livraison">Livraison</a>
+        <a href="/faq">FAQ</a>
+        <a href="/contact">Contact</a>
+        <div class="search-box">
+          <span class="icon">🔍</span>
+          <input type="text" id="search-input" placeholder="Rechercher..." autocomplete="off">
+          <div class="search-results" id="search-results"></div>
+        </div>
+        <a href="/panier" class="cart-link">🛒 Panier <span id="cart-count">0</span></a>
+      </div>
+    </div>
+  </nav>
+  <div class="nav-overlay" id="nav-overlay" onclick="toggleNav()"></div>
+  <script>function toggleNav(){document.getElementById('nav-links').classList.toggle('open');document.getElementById('nav-overlay').classList.toggle('open');}</script>
+
+  <!-- HERO SIMPLE -->
+  <section class="section reveal" style="text-align:center;padding-top:5rem;padding-bottom:1rem;">
+    <h2 class="section-title">Nos Catégories</h2>
+    <p class="section-subtitle">Chaque pièce raconte une histoire sacrée — explorez notre univers par thématique</p>
   </section>
 
-  <main class="cat-grid">
-    <div class="cat-card">
-      <div class="emoji">📿</div>
-      <h3>Bracelets</h3>
-      <p>Bracelets en pierres naturelles, mala et cheville. Équilibre et protection au quotidien.</p>
-      <a href="/collections/bracelets">Découvrir →</a>
+  <!-- GRILLE CATÉGORIES -->
+  <section class="section reveal">
+    <div class="category-grid">
+      <a href="/collections/bracelets" class="category-card"><div class="icon">📿</div><h3>Bracelets</h3><div class="count">Bien-être & harmonie</div></a>
+      <a href="/collections/bracelets-de-cheville" class="category-card"><div class="icon">⛓️</div><h3>Bracelets de cheville</h3><div class="count">Élégance discrète</div></a>
+      <a href="/collections/collier-pendantif" class="category-card"><div class="icon">📿</div><h3>Colliers & Pendentifs</h3><div class="count">Protection & énergie</div></a>
+      <a href="/collections/boucles-doreilles" class="category-card"><div class="icon">👂</div><h3>Boucles d'oreilles</h3><div class="count">Symboles près du visage</div></a>
+      <a href="/collections/bagues" class="category-card"><div class="icon">💍</div><h3>Bagues</h3><div class="count">Spiritualité au quotidien</div></a>
+      <a href="/collections/porte-cles" class="category-card"><div class="icon">🔑</div><h3>Porte-clés</h3><div class="count">Un rappel spirituel</div></a>
+      <a href="/collections/pierres" class="category-card"><div class="icon">💎</div><h3>Pierres naturelles</h3><div class="count">Vertus de la lithothérapie</div></a>
+      <a href="/collections/malas-bouddhiste" class="category-card"><div class="icon">🪷</div><h3>Malas bouddhistes</h3><div class="count">Méditation & prière</div></a>
+      <a href="/collections/chakras" class="category-card"><div class="icon">🌀</div><h3>Chakras</h3><div class="count">Équilibre énergétique</div></a>
+      <a href="/collections/bouddha" class="category-card"><div class="icon">🧘</div><h3>Bouddha</h3><div class="count">Sérénité & éveil</div></a>
+      <a href="/collections/bols-chantants-tibetains" class="category-card"><div class="icon">🔔</div><h3>Bols chantants</h3><div class="count">Relaxation sonore</div></a>
+      <a href="/collections/bruleurs-et-encens" class="category-card"><div class="icon">🕯️</div><h3>Encens & Brûleurs</h3><div class="count">Purification & aroma</div></a>
+      <a href="/collections/aromatherapie" class="category-card"><div class="icon">🌿</div><h3>Aromathérapie</h3><div class="count">Bien-être par les sens</div></a>
+      <a href="/collections/ambiance-lampes" class="category-card"><div class="icon">🏮</div><h3>Ambiance & Lampes</h3><div class="count">Lumière & cristal</div></a>
+      <a href="/collections/decoration-zen" class="category-card"><div class="icon">🗿</div><h3>Statues & Décoration</h3><div class="count">Coin méditation</div></a>
+      <a href="/collections/oeufs-de-yoni" class="category-card"><div class="icon">🥚</div><h3>Œufs de Yoni</h3><div class="count">Bien-être intime</div></a>
+      <a href="/collections/pendules" class="category-card"><div class="icon">⚖️</div><h3>Pendules</h3><div class="count">Radiesthésie</div></a>
+      <a href="/collections/orgonites" class="category-card"><div class="icon">💠</div><h3>Orgonites</h3><div class="count">Énergie & chakras</div></a>
+      <a href="/collections/tableaux-et-peintures" class="category-card"><div class="icon">🖼️</div><h3>Tableaux & Peintures</h3><div class="count">Art sacré</div></a>
+      <a href="/collections/toiles-tapisseries-et-mandala" class="category-card"><div class="icon">🎨</div><h3>Toiles & Mandalas</h3><div class="count">Décor spirituel</div></a>
+      <a href="/collections/vetement" class="category-card"><div class="icon">👕</div><h3>Vêtements</h3><div class="count">Coton bio conscient</div></a>
+      <a href="/collections/linge-de-maison" class="category-card"><div class="icon">🛏️</div><h3>Linge de maison</h3><div class="count">Douceur zen</div></a>
     </div>
-    <div class="cat-card">
-      <div class="emoji">📿</div>
-      <h3>Bracelets de cheville</h3>
-      <p>Anklets bohèmes et spirituels pour une touche discrète de bien-être.</p>
-      <a href="/collections/bracelets-de-cheville">Découvrir →</a>
-    </div>
-    <div class="cat-card">
-      <div class="emoji">📿</div>
-      <h3>Colliers & Pendentifs</h3>
-      <p>Symboles bouddhistes porteurs de sens : Om, Lotus, Bouddha.</p>
-      <a href="/collections/collier-pendantif">Découvrir →</a>
-    </div>
-    <div class="cat-card">
-      <div class="emoji">💎</div>
-      <h3>Pierres naturelles</h3>
-      <p>Améthyste, quartz, lapis, obsidienne. Les vertus de la lithothérapie.</p>
-      <a href="/collections/pierres">Découvrir →</a>
-    </div>
-    <div class="cat-card">
-      <div class="emoji">🔔</div>
-      <h3>Bols chantants</h3>
-      <p>Bols tibétains pour la méditation et la relaxation sonore.</p>
-      <a href="/collections/bols-chantants-tibetains">Découvrir →</a>
-    </div>
-    <div class="cat-card">
-      <div class="emoji">🕯️</div>
-      <h3>Encens & Brûleurs</h3>
-      <p>Aromathérapie et purification de l'espace.</p>
-      <a href="/collections/bruleurs-et-encens">Découvrir →</a>
-    </div>
-    <div class="cat-card">
-      <div class="emoji">🗿</div>
-      <h3>Statues & Décoration</h3>
-      <p>Bouddha, figurines et décor zen pour un coin méditation.</p>
-      <a href="/collections/decoration-zen">Découvrir →</a>
-    </div>
-    <div class="cat-card">
-      <div class="emoji">🪷</div>
-      <h3>Malas bouddhistes</h3>
-      <p>Chapelets de prière 108 perles pour la récitation et la méditation.</p>
-      <a href="/collections/malas-bouddhiste">Découvrir →</a>
-    </div>
-    <div class="cat-card">
-      <div class="emoji">🌀</div>
-      <h3>Chakras</h3>
-      <p>Équilibrez vos 7 centres d'énergie.</p>
-      <a href="/collections/chakras">Découvrir →</a>
-    </div>
-    <div class="cat-card">
-      <div class="emoji">🥚</div>
-      <h3>Œufs de Yoni</h3>
-      <p>Quartz naturel pour le bien-être intime.</p>
-      <a href="/collections/oeufs-de-yoni">Découvrir →</a>
-    </div>
-    <div class="cat-card">
-      <div class="emoji">💍</div>
-      <h3>Bagues</h3>
-      <p>Alliances spirituelles et bagues de protection.</p>
-      <a href="/collections/bagues">Découvrir →</a>
-    </div>
-    <div class="cat-card">
-      <div class="emoji">👂</div>
-      <h3>Boucles d'oreilles</h3>
-      <p>Symboles lotus et Bouddha à porter près du visage.</p>
-      <a href="/collections/boucles-doreilles">Découvrir →</a>
-    </div>
-    <div class="cat-card">
-      <div class="emoji">🔑</div>
-      <h3>Porte-clés</h3>
-      <p>Un rappel spirituel à emporter partout.</p>
-      <a href="/collections/porte-cles">Découvrir →</a>
-    </div>
-    <div class="cat-card">
-      <div class="emoji">🧘</div>
-      <h3>Bouddha</h3>
-      <p>Figurines et symboles de sérénité et d'éveil.</p>
-      <a href="/collections/bouddha">Découvrir →</a>
-    </div>
-    <div class="cat-card">
-      <div class="emoji">👕</div>
-      <h3>Vêtements</h3>
-      <p>T-shirts en coton bio à message conscient.</p>
-      <a href="/collections/vetement">Découvrir →</a>
-    </div>
-    <div class="cat-card">
-      <div class="emoji">🏮</div>
-      <h3>Ambiance & Lampes</h3>
-      <p>Lumière douce et cristaux pour votre espace.</p>
-      <a href="/collections/ambiance-lampes">Découvrir →</a>
-    </div>
-  </main>
+  </section>
 
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div><h4>Bouddhas</h4><p>Bijoux spirituels & bien-être naturel.</p></div>
-      <div><h4>Boutique</h4><ul><li><a href="/produits">Tous les produits</a></li><li><a href="/categories">Catégories</a></li><li><a href="/pierres">Guide pierres</a></li></ul></div>
-      <div><h4>Aide</h4><ul><li><a href="/livraison">Livraison</a></li><li><a href="/faq">FAQ</a></li><li><a href="/contact">Contact</a></li></ul></div>
-      <div><h4>Suivez-nous</h4><ul><li><a href="/blog">Blog</a></li></ul></div>
-    </div>
-    <p class="footer-bottom">© 2026 Bouddhas. Tous droits réservés.</p>
-  </footer>
-  <script src="/js/main.js"></script>
+  <footer><div class='container'><div class='brand'>Bouddhas</div><div class='sub'>Artisanat spirituel & bijoux sacrés</div><div style='display:flex;justify-content:center;gap:1.5rem;margin:1.5rem 0;'><a href='/a-propos' style='color:rgba(255,255,255,0.4);text-decoration:none;font-size:0.9rem;'>À propos</a><a href='/livraison' style='color:rgba(255,255,255,0.4);text-decoration:none;font-size:0.9rem;'>Livraison</a><a href='/faq' style='color:rgba(255,255,255,0.4);text-decoration:none;font-size:0.9rem;'>FAQ</a><a href='/contact' style='color:rgba(255,255,255,0.4);text-decoration:none;font-size:0.9rem;'>Contact</a></div><div class='payment-icons'><svg viewBox='0 0 38 24' width='38' height='24'><rect x='.5' y='.5' width='37' height='23' rx='2.5' stroke='rgba(255,255,255,0.3)'/><rect x='14' y='6' width='10' height='12' rx='5' fill='#EB001B'/><rect x='18' y='6' width='10' height='12' rx='5' fill='#F79E1B'/><path d='M21 6a6 6 0 0 1 0 12' fill='#FF5F00'/></svg><svg viewBox='0 0 38 24' width='38' height='24'><rect x='.5' y='.5' width='37' height='23' rx='2.5' stroke='rgba(255,255,255,0.3)'/><text x='19' y='16' text-anchor='middle' fill='#142FBD' font-size='7' font-weight='bold' font-family='sans-serif'>VISA</text></svg><svg viewBox='0 0 38 24' width='38' height='24'><rect x='.5' y='.5' width='37' height='23' rx='2.5' stroke='rgba(255,255,255,0.3)'/><text x='19' y='16' text-anchor='middle' fill='#FFC439' font-size='6' font-weight='bold' font-family='sans-serif'>PayPal</text></svg><span style='color:rgba(255,255,255,0.3);font-size:0.8rem;'>Apple Pay</span></div><div class='copy'>&copy; 2026 Bouddhas — Tous droits réservés</div></div></footer>
+
+  <script src="/js/announce.min.js"></script>
+  <script src="/js/search.min.js"></script>
+  <button class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Retour en haut">↑</button>
+  <script>
+    window.addEventListener('scroll', function() {
+      var btn = document.querySelector('.scroll-top');
+      if (btn) { if (window.scrollY > 400) btn.classList.add('visible'); else btn.classList.remove('visible'); }
+    });
+  </script>
 </body>
 </html>
