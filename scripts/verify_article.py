@@ -30,8 +30,8 @@ DATA = ROOT / "data"
 HISTORY = DATA / "published_articles.json"
 
 MOTS_INTERDITS = ["xxx", "porn", "casino", "sexe", "drogue"]
-MIN_MOTS = 1200
-MAX_MOTS = 1800
+MIN_MOTS = 800
+MAX_MOTS = 1200
 MIN_H2 = 5
 MIN_LIENS_INTERNES = 3
 
