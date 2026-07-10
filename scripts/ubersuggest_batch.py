@@ -14,7 +14,9 @@ URL = "https://ubersuggest-mcp.neilpatelapi.com/mcp"
 HEADERS = {"Authorization": f"Bearer {TOKEN}"}
 
 # Thématiques à cibler (rotation quotidienne possible via argv)
-SEEDS = ["bouddhisme", "méditation", "bouddha", "mantra", "pleine conscience", "mindfulness"]
+SEEDS = ["bouddhisme", "méditation", "bouddha", "mantra", "pleine conscience", "mindfulness",
+         "yoga", "relaxation", "sagesse", "bien-être", "zen", "karma", "éveil", "compassion",
+         "lotus", "malā", "silence", "respiration", "sérénité", "prière"]
 
 async def call(session, name, args):
     try:
