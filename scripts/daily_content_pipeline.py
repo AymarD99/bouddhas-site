@@ -71,6 +71,27 @@ if not chosen:
     sys.exit(0)
 print(f"  → {len(chosen)} cibles: {[c[1] for c in chosen]}")
 
+# --- 2b. Garde-fou anti-doublon cross-batch (historique) ---
+print("🛡️  [2b/6] Garde-fou anti-doublon (historique published_articles.json)...")
+HIST_FILE = DATA / "published_articles.json"
+hist_slugs = set()
+if HIST_FILE.exists():
+    try:
+        hist_slugs = set(json.load(open(HIST_FILE, encoding="utf-8")).get("published", []))
+    except:
+        pass
+chosen_safe = []
+for sl, kw, vol, comp in chosen:
+    if sl in hist_slugs:
+        print(f"    ⚠️ Doublon historique détecté: {sl} → skip")
+        continue
+    chosen_safe.append((sl, kw, vol, comp))
+chosen = chosen_safe
+if not chosen:
+    print("  ⚠️ Toutes les cibles sont déjà publiées (historique). Pas de déploiement.")
+    sys.exit(0)
+print(f"  → {len(chosen)} cibles après garde-fou: {[c[1] for c in chosen]}")
+
 # --- 3. Rédaction via OpenRouter (hy3:free) ---
 print("✍️  [3/6] Rédaction des articles (qualité maximale)...")
 KEY = open(pathlib.Path.home()/".hermes/.env").read()
