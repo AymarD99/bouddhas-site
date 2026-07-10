@@ -248,9 +248,10 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 700; }
     transition: right 0.3s ease;
     box-shadow: -10px 0 40px rgba(0,0,0,0.4);
     overflow-y: auto;
+    display: none;
   }
   
-  .nav-links.open { right: 0; }
+  .nav-links.open { right: 0; display: flex; }
   
   .nav-links a {
     width: 100%;
@@ -933,7 +934,6 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 700; }
 @media (max-width: 768px) {
   .hero { padding: 8rem 1.5rem 4rem; min-height: auto; }
   .hero h1 { font-size: 2.5rem; }
-  .nav-links { gap: 0.8rem; }
   .nav-links a { font-size: 0.8rem; }
   .product-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
   .product-detail { grid-template-columns: 1fr; gap: 2rem; margin-top: 6rem; }
