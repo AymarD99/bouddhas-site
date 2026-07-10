@@ -28,6 +28,27 @@
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "Organization",
+      "name": "Bouddhas.fr",
+      "url": "https://bouddhas.fr/",
+      "logo": "https://bouddhas.fr/images/logo.png",
+      "description": "Média sur le bouddhisme, la méditation et la philosophie orientale. Contenu sourcé et bienveillant.",
+      "sameAs": [
+        "https://www.instagram.com/bouddhas.fr",
+        "https://www.youtube.com/@bouddhas"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "name": "Bouddhas.fr",
+      "url": "https://bouddhas.fr/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://bouddhas.fr/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
       "@type": "ImageObject",
       "url": "https://bouddhas.fr/images/blog/page-accueil.jpg",
       "name": "page-accueil",
@@ -220,7 +241,7 @@
       <div class="trust-badge">
         <span class="icon">🔍</span>
         <h4>Transparence</h4>
-        <p>Les liens d'affiliation éventuels sont clairement signalés. Indépendance garantie.</p>
+        <p>Les liens de partenariat éventuels sont clairement signalés. Indépendance garantie.</p>
       </div>
       <div class="trust-badge">
         <span class="icon">🌱</span>
