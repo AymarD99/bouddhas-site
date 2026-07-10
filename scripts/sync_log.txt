@@ -48,3 +48,7 @@
 [2026-07-09 16:19:13]   187 produits récupérés
 [2026-07-09 16:19:13]   ✅ sitemap.xml généré (195 URLs)
 [2026-07-09 16:19:13] ✅ Synchronisation terminée
+[2026-07-10 03:00:42] 🔄 Début synchronisation Shopify
+[2026-07-10 03:00:43]   187 produits récupérés
+[2026-07-10 03:00:43]   ✅ sitemap.xml généré (195 URLs)
+[2026-07-10 03:00:43] ✅ Synchronisation terminée
