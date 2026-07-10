@@ -15,8 +15,10 @@ HEADERS = {"Authorization": f"Bearer {TOKEN}"}
 
 # Thématiques à cibler (rotation quotidienne possible via argv)
 SEEDS = ["bouddhisme", "méditation", "bouddha", "mantra", "pleine conscience", "mindfulness",
-         "yoga", "relaxation", "sagesse", "bien-être", "zen", "karma", "éveil", "compassion",
-         "lotus", "malā", "silence", "respiration", "sérénité", "prière"]
+         "détachement", "impermanence", "souffrance bouddhiste", "noble vérité", "samadhi",
+         "metta", "compassion", "éveil spirituel", "zen", "yoga", "relaxation", "sagesse",
+         "karma", "réincarnation", "chakra", "silence intérieur", "respiration", "sérénité",
+         "temple", "moine bouddhiste", "dharma", "sangha", "tonglen", "vipassana", "zazen"]
 
 async def call(session, name, args):
     try:

@@ -40,6 +40,13 @@ def is_duplicate(sl, covered):
     for c in covered:
         if c in sl or sl in c:
             return True
+    # Doublon sémantique: partage >=2 mots-racines de >4 lettres (ex: hare-krishna-x / hare-krishna-y)
+    sl_words = set(w for w in sl.split("-") if len(w) > 4)
+    for c in covered:
+        c_words = set(w for w in c.split("-") if len(w) > 4)
+        shared = sl_words & c_words
+        if len(shared) >= 2:
+            return True
     return False
 
 def slugify(kw):
