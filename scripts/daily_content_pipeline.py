@@ -82,6 +82,9 @@ def rediger(kw, volume):
     prompt = f"""Tu es un expert SEO senior. Rédige un article de blog en français (FR) sur le sujet : "{kw}".
 L'article doit viser la qualité maximale (meilleur que le top 10 Google).
 Contraintes STRICTES de format (réponds UNIQUEMENT en HTML, sans balise <html>/<head>/<body>, sans bloc de code markdown) :
+- BALISES SEO en tête (une ligne chacune, à extraire) :
+  <!-- TITLE: Un titre accrocheur 40-60 caractères -->
+  <!-- DESC: Une meta description 120-155 caractères, incitative -->
 - Une phrase d'intro <p class="article-intro"> qui répond DIRECTEMENT à l'intention de recherche
 - Plusieurs <h2> (au moins 5) : définition, origine, pratique concrète, bienfaits, FAQ
 - Des <h3> si utile
@@ -127,16 +130,23 @@ print("📝 [4/6] Publication locale (post_article.py)...")
 created = 0
 for sl, kw, vol, comp in chosen:
     print(f"  → {kw}...")
-    body = rediger(kw, vol)
-    if not body:
+    raw = rediger(kw, vol)
+    if not raw:
         print(f"    ⚠️ Rédaction échouée, skip"); continue
+    # Extraire TITLE / DESC des balises commentaires
+    mt = re.search(r"<!--\s*TITLE:\s*(.+?)\s*-->", raw, re.S)
+    md = re.search(r"<!--\s*DESC:\s*(.+?)\s*-->", raw, re.S)
+    seo_title = mt.group(1).strip() if mt else kw.capitalize()
+    seo_desc = md.group(1).strip() if md else f"Guide complet sur {kw} : signification, bienfaits et pratique."
+    # Nettoyer le corps (enlever les balises commentaires SEO)
+    body = re.sub(r"<!--\s*(TITLE|DESC):.*?-->", "", raw, flags=re.S).strip()
     draft = BLOG/"_drafts"/f"{sl}.html"
     draft.parent.mkdir(exist_ok=True)
-    draft.write_text(f"<h1>{kw.capitalize()}</h1>\n{body}", encoding="utf-8")
+    draft.write_text(f"<h1>{seo_title}</h1>\n{body}", encoding="utf-8")
     # Publication
     r = subprocess.run([sys.executable, str(SCRIPTS/"post_article.py"),
-        "--slug", sl, "--title", kw.capitalize(),
-        "--desc", f"Guide complet sur {kw} : signification, bienfaits et pratique. Média indépendant bouddhisme & méditation.",
+        "--slug", sl, "--title", seo_title[:60],
+        "--desc", seo_desc[:155],
         "--prompt", f"{sl} spiritual calm", "--category", "meditation",
         "--html-file", str(draft)], cwd=str(ROOT), capture_output=True, text=True)
     if r.returncode != 0:

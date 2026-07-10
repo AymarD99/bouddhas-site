@@ -3,13 +3,23 @@
   command = ""
 
 [[redirects]]
-  from = "/produit/*"
-  to = "/produit.html"
-  status = 200
+  from = "/pierres"
+  to = "/bouddhisme"
+  status = 301
 
 [[redirects]]
-  from = "/pierres"
-  to = "/pierres.html"
+  from = "/livraison"
+  to = "/guides"
+  status = 301
+
+[[redirects]]
+  from = "/categories"
+  to = "/guides"
+  status = 301
+
+[[redirects]]
+  from = "/produit/*"
+  to = "/produit.html"
   status = 200
 
 [[redirects]]
