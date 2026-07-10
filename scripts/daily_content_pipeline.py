@@ -90,7 +90,7 @@ Contraintes STRICTES de format (réponds UNIQUEMENT en HTML, sans balise <html>/
 - Des <h3> si utile
 - Paragraphes courts, listes <ul>/<ol> pour la lisibilité
 - Une section <h2>FAQ</h2> avec 2-3 questions/réponses
-- Une section <h2>Articles liés</h2> avec 3 liens <a href="/blog/SLUG.html"> vers des articles existants (méditation-debutants, meditation-guidee, mantras-bouddhistes, bouddhisme-debutant, meditation-zen, meditation-pleine-conscience)
+- Une section <h2>Articles liés</h2> avec 3 liens <a href="/blog/SLUG.html"> vers des articles existants (méditation-debutants, meditation-guidee, mantras-bouddhistes, bouddhisme-debutant, meditation-zen, meditation-pleine-conscience, symboles-bouddhistes, pierres-spirituelles)
 - Ton humain, professionnel, français impeccable, aucune faute
 - Ne JAMAIS inventer de faits ; si source nécessaire, cite Wikipédia/Buddhanet
 - Longueur : 1200-1800 mots
@@ -147,7 +147,7 @@ for sl, kw, vol, comp in chosen:
     r = subprocess.run([sys.executable, str(SCRIPTS/"post_article.py"),
         "--slug", sl, "--title", seo_title[:60],
         "--desc", seo_desc[:155],
-        "--prompt", f"{sl} spiritual calm", "--category", "meditation",
+        "--prompt", f"{sl} spiritual calm", "--category", "spiritualite",
         "--html-file", str(draft)], cwd=str(ROOT), capture_output=True, text=True)
     if r.returncode != 0:
         print(f"    ⚠️ Échec publication {sl}: {r.stderr[-200:]}")
