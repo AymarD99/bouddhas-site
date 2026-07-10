@@ -1,17 +1,21 @@
-#!/bin/bash
-# Déploiement Bouddhas.fr sur Netlify (1 commande)
-# Prérequis: netlify CLI installé (brew install netlify-cli)
-# Ce script pousse le repo et déploie en prod. Coût: ~15 credits Netlify (1 seul déploi).
-
+#!/usr/bin/env bash
+# Déploiement Netlify MANUEL (0 crédit) — repo GitHub DÉCONNECTÉ
+# Usage: bash deploy.sh
+# Prérequis: NETLIFY_AUTH_TOKEN dans ~/.hermes/.env (ou export)
 set -e
 cd "$(dirname "$0")"
 
-echo "📦 Commit des changements locaux..."
-git add -A
-git commit -m "🌅 Déploiement: titres FR produits, blog, sitemap, 404, netlify.toml" || echo "(rien à commiter)"
-git push origin main
+# Charger le token depuis .env si présent
+if [ -f ~/.hermes/.env ]; then
+  export $(grep -E "^NETLIFY_AUTH_TOKEN=" ~/.hermes/.env | xargs)
+fi
 
-echo "🚀 Déploiement Netlify (prod)..."
-netlify deploy --prod --dir .
+if [ -z "$NETLIFY_AUTH_TOKEN" ]; then
+  echo "❌ NETLIFY_AUTH_TOKEN manquant. Ajoute-le dans ~/.hermes/.env"
+  exit 1
+fi
 
-echo "✅ Fait. Vérifie https://bouddhas.fr"
+echo "🚀 Déploiement MANUEL en prod (0 crédit, upload direct)..."
+netlify deploy --prod --dir . --auth "$NETLIFY_AUTH_TOKEN"
+
+echo "✅ Terminé. Vérifie https://bouddhas.fr"

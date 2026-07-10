@@ -3,71 +3,76 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Découvrez Bouddhas, boutique spirituelle de bijoux en pierres naturelles, pendentifs, bracelets et objets sacrés. Livraison offerte dès 50€.">
-  <meta property="og:title" content="Bouddhas — Bijoux en Pierres Naturelles & Artisanat Spirituel">
-  <meta property="og:description" content="Découvrez Bouddhas, boutique spirituelle de bijoux en pierres naturelles, pendentifs, bracelets et objets sacrés. Livraison offerte dès 50€.">
+  <meta name="description" content="Bouddhas.fr — média francophone indépendant sur le bouddhisme, la méditation et la philosophie. Guides sourcés, glossaire, FAQ.">
+  <meta property="og:title" content="Bouddhas — Média bouddhisme, méditation & philosophie">
+  <meta property="og:description" content="Comprendre le bouddhisme, la méditation et la philosophie orientale. Contenu sourcé et bienveillant.">
+  <meta name="twitter:description" content="Bouddhas.fr — média indépendant sur le bouddhisme, la méditation et la philosophie.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Bouddhas">
   <meta property="og:url" content="https://bouddhas.fr/">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Bouddhas — Bijoux en Pierres Naturelles & Artisanat Spirituel">
-  <meta name="twitter:description" content="Découvrez Bouddhas, boutique spirituelle de bijoux en pierres naturelles, pendentifs, bracelets et objets sacrés. Livraison offerte dès 50€.">
+  <meta name="twitter:title" content="Bouddhas.fr — Média du bouddhisme">
+  <meta name="twitter:description" content="Comprendre le bouddhisme, la méditation et la philosophie orientale. Contenu sourcé et bienveillant.">
   <link rel="canonical" href="https://bouddhas.fr/">
-  <title>Bouddhas — Bijoux en Pierres Naturelles & Artisanat Spirituel</title>
+  <title>Bouddhas — Média bouddhisme, méditation & philosophie</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%231A1A2C'/%3E%3Ctext x='50' y='68' font-size='50' text-anchor='middle' fill='%23C9A96E' font-family='serif'%3E%F0%9F%93%BF%3C/text%3E%3C/svg%3E">
+    <link rel="preload" href="/fonts/playfair-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/raleway-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/playfair-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/raleway-600.woff2" as="font" type="font/woff2" crossorigin">
   <link rel="stylesheet" href="/css/style.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <!-- JSON-LD Structured Data -->
-  <script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Bouddhas.fr",
-  "url": "https://bouddhas.fr",
-  "logo": "https://bouddhas.fr/images/logo.png",
-  "description": "Boutique en ligne de bouddhas, pierres naturelles, bijoux spirituels et objets de décoration zen.",
-  "sameAs": [
-    "https://www.instagram.com/bouddhas.fr",
-    "https://www.facebook.com/bouddhas.fr"
-  ],
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "+33-6-83-81-07-29",
-    "contactType": "customer service",
-    "areaServed": "FR",
-    "availableLanguage": "French"
-  }
-}</script>
+  
 <script type="application/ld+json">{
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Bouddhas.fr",
-  "url": "https://bouddhas.fr",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://bouddhas.fr/produits.html?q={search_term_string}",
-    "query-input": "required name=search_term_string"
-  }
-}</script>
-<script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
+  "@graph": [
     {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Accueil",
-      "item": "https://bouddhas.fr/"
+      "@type": "Organization",
+      "name": "Bouddhas.fr",
+      "url": "https://bouddhas.fr/",
+      "logo": "https://bouddhas.fr/images/logo.png",
+      "description": "Média sur le bouddhisme, la méditation et la philosophie orientale. Contenu sourcé et bienveillant.",
+      "sameAs": [
+        "https://www.instagram.com/bouddhas.fr",
+        "https://www.youtube.com/@bouddhas"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "name": "Bouddhas.fr",
+      "url": "https://bouddhas.fr/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://bouddhas.fr/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "ImageObject",
+      "url": "https://bouddhas.fr/images/blog/page-accueil.jpg",
+      "name": "page-accueil",
+      "description": "Méditation bouddhiste au lever du soleil, pratique de pleine conscience et paix intérieure",
+      "author": { "@type": "Organization", "name": "Bouddhas.fr" },
+      "contentUrl": "https://bouddhas.fr/images/blog/page-accueil.jpg",
+      "caption": "Méditation bouddhiste au lever du soleil, pratique de pleine conscience et paix intérieure"
     }
   ]
 }</script>
+  <link rel="prefetch" href="/bouddhisme">
+  <link rel="prefetch" href="/meditation">
+  <link rel="prefetch" href="/philosophie">
+  <link rel="prefetch" href="/guides">
+  <link rel="prefetch" href="/faq">
+  <link rel="prefetch" href="/glossaire">
 </head>
 <body>
   <div class="announcement-bar" id="announcement-bar">
     <div class="swiper-wrapper" id="announce-slider">
-      <div class="swiper-slide">🚚 Livraison offerte dès 50€ d'achat</div>
-      <div class="swiper-slide">💎 Bijoux en pierres naturelles authentiques</div>
-      <div class="swiper-slide">🔒 Paiement 100% sécurisé (CB, PayPal, Apple Pay)</div>
-      <div class="swiper-slide">✨ Nouveautés chaque semaine</div>
+      <div class="swiper-slide">📚 Média indépendant sur le bouddhisme & la méditation</div>
+      <div class="swiper-slide">🧘 Guides sourcés, neutres et bienveillants</div>
+      <div class="swiper-slide">🔍 Glossaire, FAQ et comparatifs</div>
+      <div class="swiper-slide">✨ Nouveaux contenus chaque semaine</div>
     </div>
   </div>
 
@@ -77,20 +82,22 @@
       <button class="nav-burger" onclick="toggleNav()">☰</button>
       <div class="nav-links" id="nav-links">
         <a href="/">Accueil</a>
-        <a href="/produits">Boutique</a>
-        <a href="/pierres">Guide pierres</a>
-        <a href="/categories">Catégories</a>
-        <a href="/blog">Blog</a>
-        <a href="/a-propos">À propos</a>
-        <a href="/livraison">Livraison</a>
+        <a href="/bouddhisme">Bouddhisme</a>
+        <a href="/meditation">Méditation</a>
+        <a href="/blog.html">Blog</a>
+        <a href="/philosophie">Philosophie</a>
+        <a href="/culture">Culture</a>
+        <a href="/guides">Guides</a>
+        <a href="/glossaire">Glossaire</a>
         <a href="/faq">FAQ</a>
+        <a href="/a-propos">À propos</a>
         <a href="/contact">Contact</a>
         <div class="search-box">
           <span class="icon">🔍</span>
           <input type="text" id="search-input" placeholder="Rechercher..." autocomplete="off">
           <div class="search-results" id="search-results"></div>
         </div>
-        <a href="/panier" class="cart-link">🛒 Panier <span id="cart-count">0</span></a>
+        
       </div>
     </div>
   </nav>
@@ -102,81 +109,96 @@
     <div class="hero-slide active" style="background:linear-gradient(135deg,#0F0F1A 0%,#2A1F0E 50%,#0F0F1A 100%);">
       <div class="container">
         <div style="font-size:3rem;margin-bottom:0.5rem;">📿</div>
-        <h1>Bienvenue chez <span class="gold">Bouddhas</span></h1>
-        <p>Artisanat spirituel, bijoux sacrés — pour éveiller votre espace intérieur</p>
-        <a href="/produits" class="btn-primary">Explorer la boutique →</a>
+        <h1 style="color:#FFFFFF">Bouddhas — <span class="gold">média du bouddhisme</span></h1>
+        <p style="color:rgba(255,255,255,0.92)">Comprendre le bouddhisme, la méditation et la philosophie orientale. Guides sourcés, neutres et bienveillants.</p>
+        <a href="/bouddhisme" class="btn-primary">Découvrir le bouddhisme →</a>
       </div>
     </div>
     <div class="hero-slide" style="background:linear-gradient(135deg,#0F0F1A 0%,#1A0A2E 50%,#0F0F1A 100%);">
       <div class="container">
-        <div style="font-size:3rem;margin-bottom:0.5rem;">✨</div>
-        <h1><span class="gold">Nouveautés</span> spirituelles</h1>
-        <p>Découvrez nos dernières pièces chargées d'énergie positive</p>
-        <a href="/produits" class="btn-primary">Voir les nouveautés →</a>
+        <div style="font-size:3rem;margin-bottom:0.5rem;">🧘</div>
+        <h2 style="color:#FFFFFF"><span class="gold">Méditer</span>, c'est apprendre</h2>
+        <p style="color:rgba(255,255,255,0.92)">Des techniques simples pour apaiser l'esprit et cultiver la présence au quotidien.</p>
+        <a href="/meditation" class="btn-primary">Guides de méditation →</a>
       </div>
     </div>
     <div class="hero-slide" style="background:linear-gradient(135deg,#0F0F1A,#1A0A0A,#0F0F1A);">
       <div class="container">
-        <div style="font-size:3rem;margin-bottom:0.5rem;">💎</div>
-        <h1>Guide des <span class="gold">pierres</span></h1>
-        <p>Apprenez à choisir la pierre qui correspond à vos besoins spirituels</p>
-        <a href="/pierres" class="btn-primary">Explorer les pierres →</a>
+        <div style="font-size:3rem;margin-bottom:0.5rem;">📖</div>
+        <h2 style="color:#FFFFFF">Un <span class="gold">glossaire</span> pour tout comprendre</h2>
+        <p style="color:rgba(255,255,255,0.92)">50 termes bouddhistes essentiels, expliqués clairement.</p>
+        <a href="/glossaire" class="btn-primary">Explorer le glossaire →</a>
       </div>
     </div>
   </section>
 
-  <!-- STATS BAR -->
+  <!-- STATS BAR (autorité) -->
   <div class="stats-bar reveal">
     <div class="stat-item">
-      <div class="stat-number">240+</div>
-      <div class="stat-label">Produits uniques</div>
+      <div class="stat-number">20 ans</div>
+      <div class="stat-label">de domaine (depuis 2006)</div>
     </div>
     <div class="stat-item">
-      <div class="stat-number">15K+</div>
-      <div class="stat-label">Clients satisfaits</div>
+      <div class="stat-number">5</div>
+      <div class="stat-label">Silos éditoriaux</div>
     </div>
     <div class="stat-item">
-      <div class="stat-number">4.9/5</div>
-      <div class="stat-label">Note moyenne</div>
+      <div class="stat-number">50</div>
+      <div class="stat-label">Termes de glossaire</div>
     </div>
     <div class="stat-item">
-      <div class="stat-number">48h</div>
-      <div class="stat-label">Expédition rapide</div>
+      <div class="stat-number">100%</div>
+      <div class="stat-label">Contenu sourcé</div>
     </div>
   </div>
 
-  <!-- CATÉGORIES -->
+  <!-- SILOS -->
   <section class="section reveal">
-    <h2 class="section-title">Nos univers</h2>
-    <p class="section-subtitle">Chaque pièce raconte une histoire sacrée</p>
+    <h2 class="section-title">Explorer par thème</h2>
+    <p class="section-subtitle">Une organisation claire pour approfondir chaque facettes du bouddhisme</p>
     <div class="category-grid">
-      <a href="/collections/collier-pendantif" class="category-card"><div class="icon">📿</div><h3>Pendentifs</h3><div class="count">Protection & énergie</div></a>
-      <a href="/collections/bracelets" class="category-card"><div class="icon">⛓️</div><h3>Bracelets</h3><div class="count">Bien-être & harmonie</div></a>
-      <a href="/collections/bagues" class="category-card"><div class="icon">💍</div><h3>Bagues</h3><div class="count">Spiritualité au quotidien</div></a>
-      <a href="/collections/orgonites" class="category-card"><div class="icon">💎</div><h3>Orgonites</h3><div class="count">Énergie & chakras</div></a>
+      <a href="/bouddhisme" class="category-card"><div class="icon">📜</div><h3>Bouddhisme</h3><div class="count">Histoire, écoles, maîtres</div></a>
+      <a href="/meditation" class="category-card"><div class="icon">🧘</div><h3>Méditation</h3><div class="count">Débuter, techniques, zen</div></a>
+      <a href="/philosophie" class="category-card"><div class="icon">🕉️</div><h3>Philosophie</h3><div class="count">Karma, compassion, éveil</div></a>
+      <a href="/culture" class="category-card"><div class="icon">🏛️</div><h3>Culture</h3><div class="count">Symboles, temples, pays</div></a>
     </div>
   </section>
 
-  <!-- BANDEAU LIVRAISON -->
+  <!-- BANDEAU VALEURS -->
   <section class="shipping-banner reveal">
     <div class="shipping-banner-content">
-      <span style="font-size:2rem;">🚚</span>
+      <span style="font-size:2rem;">📚</span>
       <div>
-        <h3>Livraison offerte dès 50€</h3>
-        <p>Partout en France métropolitaine — expédition sous 48h</p>
+        <h3>Un média indépendant et sourcé</h3>
+        <p>Approche neutre, respectueuse des traditions. Aucune promesse spirituelle non vérifiée.</p>
       </div>
     </div>
   </section>
 
-  <!-- PRODUITS PHARES -->
+  <!-- DERNIERS CONTENUS -->
   <section class="section reveal">
-    <h2 class="section-title">Nos dernières pièces</h2>
-    <p class="section-subtitle">Chaque création est unique, façonnée avec intention</p>
-    <div class="product-grid" id="product-grid">
-      <div style="text-align:center;padding:3rem;color:var(--text-light);">Chargement des produits...</div>
+    <h2 class="section-title">Pour commencer</h2>
+    <p class="section-subtitle">Les fondamentaux pour entrer dans le bouddhisme</p>
+    <div class="product-grid">
+      <a href="/bouddhisme" class="media-card">
+        <div class="media-image" style="background:linear-gradient(135deg,#2A1F0E,#0F0F1A);">📜</div>
+        <div class="media-info"><h3>Le bouddhisme en bref</h3><p>Histoire, écoles et concepts clés.</p><div class="media-cta">Lire →</div></div>
+      </a>
+      <a href="/meditation" class="media-card">
+        <div class="media-image" style="background:linear-gradient(135deg,#1A0A2E,#0F0F1A);">🧘</div>
+        <div class="media-info"><h3>Méditer en 5 minutes</h3><p>Un guide pratique pour tous.</p><div class="media-cta">Lire →</div></div>
+      </a>
+      <a href="/philosophie" class="media-card">
+        <div class="media-image" style="background:linear-gradient(135deg,#1A0A0A,#0F0F1A);">🔄</div>
+        <div class="media-info"><h3>Comprendre le karma</h3><p>La loi de cause à effet expliquée.</p><div class="media-cta">Lire →</div></div>
+      </a>
+      <a href="/glossaire" class="media-card">
+        <div class="media-image" style="background:linear-gradient(135deg,#2A1F0E,#1A0A2E);">📖</div>
+        <div class="media-info"><h3>Glossaire</h3><p>50 termes essentiels.</p><div class="media-cta">Lire →</div></div>
+      </a>
     </div>
     <div style="text-align:center;margin-top:3rem;">
-      <a href="/produits" class="btn-primary">Voir toute la collection →</a>
+      <a href="/bouddhisme" class="btn-primary">Tous les contenus →</a>
     </div>
   </section>
 
@@ -188,60 +210,53 @@
     <div class="zen-divider"></div>
   </section>
 
-  <!-- HISTOIRE -->
+  <!-- APPROCHE -->
   <section class="story-section reveal">
     <div class="story-text">
-      <h2>L'art de la spiritualité</h2>
-      <p>Chez Bouddhas, nous croyons que chaque pierre, chaque bijou porte une énergie unique. Nos pièces sont sélectionnées avec soin auprès d'artisans passionnés qui mettent leur savoir-faire au service du bien-être.</p>
-      <p>De l'améthyste apaisante au quartz purificateur, chaque création est pensée pour vous accompagner sur votre chemin spirituel, que vous soyez débutant ou pratiquant confirmé.</p>
-      <a href="/a-propos" class="btn-primary" style="margin-top:1rem;">Notre histoire →</a>
+      <h2>Notre démarche éditoriale</h2>
+      <p>Bouddhas.fr est un média indépendant. Nous publions des contenus éducatifs basés sur des sources fiables (textes canoniques, ouvrages universitaires, traditions reconnues). Notre posture : neutralité, clarté et bienveillance.</p>
+      <p>Le bouddhisme y est présenté comme une tradition philosophique et spirituelle — non comme une solution miracle. Aucune allégation médicale, aucun prosélytisme.</p>
+      <a href="/a-propos" class="btn-primary" style="margin-top:1rem;">Notre ligne éditoriale →</a>
     </div>
     <div class="story-image">
-      <img src="https://images.unsplash.com/photo-1611262588024-d12430b98921?w=800&q=80" alt="Artisanat spirituel Bouddhas" loading="lazy" onerror="this.src='https://placehold.co/800x600/1A1A2C/C9A96E?text=Bouddhas'">
+      <img title="Méditation bouddhiste au lever du soleil, pratique de pleine conscience et paix intérieure" src="/images/blog/page-accueil.jpg" alt="Méditation bouddhiste au lever du soleil, pratique de pleine conscience et paix intérieure">
     </div>
   </section>
 
-  <!-- POURQUOI NOUS CHOISIR -->
+  <!-- POURQUOI NOUS -->
   <section class="section reveal">
-    <h2 class="section-title">Pourquoi nous choisir</h2>
-    <p class="section-subtitle">Notre engagement pour votre bien-être</p>
+    <h2 class="section-title">Notre engagement éditorial</h2>
+    <p class="section-subtitle">La confiance avant tout</p>
     <div class="trust-badges">
       <div class="trust-badge">
-        <span class="icon">💎</span>
-        <h4>Pierres authentiques</h4>
-        <p>Chaque pierre est sélectionnée à la main pour sa qualité et son énergie. Certificat d'authenticité fourni.</p>
+        <span class="icon">📚</span>
+        <h4>Contenu sourcé</h4>
+        <p>Chaque article s'appuie sur des textes reconnus et des références académiques.</p>
       </div>
       <div class="trust-badge">
         <span class="icon">🤲</span>
-        <h4>Artisanat éthique</h4>
-        <p>Nos bijoux sont façonnés par des artisans passionnés dans le respect des traditions et de l'environnement.</p>
+        <h4>Neutralité</h4>
+        <p>Respect de toutes les écoles (Theravāda, Mahāyāna, Vajrayāna). Pas de parti pris.</p>
       </div>
       <div class="trust-badge">
-        <span class="icon">🔒</span>
-        <h4>Paiement sécurisé</h4>
-        <p>Transactions cryptées via Shopify. CB, Visa, Mastercard, PayPal, Apple Pay et Shop Pay acceptés.</p>
+        <span class="icon">🔍</span>
+        <h4>Transparence</h4>
+        <p>Les liens de partenariat éventuels sont clairement signalés. Indépendance garantie.</p>
       </div>
       <div class="trust-badge">
-        <span class="icon">🔄</span>
-        <h4>Satisfait ou remboursé</h4>
-        <p>Vous avez 14 jours pour changer d'avis. Retour gratuit, remboursement intégral sous 5 jours.</p>
+        <span class="icon">🌱</span>
+        <h4>Bienveillance</h4>
+        <p>Une approche respectueuse, sans sensationnalisme ni promesses non vérifiées.</p>
       </div>
     </div>
   </section>
 
-  <!-- AVIS CLIENTS -->
-  <section class="avis-section reveal">
-    <h2 class="section-title">Ce qu'ils disent</h2>
-    <p class="section-subtitle">La satisfaction de nos clients est notre plus belle récompense</p>
-    <div id="avis-container"></div>
-  </section>
-
-  <!-- NEWSLETTER PREMIUM -->
+  <!-- NEWSLETTER -->
   <section class="newsletter-section reveal">
     <div class="newsletter-inner">
       <div style="font-size:3rem;margin-bottom:1rem;">📿</div>
-      <h2>Rejoignez notre cercle</h2>
-      <p>Recevez nos offres exclusives, conseils spirituels et dernières nouveautés. <strong style="color:var(--gold-dark);">-10% sur votre première commande.</strong></p>
+      <h2>Recevez nos guides</h2>
+      <p>Une fois par mois : un article approfondi, une citation, un exercice de méditation. <strong style="color:var(--gold-dark);">Gratuit et sans spam.</strong></p>
       <form id="newsletter-form" class="newsletter-box">
         <input type="email" id="newsletter-email" placeholder="Votre adresse email" required>
         <button type="submit">S'inscrire ✨</button>
@@ -254,12 +269,12 @@
   <div class="newsletter-popup" id="newsletter-popup">
     <div class="popup-content">
       <button class="popup-close">&times;</button>
-      <div style="font-size:3rem;margin-bottom:1rem;">📿</div>
-      <h3 style="margin-bottom:0.5rem;">Ne manquez rien ✨</h3>
-      <p style="color:var(--text-light);margin-bottom:1.5rem;">Inscrivez-vous et recevez <strong style="color:var(--gold-dark);">-10% sur votre première commande</strong> + nos conseils spirituels.</p>
+      <div style="font-size:2.5rem;margin-bottom:0.8rem;">📬</div>
+      <h3 style="margin-bottom:0.5rem;">Recevez nos guides</h3>
+      <p style="color:var(--text-light);margin-bottom:1.5rem;">Inscrivez-vous et recevez chaque mois un article approfondi, une citation et un exercice de méditation — <strong style="color:var(--gold-dark);">gratuitement</strong>.</p>
       <form id="newsletter-popup-form" class="newsletter-box">
         <input type="email" id="popup-email" placeholder="Votre email" required>
-        <button type="submit">Profiter de l'offre</button>
+        <button type="submit">Recevoir les guides</button>
       </form>
     </div>
   </div>
@@ -270,7 +285,7 @@
       <div class="footer-grid">
         <div class="footer-col">
           <div class="footer-brand">Bouddhas</div>
-          <p class="footer-desc">Artisanat spirituel & bijoux sacrés. Pierres naturelles authentiques sélectionnées avec soin pour leurs bienfaits énergétiques.</p>
+          <p class="footer-desc">Média indépendant sur le bouddhisme, la méditation et la philosophie orientale. Contenu sourcé, neutre et bienveillant.</p>
           <div class="footer-social">
             <a href="#" aria-label="Instagram">📷</a>
             <a href="#" aria-label="Facebook">📘</a>
@@ -279,54 +294,49 @@
           </div>
         </div>
         <div class="footer-col">
-          <h4>Boutique</h4>
-          <a href="/produits">Tous les produits</a>
-          <a href="/categories">Catégories</a>
-          <a href="/collections/collier-pendantif">Pendentifs</a>
-          <a href="/collections/bracelets">Bracelets</a>
-          <a href="/collections/bagues">Bagues</a>
-          <a href="/collections/bracelets-de-cheville">Bracelets de cheville</a>
-          <a href="/collections/orgonites">Orgonites</a>
+          <h4>Explorer</h4>
+          <a href="/bouddhisme">Bouddhisme</a>
+          <a href="/meditation">Méditation</a>
+          <a href="/philosophie">Philosophie</a>
+          <a href="/culture">Culture</a>
+          <a href="/guides">Guides pratiques</a>
+          <a href="/glossaire">Glossaire</a>
+          <a href="/faq">FAQ</a>
         </div>
         <div class="footer-col">
-          <h4>Informations</h4>
-          <a href="/a-propos">À propos</a>
-          <a href="/livraison">Livraison & retours</a>
-          <a href="/pierres">Guide des pierres</a>
+          <h4>Thèmes</h4>
+          <a href="/bouddhisme">Bouddhisme</a>
+          <a href="/meditation">Méditation</a>
+          <a href="/philosophie">Philosophie</a>
+          <a href="/culture">Culture</a>
+          <a href="/guides">Guides</a>
+        </div>
+        <div class="footer-col">
+          <h4>Ressources</h4>
+          <a href="/glossaire">Glossaire</a>
           <a href="/faq">FAQ</a>
+          <a href="/a-propos">À propos</a>
           <a href="/contact">Contact</a>
         </div>
         <div class="footer-col">
-          <h4>Aide</h4>
-          <a href="/faq">Questions fréquentes</a>
-          <a href="/contact">Service client</a>
-          <a href="/livraison">Suivi de commande</a>
-          <p>⏱️ Réponse sous 24h</p>
-          <p>🔒 Paiement sécurisé</p>
+          <h4>Le média</h4>
+          <a href="/a-propos">Notre ligne éditoriale</a>
+          <a href="/a-propos">Sources & références</a>
+          <a href="/contact">Nous écrire</a>
+          <p>📚 Média indépendant depuis 2006</p>
+          <p>🔒 Aucune donnée revendue</p>
         </div>
       </div>
       <div class="footer-bottom">
-        <div class="payment-icons">
-          <svg viewBox="0 0 38 24" width="38" height="24"><rect x=".5" y=".5" width="37" height="23" rx="2.5" stroke="rgba(255,255,255,0.3)"/><rect x="14" y="6" width="10" height="12" rx="5" fill="#EB001B"/><rect x="18" y="6" width="10" height="12" rx="5" fill="#F79E1B"/><path d="M21 6a6 6 0 0 1 0 12" fill="#FF5F00"/></svg>
-          <svg viewBox="0 0 38 24" width="38" height="24"><rect x=".5" y=".5" width="37" height="23" rx="2.5" stroke="rgba(255,255,255,0.3)"/><text x="19" y="16" text-anchor="middle" fill="#142FBD" font-size="7" font-weight="bold" font-family="sans-serif">VISA</text></svg>
-          <svg viewBox="0 0 38 24" width="38" height="24"><rect x=".5" y=".5" width="37" height="23" rx="2.5" stroke="rgba(255,255,255,0.3)"/><text x="19" y="16" text-anchor="middle" fill="#FFC439" font-size="6" font-weight="bold" font-family="sans-serif">PayPal</text></svg>
-          <span style="color:rgba(255,255,255,0.3);font-size:0.8rem;">Apple Pay</span>
-        </div>
-        <p style="color:rgba(255,255,255,0.3);font-size:0.8rem;margin-top:1rem;">&copy; 2026 Bouddhas — Tous droits réservés · Bijoux en pierres naturelles</p>
+        <p style="color:rgba(255,255,255,0.3);font-size:0.8rem;margin-top:1rem;">&copy; 2026 Bouddhas.fr — Média indépendant sur le bouddhisme, la méditation et la philosophie. Tous droits réservés.</p>
       </div>
     </div>
   </footer>
 
   <div id="toast" class="toast"></div>
   <button class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Retour en haut">↑</button>
-
-  <script src="/js/config.min.js"></script>
-  <script src="/js/shopify.min.js"></script>
-  <script src="/js/panier.min.js"></script>
-  <script src="/js/app.min.js"></script>
   <script src="/js/search.min.js"></script>
   <script src="/js/slider.min.js"></script>
-  <script src="/js/avis.min.js"></script>
   <script src="/js/newsletter.min.js"></script>
   <script src="/js/announce.min.js"></script>
   <script>

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Une question ? Un conseil pour choisir votre pierre ? Contactez l'équipe Bouddhas, réponse sous 24h.">
-  <meta property="og:title" content="Contact — Bouddhas">
+  <meta name="description" content="Contactez Bouddhas.fr pour toute question sur le bouddhisme, la méditation, nos guides ou notre média indépendant. Réponse sous 48h.">
+  <meta property="og:title" content="Contact — Bouddhas.fr, média bouddhisme & méditation">
   <meta property="og:description" content="Une question ? Un conseil pour choisir votre pierre ? Contactez l'équipe Bouddhas, réponse sous 24h.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Bouddhas">
@@ -13,18 +13,20 @@
   <meta name="twitter:title" content="Contact — Bouddhas">
   <meta name="twitter:description" content="Une question ? Un conseil pour choisir votre pierre ? Contactez l'équipe Bouddhas, réponse sous 24h.">
   <link rel="canonical" href="https://bouddhas.fr/contact">
-  <title>Contact — Bouddhas</title>
+  <title>Contact — Bouddhas.fr, média bouddhisme & méditation</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%231A1A2C'/%3E%3Ctext x='50' y='68' font-size='50' text-anchor='middle' fill='%23C9A96E' font-family='serif'%3E%F0%9F%93%BF%3C/text%3E%3C/svg%3E">
-  <link rel="stylesheet" href="/css/style.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
-  <!-- JSON-LD Structured Data -->
+    <link rel="preload" href="/fonts/playfair-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/raleway-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/playfair-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/raleway-600.woff2" as="font" type="font/woff2" crossorigin">
+  <link rel="stylesheet" href="/css/style.min.css">  <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "Bouddhas.fr",
   "url": "https://bouddhas.fr",
   "logo": "https://bouddhas.fr/images/logo.png",
-  "description": "Boutique en ligne de bouddhas, pierres naturelles, bijoux spirituels et objets de décoration zen.",
+  "description": "Média indépendant sur le bouddhisme, la méditation et la philosophie. Guides sourcés et bienveillants.",
   "sameAs": [
     "https://www.instagram.com/bouddhas.fr",
     "https://www.facebook.com/bouddhas.fr"
@@ -44,7 +46,7 @@
   "url": "https://bouddhas.fr",
   "potentialAction": {
     "@type": "SearchAction",
-    "target": "https://bouddhas.fr/produits.html?q={search_term_string}",
+    "target": "https://bouddhas.fr/guides?q={search_term_string}",
     "query-input": "required name=search_term_string"
   }
 }</script>
@@ -68,27 +70,29 @@
 }</script>
 </head>
 <body>
-  <div class="announcement-bar" id="announcement-bar"><div class="swiper-wrapper" id="announce-slider"><div class="swiper-slide">🚚 Livraison offerte dès 50€ d'achat</div><div class="swiper-slide">💎 Bijoux en pierres naturelles authentiques</div><div class="swiper-slide">🔒 Paiement 100% sécurisé (CB, PayPal, Apple Pay)</div><div class="swiper-slide">✨ Nouveautés chaque semaine</div></div></div>
+    <div class="announcement-bar" id="announcement-bar"><div class="swiper-wrapper" id="announce-slider"><div class="swiper-slide">📚 Média indépendant sur le bouddhisme &amp; la méditation</div><div class="swiper-slide">🔍 Explorez nos guides et notre glossaire</div><div class="swiper-slide">✨ Contenu sourcé et bienveillant</div></div></div></div>
   <nav class="navbar">
     <div class="container">
       <a href="/" class="logo">Bouddhas</a>
       <button class="nav-burger" onclick="toggleNav()">☰</button>
-      <div class="nav-links" id="nav-links">
+            <div class="nav-links" id="nav-links">
         <a href="/">Accueil</a>
-        <a href="/produits">Boutique</a>
-        <a href="/pierres">Guide pierres</a>
-        <a href="/categories">Catégories</a>
-        <a href="/blog">Blog</a>
-        <a href="/a-propos">À propos</a>
-        <a href="/livraison">Livraison</a>
+        <a href="/bouddhisme">Bouddhisme</a>
+        <a href="/meditation">Méditation</a>
+        <a href="/blog.html">Blog</a>
+        <a href="/philosophie">Philosophie</a>
+        <a href="/culture">Culture</a>
+        <a href="/guides">Guides</a>
+        <a href="/glossaire">Glossaire</a>
         <a href="/faq">FAQ</a>
-        <a href="/contact">Contact</a>
-        <div class="search-box">
+        <a href="/a-propos">À propos</a>
+        <a href="/contact">Contact</a></div>
+        
+      <div class="search-box">
           <span class="icon">🔍</span>
           <input type="text" id="search-input" placeholder="Rechercher..." autocomplete="off">
           <div class="search-results" id="search-results"></div>
         </div>
-        <a href="/panier" class="cart-link">🛒 Panier <span id="cart-count">0</span></a>
       </div>
     </div>
   </nav>
@@ -100,8 +104,7 @@
     }
   </script>
 
-  <section class="section" style="max-width:700px;">
-    <h2 class="section-title">Contact</h2>
+  <section class="section" style="max-width:700px;"><h1 class="page-title">Contact</h1>
     <p class="section-subtitle">Une question ? Un conseil pour choisir votre pierre ? Écrivez-nous</p>
 
     <div class="contact-card">
@@ -138,35 +141,20 @@
     <div style="margin-top:3rem;">
       <h3 style="text-align:center;margin-bottom:1.5rem;">Autres moyens de nous joindre</h3>
       <div class="contact-item"><span style="font-size:1.5rem;">📧</span> bouddhas@contact (via formulaire)</div>
-      <div class="contact-item"><span style="font-size:1.5rem;">🛒</span> Boutique Shopify : <a href="https://my-bouddha-store.myshopify.com" target="_blank" style="color:var(--gold-dark);margin-left:0.5rem;">my-bouddha-store.myshopify.com</a></div>
+      <div class="contact-item"><span style="font-size:1.5rem;">🛒</span> Site : <a href="https://bouddhas.fr" target="_blank" style="color:var(--gold-dark);margin-left:0.5rem;">bouddhas.fr</a></div>
       <div class="contact-item"><span style="font-size:1.5rem;">⏱️</span> Réponse sous 24h — jours ouvrés</div>
     </div>
   </section>
 
-  <footer>
-    <div class="container">
-      <div class="brand">Bouddhas</div>
-      <div class="sub">Artisanat spirituel & bijoux sacrés</div>
-      <div style="display:flex;justify-content:center;gap:1.5rem;margin:1.5rem 0;">
-        <a href="/a-propos" style="color:rgba(255,255,255,0.4);text-decoration:none;font-size:0.9rem;">À propos</a>
-        <a href="/livraison" style="color:rgba(255,255,255,0.4);text-decoration:none;font-size:0.9rem;">Livraison</a>
-        <a href="/faq" style="color:rgba(255,255,255,0.4);text-decoration:none;font-size:0.9rem;">FAQ</a>
-        <a href="/contact" style="color:rgba(255,255,255,0.4);text-decoration:none;font-size:0.9rem;">Contact</a>
-      </div>
-      <div class="payment-icons">
-        <svg viewBox="0 0 38 24" width="38" height="24"><rect x=".5" y=".5" width="37" height="23" rx="2.5" stroke="rgba(255,255,255,0.3)"/><rect x="14" y="6" width="10" height="12" rx="5" fill="#EB001B"/><rect x="18" y="6" width="10" height="12" rx="5" fill="#F79E1B"/><path d="M21 6a6 6 0 0 1 0 12" fill="#FF5F00"/></svg>
-        <svg viewBox="0 0 38 24" width="38" height="24"><rect x=".5" y=".5" width="37" height="23" rx="2.5" stroke="rgba(255,255,255,0.3)"/><text x="19" y="16" text-anchor="middle" fill="#142FBD" font-size="7" font-weight="bold" font-family="sans-serif">VISA</text></svg>
-        <svg viewBox="0 0 38 24" width="38" height="24"><rect x=".5" y=".5" width="37" height="23" rx="2.5" stroke="rgba(255,255,255,0.3)"/><text x="19" y="16" text-anchor="middle" fill="#FFC439" font-size="6" font-weight="bold" font-family="sans-serif">PayPal</text></svg>
-        <span style="color:rgba(255,255,255,0.3);font-size:0.8rem;">Apple Pay</span>
-      </div>
-      <div class="copy">&copy; 2026 Bouddhas — Tous droits réservés</div>
-    </div>
-  </footer>
+    
+<h2>Nous joindre</h2>
+<p>Une question sur une pratique, un article ou un objet ? Notre équipe répond avec bienveillance. Écrivez-nous et nous revenons vers vous dans les meilleurs délais.</p>
+
+<h2>Horaires et présence</h2>
+<p>Nous accompagnons la communauté en ligne en priorité, pour une accessibilité sans frontière ni attente.</p>
+<footer><div class='container'><div class='brand'>Bouddhas</div><div class='sub'>Média indépendant sur le bouddhisme, la méditation et la philosophie</div><div style='display:flex;justify-content:center;gap:1.5rem;margin:1.5rem 0;'><a href='/bouddhisme' style='color:rgba(255,255,255,0.4);text-decoration:none;font-size:0.9rem;'>Bouddhisme</a><a href='/meditation' style='color:rgba(255,255,255,0.4);text-decoration:none;font-size:0.9rem;'>Méditation</a><a href='/glossaire' style='color:rgba(255,255,255,0.4);text-decoration:none;font-size:0.9rem;'>Glossaire</a><a href='/faq' style='color:rgba(255,255,255,0.4);text-decoration:none;font-size:0.9rem;'>FAQ</a><a href='/a-propos' style='color:rgba(255,255,255,0.4);text-decoration:none;font-size:0.9rem;'>À propos</a></div><div class='copy'>&copy; 2026 Bouddhas.fr — Média indépendant. Tous droits réservés.</div></div></footer>
 
   <div id="toast" class="toast"></div>
-  <script src="/js/config.min.js"></script>
-  <script src="/js/shopify.min.js"></script>
-  <script src="/js/app.min.js"></script>
   <script src="/js/search.min.js"></script>
   <script src="/js/announce.min.js"></script>
   <script>
