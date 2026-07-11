@@ -248,9 +248,10 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 700; }
     transition: right 0.3s ease;
     box-shadow: -10px 0 40px rgba(0,0,0,0.4);
     overflow-y: auto;
+    display: none;
   }
   
-  .nav-links.open { right: 0; }
+  .nav-links.open { right: 0; display: flex; }
   
   .nav-links a {
     width: 100%;
@@ -933,7 +934,6 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 700; }
 @media (max-width: 768px) {
   .hero { padding: 8rem 1.5rem 4rem; min-height: auto; }
   .hero h1 { font-size: 2.5rem; }
-  .nav-links { gap: 0.8rem; }
   .nav-links a { font-size: 0.8rem; }
   .product-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
   .product-detail { grid-template-columns: 1fr; gap: 2rem; margin-top: 6rem; }
@@ -1339,6 +1339,15 @@ footer .container {
   }
   .hero-slide p {
     font-size: 1rem;
+  }
+  /* FIX hero mobile: le texte touchait les bords + flèches empiétaient.
+     On resserre le container et on MASQUE les flèches (dots suffisent). */
+  .hero-slide .container {
+    padding: 0 1rem;
+    max-width: 100%;
+  }
+  .slider-arrow {
+    display: none !important;
   }
   .section-title {
     font-size: 1.8rem;
@@ -1954,3 +1963,124 @@ footer .container {
 .article h1 { font-size: 2.4rem; margin-bottom: 1rem; }
 .article h2 { font-size: 1.6rem; margin: 2.5rem 0 1rem; color: var(--text); }
 .article .lead { font-size: 1.2rem; color: var(--text-light); margin-bottom: 2rem; }
+
+/* ============================================ */
+/* ===== E1: MENU MOBILE OVERLAY PLEIN ÉCRAN === */
+/* ============================================ */
+@media (max-width: 768px) {
+  /* Bouton hamburger visible */
+  .nav-burger {
+    display: block !important;
+    z-index: 1002;
+  }
+
+  /* Menu desktop caché par défaut */
+  .nav-links {
+    display: none !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    height: 100vh !important;
+    max-width: 100% !important;
+    background: var(--darker) !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 1rem !important;
+    padding: 5rem 1.5rem 2rem !important;
+    z-index: 1001 !important;
+    overflow-y: auto !important;
+    transform: translateY(-100%) !important;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: none !important;
+  }
+
+  /* Menu ouvert → overlay plein écran */
+  .nav-links.open {
+    display: flex !important;
+    transform: translateY(0) !important;
+  }
+
+  /* Liens du menu overlay */
+  .nav-links a {
+    width: auto !important;
+    padding: 0.6rem 0 !important;
+    border-bottom: 1px solid rgba(201, 169, 110, 0.12) !important;
+    font-size: 1.15rem !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+    text-align: center !important;
+  }
+
+  .nav-links a:hover {
+    color: var(--gold) !important;
+  }
+
+  .nav-links a::after {
+    display: none !important;
+  }
+
+  /* Search box dans l'overlay */
+  .nav-links .search-box {
+    width: 100% !important;
+    max-width: 280px !important;
+    margin: 1rem 0 !important;
+  }
+
+  .nav-links .search-box input {
+    width: 100% !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    color: var(--white) !important;
+  }
+
+  .nav-links .search-box input:focus {
+    width: 100% !important;
+  }
+
+  .nav-links .search-results {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  /* Cart link dans l'overlay */
+  .nav-links .cart-link {
+    width: auto !important;
+    justify-content: center !important;
+    margin-top: 0.5rem !important;
+  }
+
+  /* Overlay sombre plein écran derrière le menu */
+  .nav-overlay {
+    display: none !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    height: 100vh !important;
+    background: rgba(0, 0, 0, 0.7) !important;
+    backdrop-filter: blur(4px) !important;
+    -webkit-backdrop-filter: blur(4px) !important;
+    z-index: 1000 !important;
+    opacity: 0 !important;
+    transition: opacity 0.3s ease !important;
+  }
+
+  .nav-overlay.open {
+    display: block !important;
+    opacity: 1 !important;
+  }
+
+  /* Container navbar : reduit le padding mobile */
+  .navbar .container {
+    padding: 0.6rem 1rem !important;
+  }
+
+  /* Logo légèrement plus petit sur mobile */
+  .logo {
+    font-size: 1.3rem !important;
+  }
+}
