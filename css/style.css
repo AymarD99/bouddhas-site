@@ -1340,6 +1340,15 @@ footer .container {
   .hero-slide p {
     font-size: 1rem;
   }
+  /* FIX hero mobile: le texte touchait les bords + flèches empiétaient.
+     On resserre le container et on MASQUE les flèches (dots suffisent). */
+  .hero-slide .container {
+    padding: 0 1rem;
+    max-width: 100%;
+  }
+  .slider-arrow {
+    display: none !important;
+  }
   .section-title {
     font-size: 1.8rem;
   }
